@@ -66,9 +66,19 @@ h1 em {
 .service-strip a { align-items: center; display: flex; flex: 0 0 auto; gap: 12px; }
 .service-strip span { color: var(--strip-muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .service-strip b { color: var(--lime); font-family: var(--mono); font-size: 17px; }
-.below-fold { min-height: 410px; padding: 110px clamp(24px, 9vw, 140px); }
-.below-fold .eyebrow { margin-bottom: 20px; }
-h2 { font-size: clamp(36px, 6vw, 76px); letter-spacing: -.06em; line-height: 1; margin: 0; max-width: 740px; }
+.below-fold { padding: 86px clamp(12px, 4vw, 52px) 110px; }
+.work-heading { text-align: center; }
+.work-heading .eyebrow { margin-bottom: 14px; }
+h2 { font-size: clamp(42px, 5vw, 64px); letter-spacing: -.07em; line-height: 1; margin: 0 0 38px; }
+.work-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.work-card { background: #121313; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.work-image { background: #d7d2c8; display: block; aspect-ratio: 1.78 / 1; overflow: hidden; }
+.work-image img { display: block; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1), filter .55s ease; width: 100%; }
+.work-card:hover .work-image img { filter: saturate(1.08); transform: scale(1.045); }
+.work-meta { align-items: center; display: flex; gap: 12px; justify-content: space-between; min-height: 45px; padding: 0 15px; }
+.work-meta span { color: #999893; font-size: 12px; }
+.work-meta a { color: var(--cream); font-family: var(--mono); font-size: 10px; transition: color .25s ease; }
+.work-meta a:hover { color: var(--lime); }
 .anchor-section { height: 1px; }
 .light-mode { --black: #f4f5ef; --panel: #e7e9e0; --line: rgba(18, 24, 12, .15); --muted: #5f655b; --cream: #161a12; --lime-soft: #5b9000; --header-muted: #5f655b; --body-muted: #62685d; --strip-muted: #60675c; }
 .light-mode .hero-glow { background: radial-gradient(ellipse, rgba(154, 213, 44, .18) 0%, rgba(244, 245, 239, 0) 65%); }
@@ -101,5 +111,7 @@ h2 { font-size: clamp(36px, 6vw, 76px); letter-spacing: -.06em; line-height: 1; 
   .hero-copy { font-size: 14px; margin-top: 30px; }
   .service-strip { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
   .service-strip::-webkit-scrollbar { display: none; }
-  .below-fold { min-height: 300px; padding: 80px 24px; }
+  .below-fold { padding: 72px 14px 84px; }
+  .work-grid { gap: 14px; grid-template-columns: 1fr; }
+  h2 { margin-bottom: 28px; }
 }

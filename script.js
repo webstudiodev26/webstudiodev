@@ -53,8 +53,8 @@ function updateReveal() {
   revealTicking = false;
   if (!revealSection || !revealSticky || revealMotionReduced) return;
   const sectionRect = revealSection.getBoundingClientRect();
-  const progress = Math.min(Math.max((window.innerHeight - sectionRect.top) / (window.innerHeight * 0.8), 0), 1);
-  const copyProgress = Math.min(Math.max((progress - 0.96) / 0.04, 0), 1);
+  const progress = Math.min(Math.max((window.innerHeight - sectionRect.top) / (window.innerHeight * 0.6), 0), 1);
+  const copyProgress = Math.min(Math.max((progress - 0.98) / 0.02, 0), 1);
   const cardWidth = revealCards[0]?.getBoundingClientRect().width || 260;
   const centerLeft = (window.innerWidth - cardWidth) / 2;
   const initialStep = cardWidth + 14;
@@ -155,4 +155,220 @@ if (languageButton) {
   languageButton.addEventListener('click', () => {
     setLanguage(root.lang === 'sr' ? 'en' : 'sr');
   });
+}
+
+// Magnetic Button Effect
+const magneticButtons = document.querySelectorAll('.magnetic-button');
+
+magneticButtons.forEach(button => {
+  button.addEventListener('mousemove', (e) => {
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+  });
+
+  button.addEventListener('mouseleave', () => {
+    button.style.transform = 'translate(0, 0)';
+  });
+});
+
+// Advanced Scroll Reveal Animations
+const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale, .text-reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+
+      // Text reveal animation
+      if (entry.target.classList.contains('text-reveal')) {
+        const chars = entry.target.querySelectorAll('.char');
+        chars.forEach((char, index) => {
+          setTimeout(() => {
+            char.style.transitionDelay = `${index * 0.03}s`;
+          }, 100);
+        });
+      }
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+});
+
+revealElements.forEach(element => {
+  revealObserver.observe(element);
+});
+
+// Enhanced Particle Background - Disabled
+// function createParticles() {
+//   const container = document.getElementById('particles');
+//   if (!container) return;
+//
+//   const particleCount = 30;
+//
+//   for (let i = 0; i < particleCount; i++) {
+//     const particle = document.createElement('div');
+//     particle.className = 'particle';
+//     particle.style.left = Math.random() * 100 + '%';
+//     particle.style.top = Math.random() * 100 + '%';
+//     particle.style.animationDelay = Math.random() * 20 + 's';
+//     particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+//     particle.style.width = (2 + Math.random() * 3) + 'px';
+//     particle.style.height = particle.style.width;
+//     container.appendChild(particle);
+//   }
+// }
+//
+// createParticles();
+
+// Advanced Parallax Hero Effect
+const heroGlow = document.querySelector('.hero-glow');
+const heroContent = document.querySelector('.hero-content');
+let ticking = false;
+
+function updateParallax() {
+  if (!heroGlow) return;
+  const scrollY = window.scrollY;
+  const translateY = scrollY * 0.4;
+  const contentTranslateY = scrollY * 0.2;
+
+  heroGlow.style.transform = `translate(-50%, calc(-50% + ${translateY}px))`;
+
+  if (heroContent) {
+    heroContent.style.transform = `translateY(${contentTranslateY}px)`;
+    heroContent.style.opacity = 1 - scrollY / 500;
+  }
+
+  ticking = false;
+}
+
+function requestParallaxUpdate() {
+  if (!ticking) {
+    ticking = true;
+    window.requestAnimationFrame(updateParallax);
+  }
+}
+
+window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+
+// Enhanced 3D Tilt Effect for Work Cards
+const workCards = document.querySelectorAll('.work-card');
+
+workCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / 12;
+    const rotateY = (centerX - x) / 12;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+  });
+});
+
+// Mouse-following glow effect
+const glowElements = document.querySelectorAll('.hover-glow');
+
+glowElements.forEach(element => {
+  element.addEventListener('mousemove', (e) => {
+    const rect = element.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    element.style.setProperty('--mouse-x', x + '%');
+    element.style.setProperty('--mouse-y', y + '%');
+  });
+});
+
+// Smooth Scroll for Navigation Links with Page Transition
+const pageTransition = document.getElementById('page-transition');
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      if (pageTransition) {
+        pageTransition.classList.add('active');
+        setTimeout(() => {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          setTimeout(() => {
+            pageTransition.classList.remove('active');
+          }, 300);
+        }, 300);
+      } else {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+// Advanced Staggered Animation for Grid Items
+const animateGridItems = () => {
+  const grids = document.querySelectorAll('.work-grid, .approach-grid, .testimonials-grid');
+
+  grids.forEach(grid => {
+    const items = grid.querySelectorAll('.reveal-on-scroll');
+    items.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.12}s`;
+    });
+  });
+};
+
+// Add staggered delays only after a small delay to ensure CSS loads
+setTimeout(animateGridItems, 150);
+
+// Text Splitting for Animation
+function splitTextForAnimation() {
+  const textElements = document.querySelectorAll('.text-reveal');
+
+  textElements.forEach(element => {
+    const text = element.textContent;
+    element.textContent = '';
+
+    text.split('').forEach(char => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      element.appendChild(span);
+    });
+  });
+}
+
+splitTextForAnimation();
+
+// Luxury Card Effect
+const luxuryCards = document.querySelectorAll('.luxury-card');
+
+luxuryCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.zIndex = '10';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.zIndex = '1';
+  });
+});
+
+// Performance optimization: Reduce animations on low-end devices
+if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+  document.body.classList.add('reduced-motion');
+  // Simplify animations for performance
+  const particles = document.querySelectorAll('.particle');
+  particles.forEach(p => p.style.display = 'none');
 }

@@ -12,6 +12,7 @@
 </head>
 <body>
   <div class="site-shell">
+    <div class="page-transition" id="page-transition"></div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Webstudio.dev pocetna">
         <span class="brand-mark">WS</span>
@@ -25,13 +26,13 @@
       </nav>
 
       <div class="header-actions">
-        <button class="language-switcher" type="button" aria-label="Izaberi jezik" data-i18n-attr="aria-label:languageLabel">
+        <button class="language-switcher magnetic-button" type="button" aria-label="Izaberi jezik" data-i18n-attr="aria-label:languageLabel">
           <span>SR</span><span class="chevron">⌄</span>
         </button>
-        <button class="theme-button" type="button" aria-label="Prebaci na svetlu temu" data-i18n-attr="aria-label:themeLabel">
+        <button class="theme-button magnetic-button" type="button" aria-label="Prebaci na svetlu temu" data-i18n-attr="aria-label:themeLabel">
           <span aria-hidden="true">☼</span>
         </button>
-        <a class="contact-button" href="#kontakt" data-i18n="contact">Kontakt</a>
+        <a class="contact-button magnetic-button" href="#kontakt" data-i18n="contact">Kontakt</a>
       </div>
     </header>
 
@@ -42,88 +43,96 @@
           <p class="eyebrow">WEB STUDIO</p>
           <h1><span data-i18n="headlineFirst">Web sajtovi koji donose</span><br><em data-i18n="headlineSecond">rezultate</em></h1>
           <p class="hero-copy" data-i18n="heroCopy">Dizajniramo i razvijamo sajtove, od prve skice do lansiranja i dugoročnog održavanja.</p>
-          <a class="primary-button" href="#kontakt"><span data-i18n="startProject">Pokreni projekat</span> <span aria-hidden="true">↗</span></a>
+          <a class="primary-button magnetic-button" href="#kontakt"><span data-i18n="startProject">Pokreni projekat</span> <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
       <section class="service-strip" aria-label="Usluge" data-i18n-attr="aria-label:servicesLabel">
-        <a href="#usluge"><span data-i18n="domain">Domena</span><b>/</b></a>
-        <a href="#usluge"><span data-i18n="webDesign">Web dizajn</span><b>/</b></a>
-        <a href="#usluge"><span data-i18n="webDevelopment">Izrada sajtova</span><b>/</b></a>
-        <a href="#usluge"><span data-i18n="uiDesign">UI/UX dizajn</span><b>/</b></a>
-        <a href="#usluge"><span data-i18n="promoPosts">Promo objave</span><b>/</b></a>
-        <a href="#usluge"><span data-i18n="domainRegistration">Registracija domena</span><b>/</b></a>
+        <div class="service-strip-content">
+          <a href="#usluge"><span data-i18n="domain">Domena</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="webDesign">Web dizajn</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="webDevelopment">Izrada sajtova</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="uiDesign">UI/UX dizajn</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="promoPosts">Promo objave</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="domainRegistration">Registracija domena</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="domain">Domena</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="webDesign">Web dizajn</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="webDevelopment">Izrada sajtova</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="uiDesign">UI/UX dizajn</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="promoPosts">Promo objave</span><b>/</b></a>
+          <a href="#usluge"><span data-i18n="domainRegistration">Registracija domena</span><b>/</b></a>
+        </div>
       </section>
 
       <section class="below-fold" id="radovi">
-        <div class="work-heading">
+        <div class="work-heading reveal-on-scroll">
           <p class="eyebrow" data-i18n="belowEyebrow">OD IDEJE DO EKRANA</p>
           <h2 data-i18n="belowTitle">Radovi</h2>
         </div>
         <div class="work-grid">
-          <article class="work-card">
+          <article class="work-card reveal-on-scroll luxury-card">
             <a class="work-image" href="https://webstudiodev26.github.io/Interior-Studio/" target="_blank" rel="noopener noreferrer" aria-label="Interior Studio projekat">
               <img src="interior-studio.png.png" alt="Interior Studio web sajt na monitoru" loading="lazy">
             </a>
             <div class="work-meta"><span>Interior Studio</span><a href="https://webstudiodev26.github.io/Interior-Studio/" target="_blank" rel="noopener noreferrer" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
           </article>
-          <article class="work-card">
+          <article class="work-card reveal-on-scroll luxury-card">
+            <a class="work-image" href="https://stomatoloskaordinacijabelmed.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Belmed projekat">
+              <img src="belmeddesktop.png" alt="Belmed stomatološka ordinacija" loading="lazy">
+            </a>
+            <div class="work-meta"><span>Belmed</span><a href="https://stomatoloskaordinacijabelmed.netlify.app" target="_blank" rel="noopener noreferrer" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
+          </article>
+          <article class="work-card reveal-on-scroll luxury-card">
             <a class="work-image" href="https://webstudiodev26.github.io/FORMMA/" target="_blank" rel="noopener noreferrer" aria-label="Formma projekat">
               <img src="462dc4a3-fe60-41bc-b03f-81347b4272ee.png" alt="Formma poslovni web sajt" loading="lazy">
             </a>
             <div class="work-meta"><span>Formma</span><a href="https://webstudiodev26.github.io/FORMMA/" target="_blank" rel="noopener noreferrer" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
           </article>
-          <article class="work-card">
+          <article class="work-card reveal-on-scroll luxury-card">
             <a class="work-image" href="https://webstudiodev26.github.io/duor/" target="_blank" rel="noopener noreferrer" aria-label="Duor projekat">
               <img src="d8ba0619-bbd5-4c02-aa47-daf749e4e733.png" alt="Duor web sajt" loading="lazy">
             </a>
             <div class="work-meta"><span>Duor</span><a href="https://webstudiodev26.github.io/duor/" target="_blank" rel="noopener noreferrer" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
           </article>
-          <article class="work-card">
+          <article class="work-card reveal-on-scroll luxury-card">
             <a class="work-image" href="https://elektronis.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Elektronis projekat">
               <img src="de6ef906-08ef-4388-85e9-77eecab6658b.png" alt="Elektronis web sajt" loading="lazy">
             </a>
             <div class="work-meta"><span>Elektronis</span><a href="https://elektronis.netlify.app/" target="_blank" rel="noopener noreferrer" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
           </article>
-          <article class="work-card">
+          <article class="work-card reveal-on-scroll luxury-card">
             <a class="work-image" href="https://webstudiodev26.github.io/Design-Agency/" target="_blank" rel="noopener noreferrer" aria-label="Design Agency projekat">
               <img src="f6577f53-e16c-4d97-bd99-05895df3206c.png" alt="Design Agency web sajt" loading="lazy">
             </a>
             <div class="work-meta"><span>Design Agency</span><a href="https://webstudiodev26.github.io/Design-Agency/" target="_blank" rel="noopener noreferrer" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
           </article>
-          <article class="work-card">
-            <a class="work-image" href="#kontakt" aria-label="Suncokret Solar projekat">
-              <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=85" alt="Suncokret Solar web sajt" loading="lazy">
-            </a>
-            <div class="work-meta"><span>Suncokret Solar</span><a href="#kontakt" data-i18n="viewSite">Pogledaj sajt ↗</a></div>
-          </article>
         </div>
       </section>
       <section class="about-section" id="o-nama" aria-label="O nama" data-i18n-attr="aria-label:aboutLabel">
-        <div class="about-intro">
+        <div class="about-intro reveal-on-scroll">
           <h2 data-i18n="aboutTitle">O nama</h2>
           <p class="about-lead" data-i18n="aboutLead">Webstudio.dev je tim za dizajn i razvoj sajtova. Radimo direktno sa vlasnicima, bez posrednika.</p>
           <p class="about-copy" data-i18n="aboutCopy">Svaki projekat pratimo od prve prijave do lansiranja, tako da uvek imate jasnu tačku kontakta.</p>
         </div>
-        <div class="approach">
+        <div class="approach reveal-on-scroll">
           <h3 data-i18n="approachTitle">Kako pristupamo poslu</h3>
           <div class="approach-grid">
-            <article class="approach-card">
+            <article class="approach-card reveal-on-scroll hover-glow">
               <span class="approach-number">01</span>
               <h4 data-i18n="approachOneTitle">Razgovor</h4>
               <p data-i18n="approachOneCopy">Prvo saslušamo šta vam treba i kako radite. Predlog dolazi tek posle toga.</p>
             </article>
-            <article class="approach-card">
+            <article class="approach-card reveal-on-scroll hover-glow">
               <span class="approach-number">02</span>
               <h4 data-i18n="approachTwoTitle">Fiksna cena i rok</h4>
               <p data-i18n="approachTwoCopy">Dobijate jednu konačnu cenu i jasan datum isporuke, unapred, bez naplate po satu i bez skrivenih troškova kasnije.</p>
             </article>
-            <article class="approach-card">
+            <article class="approach-card reveal-on-scroll hover-glow">
               <span class="approach-number">03</span>
               <h4 data-i18n="approachThreeTitle">Bez šablona</h4>
               <p data-i18n="approachThreeCopy">Ne kupujemo gotove teme. Dizajn nastaje na osnovu vašeg sadržaja i posla koji radite.</p>
             </article>
-            <article class="approach-card">
+            <article class="approach-card reveal-on-scroll hover-glow">
               <span class="approach-number">04</span>
               <h4 data-i18n="approachFourTitle">Sajt ostaje vaš</h4>
               <p data-i18n="approachFourCopy">Domen, hosting i pristupi su na vaše ime. Možete otići kod bilo koga i nastaviti.</p>
@@ -209,21 +218,21 @@
         </div>
       </section>
       <section class="testimonials-section" id="utisci" aria-label="Šta kažu klijenti" data-i18n-attr="aria-label:testimonialsLabel">
-        <div class="testimonials-heading">
+        <div class="testimonials-heading reveal-on-scroll">
           <h2 data-i18n="testimonialsTitle">Šta kažu klijenti</h2>
         </div>
         <div class="testimonials-grid">
-          <article class="testimonial-card">
+          <article class="testimonial-card reveal-on-scroll">
             <div class="stars" aria-label="5 od 5 zvezdica">★★★★★</div>
             <p data-i18n="testimonialOneText">Sajt izgleda profesionalno i radi besprekorno. Broj upita za projekte je porastao bez ikakvog dodatnog oglašavanja.</p>
             <cite data-i18n="testimonialOneAuthor">Marija Stanković</cite>
           </article>
-          <article class="testimonial-card">
+          <article class="testimonial-card reveal-on-scroll">
             <div class="stars" aria-label="5 od 5 zvezdica">★★★★★</div>
             <p data-i18n="testimonialTwoText">Rok su ispunili do dana. Komunikacija je bila jasna, bez tehničkog žargona.</p>
             <cite data-i18n="testimonialTwoAuthor">Dušan Ilić</cite>
           </article>
-          <article class="testimonial-card">
+          <article class="testimonial-card reveal-on-scroll">
             <div class="stars" aria-label="5 od 5 zvezdica">★★★★★</div>
             <p data-i18n="testimonialThreeText">Sajt radi osam meseci bez jednog ozbiljnog problema. Podrška odgovori istog dana.</p>
             <cite data-i18n="testimonialThreeAuthor">Ivana Perić</cite>
@@ -251,7 +260,7 @@
       <section class="final-cta" aria-label="Poziv na akciju" data-i18n-attr="aria-label:ctaLabel">
         <h2 data-i18n="ctaTitle">Imate projekat?</h2>
         <p data-i18n="ctaText">Kratak opis projekta je dovoljan da procenimo obim, cenu i rok.</p>
-        <a class="cta-button" href="#kontakt" data-i18n="ctaButton">Zatraži ponudu</a>
+        <a class="cta-button magnetic-button" href="#kontakt" data-i18n="ctaButton">Zatraži ponudu</a>
       </section>
       <footer class="site-footer">
         <div class="footer-brand">

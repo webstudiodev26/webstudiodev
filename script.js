@@ -1,5 +1,8 @@
-const themeButton = document.querySelector('.theme-button');
-const languageButton = document.querySelector('.language-switcher');
+const themeButtons = document.querySelectorAll('.theme-button');
+const languageToggle = document.querySelector('.language-toggle');
+const toggleOptions = document.querySelectorAll('.toggle-option');
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 const root = document.documentElement;
 const serviceItems = document.querySelectorAll('.service-item');
 const serviceImage = document.querySelector('.service-image');
@@ -128,7 +131,16 @@ function setLanguage(language) {
       element.setAttribute(name, copy[key]);
     });
   });
-  languageButton.querySelector('span').textContent = language.toUpperCase();
+
+  // Update toggle active state
+  toggleOptions.forEach(option => {
+    option.classList.toggle('active', option.dataset.lang === language);
+  });
+
+  if (languageToggle) {
+    languageToggle.setAttribute('data-active', language);
+  }
+
   root.lang = language;
   document.title = language === 'sr' ? 'Webstudio.dev | Web sajtovi koji donose rezultate' : 'Webstudio.dev | Websites that bring results';
   localStorage.setItem('webstudio-language', language);
@@ -136,24 +148,67 @@ function setLanguage(language) {
 
 function setTheme(isLight) {
   document.body.classList.toggle('light-mode', isLight);
-  themeButton.querySelector('span').textContent = isLight ? '☾' : '☼';
-  themeButton.setAttribute('aria-pressed', String(isLight));
-  themeButton.setAttribute('aria-label', translations[root.lang].themeLabel);
+  themeButtons.forEach(button => {
+    const icon = button.querySelector('span');
+    if (isLight) {
+      icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+    } else {
+      icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+    }
+    button.setAttribute('aria-pressed', String(isLight));
+    button.setAttribute('aria-label', translations[root.lang].themeLabel);
+  });
   localStorage.setItem('webstudio-theme', isLight ? 'light' : 'dark');
 }
 
-setLanguage(localStorage.getItem('webstudio-language') || 'sr');
+const currentLanguage = localStorage.getItem('webstudio-language') || 'sr';
+setLanguage(currentLanguage);
 setTheme(localStorage.getItem('webstudio-theme') === 'light');
 
-if (themeButton) {
-  themeButton.addEventListener('click', () => {
-    setTheme(!document.body.classList.contains('light-mode'));
+if (themeButtons.length > 0) {
+  themeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      setTheme(!document.body.classList.contains('light-mode'));
+    });
   });
 }
 
-if (languageButton) {
-  languageButton.addEventListener('click', () => {
-    setLanguage(root.lang === 'sr' ? 'en' : 'sr');
+if (languageToggle) {
+  toggleOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      setLanguage(option.dataset.lang);
+    });
+  });
+}
+
+// Mobile Menu Toggle
+if (hamburgerMenu && mobileMenu) {
+  hamburgerMenu.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('is-open');
+    hamburgerMenu.setAttribute('aria-expanded', isOpen);
+    hamburgerMenu.setAttribute('aria-label', isOpen ? 'Zatvori meni' : 'Otvori meni');
+    document.body.classList.toggle('menu-open', isOpen);
+  });
+
+  // Close menu when clicking on navigation links
+  const navLinks = mobileMenu.querySelectorAll('.main-nav a, .contact-button');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      hamburgerMenu.setAttribute('aria-expanded', 'false');
+      hamburgerMenu.setAttribute('aria-label', 'Otvori meni');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !hamburgerMenu.contains(e.target) && mobileMenu.classList.contains('is-open')) {
+      mobileMenu.classList.remove('is-open');
+      hamburgerMenu.setAttribute('aria-expanded', 'false');
+      hamburgerMenu.setAttribute('aria-label', 'Otvori meni');
+      document.body.classList.remove('menu-open');
+    }
   });
 }
 

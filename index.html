@@ -26,19 +26,55 @@
       </nav>
 
       <div class="header-actions">
-        <button class="language-switcher magnetic-button" type="button" aria-label="Izaberi jezik" data-i18n-attr="aria-label:languageLabel">
-          <span>SR</span><span class="chevron">⌄</span>
-        </button>
+        <div class="language-toggle magnetic-button" role="switch" aria-label="Izaberi jezik" data-i18n-attr="aria-label:languageLabel" data-active="sr">
+          <button class="toggle-option active" data-lang="sr" aria-label="Srpski">SR</button>
+          <button class="toggle-option" data-lang="en" aria-label="English">EN</button>
+          <div class="toggle-indicator"></div>
+        </div>
         <button class="theme-button magnetic-button" type="button" aria-label="Prebaci na svetlu temu" data-i18n-attr="aria-label:themeLabel">
-          <span aria-hidden="true">☼</span>
+          <span aria-hidden="true"></span>
         </button>
         <a class="contact-button magnetic-button" href="#kontakt" data-i18n="contact">Kontakt</a>
+      </div>
+
+      <div class="mobile-header-actions">
+        <div class="language-toggle magnetic-button" role="switch" aria-label="Izaberi jezik" data-i18n-attr="aria-label:languageLabel" data-active="sr">
+          <button class="toggle-option active" data-lang="sr" aria-label="Srpski">SR</button>
+          <button class="toggle-option" data-lang="en" aria-label="English">EN</button>
+          <div class="toggle-indicator"></div>
+        </div>
+        <button class="theme-button magnetic-button" type="button" aria-label="Prebaci na svetlu temu" data-i18n-attr="aria-label:themeLabel">
+          <span aria-hidden="true"></span>
+        </button>
+        <button class="hamburger-menu" aria-label="Otvori meni" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu">
+        <nav class="main-nav" aria-label="Glavna navigacija" data-i18n-attr="aria-label:navLabel">
+          <a href="#home" data-i18n="navHome">Početna</a>
+          <a href="#radovi" data-i18n="navWork">Radovi</a>
+          <a href="#o-nama" data-i18n="navAbout">O nama</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="language-toggle magnetic-button" role="switch" aria-label="Izaberi jezik" data-i18n-attr="aria-label:languageLabel" data-active="sr">
+            <button class="toggle-option active" data-lang="sr" aria-label="Srpski">SR</button>
+            <button class="toggle-option" data-lang="en" aria-label="English">EN</button>
+            <div class="toggle-indicator"></div>
+          </div>
+          <a class="contact-button magnetic-button" href="#kontakt" data-i18n="contact">Kontakt</a>
+        </div>
       </div>
     </header>
 
     <main id="top">
       <section class="hero" id="home">
         <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-content">
           <p class="eyebrow">WEB STUDIO</p>
           <h1><span data-i18n="headlineFirst">Web sajtovi koji donose</span><br><em data-i18n="headlineSecond">rezultate</em></h1>

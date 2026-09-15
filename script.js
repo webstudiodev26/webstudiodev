@@ -57,7 +57,7 @@ function updateReveal() {
   if (!revealSection || !revealSticky || revealMotionReduced) return;
   const sectionRect = revealSection.getBoundingClientRect();
   const progress = Math.min(Math.max((window.innerHeight - sectionRect.top) / (window.innerHeight * 0.6), 0), 1);
-  const copyProgress = Math.min(Math.max((progress - 0.98) / 0.02, 0), 1);
+  const copyProgress = Math.min(Math.max((progress - 0.6) / 0.4, 0), 1);
   const cardWidth = revealCards[0]?.getBoundingClientRect().width || 260;
   const centerLeft = (window.innerWidth - cardWidth) / 2;
   const initialStep = cardWidth + 14;
@@ -70,12 +70,12 @@ function updateReveal() {
     const rotation = index === 0 ? -8 * progress : index === 4 ? 8 * progress : 0;
     const middleProgress = Math.min(Math.max((progress - 0.75) / 0.25, 0), 1);
     const scale = index === 0 ? 1 + 0.05 * progress : index === 4 ? 1 + 0.15 * progress : 1 - 0.2 * middleProgress;
-    const opacity = index === 0 || index === 4 ? 1 : 1 - middleProgress;
+    const opacity = index === 0 || index === 4 ? 1 - progress * 0.8 : 1 - middleProgress;
     card.style.transform = `translate3d(calc(-50% + ${translateX}px), -50%, 0) rotate(${rotation}deg) scale(${scale})`;
     card.style.opacity = opacity;
   });
   revealCopy.style.opacity = copyProgress;
-  revealCopy.style.transform = `translate3d(-50%, ${18 - copyProgress * 18}px, 0)`;
+  revealCopy.style.transform = `translate3d(-50%, ${0}px, 0)`;
   revealScrim.style.opacity = copyProgress;
 }
 

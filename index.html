@@ -499,7 +499,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .hud .dots span.on{background:#A3E635;box-shadow:0 0 8px #A3E635;transform:scale(1.4)}
 .hud .z{font-variant-numeric:tabular-nums;color:#C9CBC2}
 .imm-fade{position:absolute;left:0;right:0;bottom:0;height:22vh;z-index:3;background:linear-gradient(transparent,#050605);pointer-events:none}
-@media (max-width:720px){.hud .pr{display:none}.word{font-size:90px}}
+@media (max-width:720px){.hud .pr{display:none}.word{font-size:15vw;-webkit-text-stroke:1.2px rgba(163,230,53,.7)}:root[data-theme="light"] .word{-webkit-text-stroke:1.2px rgba(77,124,15,.55)}}
 
 
 /* ===== mali telefoni ===== */
@@ -526,6 +526,10 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
   .ch p,.spx-c p{margin:12px auto 16px;font-size:.95rem}
   .hud{bottom:12px}
 }
+
+/* glatka promena teme bez treperenja */
+html.theme-switching *,html.theme-switching *::before,html.theme-switching *::after{transition:none!important}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:ease}
 
 /* ===== svetla tema za hero i spiralu ===== */
 :root[data-theme="light"] .imm,:root[data-theme="light"] .spx{background:#F4F4EF;color:#0A0A0A;--fg:#0A0A0A;--muted:#5C5F55;--line2:rgba(10,10,10,.14)}
@@ -874,7 +878,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
   /* prstenovi se crtaju na canvasu (mnogo brze od velikih 3D elemenata) */
   var RINGS=[],RW=mob?700:1100;for(var r=0;r<(mob?6:9);r++)RINGS.push({z:-900-r*700,rz:r*8,sq:r%3===2});
   var words=['DIZAJN','BRZINA','SEO','REZULTATI'];
-  words.forEach(function(w,i){add(w,'word',(i%2?-1:1)*(mob?40:380),(i%2?1:-1)*(mob?240:260),-2000-i*1500,0,0)});
+  words.forEach(function(w,i){add(w,'word',(i%2?-1:1)*(mob?0:380),(i%2?1:-1)*(mob?210:260),-2000-i*1500,0,0)});
   /* zvezde: manje tacaka, crtanje u grupama (brze) */
   var S=[],NS=mob?160:(lowEnd?320:520);for(var s=0;s<NS;s++)S.push({x:(Math.random()-.5)*3000,y:(Math.random()-.5)*2000,z:-Math.random()*DEPTH,l:Math.random()<.12});
   var W,H,d=mob?1:Math.min(1.5,devicePixelRatio||1),F=900,secTop=0,tot=1,scene=document.querySelector('.scene');
@@ -928,6 +932,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
     if(settled){vel=0;stars();running=false;return}
     requestAnimationFrame(frame)}
   addEventListener('resize',size);addEventListener('load',measure);document.addEventListener('visibilitychange',wake);
+  window.__heroRedraw=function(){try{stars()}catch(e){}};
   size();
 })();
 </script>
@@ -1014,7 +1019,9 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
   mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
   addEventListener('keydown',function(e){if(e.key==='Escape'&&root.classList.contains('menu-open')){menu(false);bur.focus()}});
   addEventListener('resize',function(){if(innerWidth>900&&root.classList.contains('menu-open'))menu(false)});
-  document.getElementById('theme').onclick=function(){var t=root.dataset.theme==='light'?'dark':'light';root.dataset.theme=t;store('ws-theme',t);dispatchEvent(new Event('scroll'))};
+  function applyTheme(t){root.classList.add('theme-switching');root.dataset.theme=t;void root.offsetHeight;if(window.__heroRedraw)window.__heroRedraw();requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.remove('theme-switching')})})}
+  document.getElementById('theme').onclick=function(){var t=root.dataset.theme==='light'?'dark':'light';store('ws-theme',t);
+    if(document.startViewTransition&&!reduce){document.startViewTransition(function(){applyTheme(t)})}else{applyTheme(t)}};
 
   /* spotlight + tilt */
   function bindCards(){document.querySelectorAll('.gc').forEach(function(c){if(c.__b)return;c.__b=1;

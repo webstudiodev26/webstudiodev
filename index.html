@@ -824,7 +824,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
   </div>
 </footer>
 
-<script>var SHOTS={"md": {"full": "shots/md-full.jpg", "hero": "shots/md-hero.jpg", "mob": "shots/md-mob.jpg", "fh": 4560, "mh": 3444}, "mx": {"full": "shots/mx-full.jpg", "hero": "shots/mx-hero.jpg", "mob": "shots/mx-mob.jpg", "fh": 5216, "mh": 9000}, "ld": {"full": "shots/ld-full.jpg", "hero": "shots/ld-hero.jpg", "mob": "shots/ld-mob.jpg", "fh": 3457, "mh": 4817}, "mj": {"full": "shots/mj-full.jpg", "hero": "shots/mj-hero.jpg", "mob": "shots/mj-mob.jpg", "fh": 3231, "mh": 4735}, "pr": {"full": "shots/pr-full.jpg", "hero": "shots/pr-hero.jpg", "mob": "shots/pr-mob.jpg", "fh": 3976, "mh": 7094}};</script>
+<script>var SHOTS={"md": {"full": "md-full.jpg", "hero": "md-hero.jpg", "mob": "md-mob.jpg", "fh": 4560, "mh": 3444}, "mx": {"full": "mx-full.jpg", "hero": "mx-hero.jpg", "mob": "mx-mob.jpg", "fh": 5216, "mh": 9000}, "ld": {"full": "ld-full.jpg", "hero": "ld-hero.jpg", "mob": "ld-mob.jpg", "fh": 3457, "mh": 4817}, "mj": {"full": "mj-full.jpg", "hero": "mj-hero.jpg", "mob": "mj-mob.jpg", "fh": 3231, "mh": 4735}, "pr": {"full": "pr-full.jpg", "hero": "pr-hero.jpg", "mob": "pr-mob.jpg", "fh": 3976, "mh": 7094}};</script>
 <script>
 /* spirala radova */
 (function(){
@@ -967,7 +967,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
     bindCards()}
   /* full design viewer */
   var vw=document.getElementById('viewer'),vframe=document.getElementById('vframe'),vopen=document.getElementById('vopen'),vname=document.getElementById('vname'),vk='md',vmode='d',lastFocus=null;
-  var MOBSRC={md:'sites/md-m.html'};function showMode(){var src=vmode==='m'&&MOBSRC[vk]?MOBSRC[vk]:'sites/'+vk+'.html';if(vframe.getAttribute('src')!==src)vframe.setAttribute('src',src);vopen.setAttribute('href',src);vw.querySelector('.vbody').classList.toggle('mob',vmode==='m');vw.querySelectorAll('.vtab').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===vmode)})}
+  var MOBSRC={md:'md-m.html'};function showMode(){var src=vmode==='m'&&MOBSRC[vk]?MOBSRC[vk]:''+vk+'.html';if(vframe.getAttribute('src')!==src)vframe.setAttribute('src',src);vopen.setAttribute('href',src);vw.querySelector('.vbody').classList.toggle('mob',vmode==='m');vw.querySelectorAll('.vtab').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===vmode)})}
   function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(x){return x.k===k})[0];vname.textContent=p.n;lastFocus=document.activeElement;vw.hidden=false;document.body.style.overflow='hidden';showMode();vw.querySelector('.vclose').focus()}
   function closeView(){vw.hidden=true;vframe.removeAttribute('src');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
   vw.querySelectorAll('.vtab').forEach(function(b){b.onclick=function(){vmode=b.dataset.m;showMode()}});

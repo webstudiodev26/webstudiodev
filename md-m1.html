@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sportska masaža i tretmani u Kragujevcu | Movera Fizio</title>
+<meta name="description" content="Movera Fizio: sportska, terapeutska i relax masaža u Kragujevcu. Zakažite termin telefonom ili online.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@72,800..900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Manrope,"Segoe UI",system-ui,sans-serif;color:#0B1B2B;background:#07121F}
+a{color:#2E8FD6}a:hover{color:#145DA0}
+@keyframes hz-ripple{0%{transform:scale(1);opacity:.75}100%{transform:scale(2.7);opacity:0}}
+@keyframes hz-spin{to{transform:rotate(360deg)}}
+@keyframes hz-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes hz-flow{to{transform:translateX(-240px)}}
+@keyframes hz-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* ===== MOBILNI SLOJ: sve je pod media query-jem, desktop ostaje netaknut ===== */
+@media (max-width: 768px){
+  *,*::before,*::after{box-sizing:border-box}
+  img,svg{max-width:100%}
+  .m-root{width:100%;overflow-x:clip;background:#07121F;--gut:20px;padding-top:64px}
+  .disp{font-family:Archivo,"Arial Narrow",sans-serif;font-stretch:72%;text-transform:uppercase;letter-spacing:0;word-spacing:.16em}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .ph{background-color:#10263D;background-image:repeating-linear-gradient(45deg,rgba(140,196,238,.08) 0 2px,transparent 2px 16px);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8CC4EE}
+  .ph-light{background-color:#D6E6F4;background-image:repeating-linear-gradient(45deg,rgba(20,93,160,.10) 0 2px,transparent 2px 16px);color:#145DA0}
+
+  /* Header */
+  .m-head{position:fixed;top:0;left:0;right:0;z-index:40;height:64px;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(7,18,31,.95);border-bottom:1px solid rgba(255,255,255,.08)}
+  .m-brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;color:#FFFFFF}
+  .m-logo{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center}
+  .m-logo img{width:24px;height:auto}
+  .m-word{font-size:19px;font-weight:800;white-space:nowrap}
+  .m-tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .lang{display:flex;padding:3px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
+  .lang button{display:flex;align-items:center;justify-content:center;min-width:36px;height:30px;padding:0 8px;border:0;border-radius:999px;background:transparent;color:#C9D6E3;font:700 12px/1 Manrope,system-ui,sans-serif;letter-spacing:.06em;cursor:pointer}
+  .lang button.on{background:#FFFFFF;color:#07121F}
+  .burger{width:44px;height:44px;border-radius:12px;border:0;background:#145DA0;color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .m-menu{position:absolute;left:0;right:0;top:64px;padding:8px var(--gut) 28px;background:#07121F;border-bottom:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;animation:drop .25s ease both}
+  .m-menu a.lnk{display:flex;justify-content:space-between;align-items:center;min-height:50px;border-bottom:1px solid rgba(255,255,255,.1);color:#FFFFFF;text-decoration:none;font-family:Manrope,"Segoe UI",system-ui,sans-serif;font-stretch:normal;text-transform:none;letter-spacing:0;font-size:17px;font-weight:600}
+  .m-menu a.lnk span{color:#2E8FD6;font:700 12px Manrope,system-ui,sans-serif;letter-spacing:.1em}
+
+  /* Buttons */
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:0 22px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none}
+  .btn-blue{background:#145DA0;color:#FFFFFF}
+  .btn-ghost{border:1px solid rgba(255,255,255,.35);color:#FFFFFF}
+  .btn-white{background:#FFFFFF;color:#145DA0;font-weight:800}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;padding:30px var(--gut) 0;color:#FFFFFF;background-color:#07121F;background-image:radial-gradient(circle at 50% 66%,rgba(20,93,160,.5) 0,rgba(20,93,160,.14) 30%,rgba(7,18,31,0) 58%);display:flex;flex-direction:column;gap:20px}
+  .hero .eyebrow{display:flex;align-items:center;gap:12px;color:#8CC4EE}
+  .hero .eyebrow i{width:28px;height:1px;background:#2E8FD6;flex-shrink:0}
+  .hero h1{margin:0;font-size:clamp(44px,13vw,62px);line-height:1.08;font-weight:900;text-wrap:balance}
+  .hero h1 em{font-style:normal;color:#2E8FD6}
+  .hero p{margin:-8px 0 0;max-width:34ch;font-size:16px;line-height:1.8;color:#C9D6E3}
+  .hero-ctas{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+  .call{display:flex;align-items:center;gap:14px;min-height:52px;color:#FFFFFF;text-decoration:none}
+  .call .ic{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .call small{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AFC3D6}
+  .call strong{display:block;font-size:16px}
+  .hcard-wrap{position:relative;width:min(100%,380px);margin:18px auto 30px}
+  .hcard{position:relative;width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#0B1B2B;box-shadow:0 40px 80px -30px rgba(46,143,214,.55),0 0 0 1px rgba(255,255,255,.12)}
+  .hcard .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,18,31,0) 60%,rgba(7,18,31,.55) 100%);pointer-events:none}
+  .hcard .tag{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(7,18,31,.62);font-size:12px;font-weight:600;color:#FFFFFF}
+  .hcard .tag i{width:7px;height:7px;border-radius:50%;background:#2E8FD6}
+  .hbadge{position:absolute;left:-6px;bottom:-26px;width:96px;height:96px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px #07121F,0 18px 36px -14px rgba(0,0,0,.6)}
+  .hbadge img{width:68px;height:auto}
+  .trust-m{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600;color:#C9D6E3}
+  .trust-m span{display:flex;align-items:center;gap:8px}
+  .hv{position:relative;width:min(100%,380px);aspect-ratio:1/1;margin:14px auto 40px}
+  .hv .rg{position:absolute;border-radius:50%;pointer-events:none}
+  .hv .rg1{inset:3%;border:1px solid rgba(140,196,238,.22)}
+  .hv .rg2{inset:-6%;border:1px solid rgba(140,196,238,.13)}
+  .hv .rg3{inset:-22%;border:1px solid rgba(140,196,238,.07)}
+  .hv .rip{position:absolute;inset:10%;border-radius:50%;border:1.5px solid rgba(46,143,214,.6);animation:hz-ripple 6s cubic-bezier(.2,.6,.3,1) infinite}
+  .hv .rip.d2{animation-delay:2s}.hv .rip.d3{animation-delay:4s}
+  .hv .orb{position:absolute;inset:3%;border-radius:50%;animation:hz-spin 18s linear infinite}
+  .hv .orb i{position:absolute;top:-6px;left:50%;margin-left:-6px;width:12px;height:12px;border-radius:50%;background:#2E8FD6;box-shadow:0 0 0 5px rgba(46,143,214,.22)}
+  .hv .disc{position:absolute;inset:10%;border-radius:50%;overflow:hidden;background:#0B1B2B;border:6px solid #FFFFFF;box-shadow:0 30px 60px -20px rgba(46,143,214,.65),0 0 0 8px rgba(255,255,255,.05);animation:hz-float 7s ease-in-out infinite}
+  .hz-vid{display:block}
+  .hwave{height:18px;overflow:hidden;margin:0 calc(var(--gut) * -1) 28px}
+  .hwave svg{display:block;animation:hz-flow 9s linear infinite}
+  .hsvc{display:flex;flex-direction:column;margin-bottom:8px}
+  .hsvc a{display:grid;grid-template-columns:30px minmax(0,1fr) 22px;align-items:center;gap:10px;min-height:58px;color:#FFFFFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .hsvc a:last-child{border-bottom:0}
+  .hsvc .n{font-size:11px;font-weight:700;letter-spacing:.12em;color:#6F93B8}
+  .hsvc .nm{font-size:21px;font-weight:800;line-height:1}
+  .hsvc svg{color:#2E8FD6}
+
+  /* Section base */
+  .sec{padding:50px var(--gut)}
+  .sec h2{margin:0;font-size:clamp(38px,11.2vw,50px);line-height:1.08;font-weight:900}
+  .lead{margin:0;font-size:16px;line-height:1.6}
+
+  /* Usluge */
+  .usl{background:#F3F7FB;display:flex;flex-direction:column;gap:28px}
+  .usl h2{color:#07121F}
+  .cards{display:flex;flex-direction:column;gap:12px}
+  .card-big{border-radius:16px;background:#145DA0;color:#FFFFFF;padding:26px 22px;display:flex;flex-direction:column;gap:16px}
+  .sub{font-family:Manrope,"Segoe UI",system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+  .card-big h3{margin:0;font-size:34px}
+  .prices{display:flex;flex-direction:column;font-size:15px}
+  .prices div{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(255,255,255,.25)}
+  .prices div:last-child{border-bottom:1px solid rgba(255,255,255,.25)}
+  .prices span{color:#DCEBF8}
+  .card-big p{margin:0;font-size:15px;line-height:1.55;color:#DCEBF8}
+  .card-big .meta{display:flex;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(255,255,255,.25);font-size:14px}
+  .card-sm{border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px}
+  .card-sm h3{margin:0;font-size:21px}
+  .card-sm .meta b{font-weight:700}
+  .c-white .meta b,.c-ice .meta b{color:#07121F}.c-ink .meta b{color:#FFFFFF}
+  .card-sm p{margin:0;font-size:14.5px;line-height:1.5}
+  .card-sm .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:4px;font-size:14px}
+  .card-sm .meta a{font-weight:700;text-decoration:none;min-height:44px;display:flex;align-items:center}
+  .c-white{background:#FFFFFF;border:1px solid #D8E4EF}.c-white h3{color:#07121F}.c-white p,.c-white .meta span{color:#3E5163}.c-white .meta{border-top:1px solid #E3ECF4}.c-white .meta a{color:#145DA0}
+  .c-ink{background:#07121F;color:#FFFFFF}.c-ink p,.c-ink .meta span{color:#B9C8D6}.c-ink .meta{border-top:1px solid rgba(255,255,255,.14)}.c-ink .meta a{color:#8CC4EE}
+  .c-ice{background:#DCEBF8}.c-ice h3{color:#07121F}.c-ice p,.c-ice .meta span{color:#2F4456}.c-ice .meta{border-top:1px solid #C3D6E8}.c-ice .meta a{color:#145DA0}
+
+  /* Usluge: cenovnik */
+  .plist-m{display:flex;flex-direction:column}
+  .plist-m .eyebrow{padding-bottom:10px}
+  .pr-m{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;padding:16px 0;border-top:1px solid #D0DEEB}
+  .pr-m:last-child{border-bottom:1px solid #D0DEEB}
+  .pr-m h3{margin:0 0 4px;font-size:18px;color:#07121F}
+  .pr-m p{margin:0;font-size:14px;line-height:1.5;color:#3E5163}
+  .pr-m .pv{display:flex;flex-direction:column;align-items:flex-end;gap:2px;white-space:nowrap}
+  .pr-m .pv strong{font-size:17px;color:#07121F}
+  .pr-m .pv span{font-size:13px;color:#3E5163}
+  .combo{border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;color:#FFFFFF}
+  .combo.c-blue{background:#145DA0}.combo.c-dark{background:#07121F}
+  .combo h3{margin:0;font-size:28px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;font-weight:600}
+  .chips span{padding:7px 11px;border-radius:8px;background:rgba(255,255,255,.14)}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2)}
+  .foot-row strong{font-size:22px}
+  .foot-row .btn{width:auto;min-height:48px;padding:0 20px;font-size:15px}
+  .pack{border-radius:16px;padding:24px 20px;background:#DCEBF8;color:#07121F;display:flex;flex-direction:column;gap:12px}
+  .pack h3{margin:0 0 4px;font-size:24px}
+  .pk{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;border-top:1px solid #B9D1E8}
+  .pk:last-child{border-bottom:1px solid #B9D1E8}
+  .pk div{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .pk strong{font-size:16px}.pk span{font-size:12.5px;color:#2F4456}
+  .pk b{font-size:17px;white-space:nowrap}
+
+  .aud-list{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+  .aud-m{display:flex;flex-direction:column;gap:14px;padding:18px;border-radius:14px;background:#0E1E30;border:1px solid rgba(255,255,255,.08);color:#FFFFFF;text-decoration:none}
+  .aud-top{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+  .aud-m .aud-ic{width:44px;height:44px;border-radius:12px;background:rgba(46,143,214,.14);display:flex;align-items:center;justify-content:center}
+  .aud-m h3{margin:0 0 3px;font-size:19px}
+  .aud-m p{margin:0;font-size:14px;line-height:1.5;color:#B9C8D6}
+  .aud-m .aud-rec{display:flex;flex-direction:column;gap:2px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
+  .aud-m .aud-rec span{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6F93B8}
+  .aud-m .aud-rec strong{font-size:15px}
+  /* Za koga */
+  .zk{background:#07121F;color:#FFFFFF;display:flex;flex-direction:column;gap:18px}
+  .zk h2 em{font-style:normal;color:#2E8FD6}
+  .zk .lead{color:#B9C8D6}
+  .zk-list{margin-top:14px;display:flex;flex-direction:column}
+  .zk-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding:15px 0;border-top:1px solid rgba(255,255,255,.14)}
+  .zk-row:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+  .zk-row .n{font-size:26px;font-weight:800;color:#3B5670;line-height:1}
+  .zk-row h3{margin:0;font-size:19px}
+  .zk-row p{margin:0;font-size:14px;color:#B9C8D6}
+
+  /* Kako radimo */
+  .pr{background:#FFFFFF;display:flex;flex-direction:column;gap:32px}
+  .pr h2{color:#07121F}
+  .steps{position:relative;display:flex;flex-direction:column;gap:18px}
+  .steps::before{content:"";position:absolute;left:23px;top:24px;bottom:24px;width:1px;background:rgba(140,196,238,.3)}
+  .step{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:center}
+  .step .dot{width:48px;height:48px;border-radius:50%;background:#145DA0;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;box-shadow:0 0 0 6px #07121F}
+  .step:last-child .dot{background:#FFFFFF;color:#07121F}
+  .step h3{margin:0 0 3px;font-size:18px;color:#FFFFFF}
+  .step p{margin:0;font-size:14px;color:#B9C8D6}
+
+  /* Terapeut */
+  .ter{background:#EAF3FB;display:flex;flex-direction:column;gap:20px}
+  .ter-img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:16px}
+  .ter .ph{width:100%;aspect-ratio:1/1;max-height:340px;border-radius:16px}
+  .ter h2{color:#07121F}
+  .ter .lead{color:#2F4456;line-height:1.7}
+  .creds{display:flex;flex-direction:column;font-size:14.5px}
+  .creds div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid #C3D6E8}
+  .creds div:last-child{border-bottom:1px solid #C3D6E8}
+  .creds span{color:#3E5163}
+  .creds b{color:#0B1B2B;overflow-wrap:anywhere}
+
+  /* Recenzije */
+  .rev{background:#FFFFFF;display:flex;flex-direction:column;gap:28px}
+  .rev h2{color:#07121F}
+  .rev figure{margin:0;display:flex;flex-direction:column;gap:14px;padding-top:20px;border-top:2px solid #145DA0}
+  .rev blockquote{margin:0;font-size:24px;line-height:1.1;font-weight:700;color:#07121F}
+  .rev figcaption{font-size:14px;color:#3E5163}
+  .rev .dlink{color:#145DA0;font-weight:700;text-decoration:none;min-height:44px;display:flex;align-items:center}
+
+  /* Cenovnik */
+  .cen{background:#0A2540;color:#FFFFFF;display:flex;flex-direction:column;gap:26px}
+  .cen h2 em{font-style:normal;color:#2E8FD6}
+  .plist{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.2)}
+  .prow{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:10px}
+  .prow .nm{font-size:24px;font-weight:800;line-height:1}
+  .prow .pp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .prow .pp div{display:flex;flex-direction:column;gap:2px}
+  .prow .pp small{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8CC4EE}
+  .prow .pp b{font-size:16px}
+  .cen .note{margin:0;font-size:14.5px;line-height:1.6;color:#B9C8D6}
+
+  /* FAQ */
+  .faq{background:#F3F7FB;display:flex;flex-direction:column;gap:24px}
+  .faq h2{color:#07121F}
+  .faq-list{border-top:1px solid #C3D6E8}
+  .faq-item{border-bottom:1px solid #C3D6E8}
+  .faq-q{width:100%;min-height:58px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border:0;background:transparent;color:#07121F;text-align:left;cursor:pointer;font:inherit}
+  .faq-q span{font-size:18px;line-height:1.25}
+  .faq-a{margin:0;padding:0 8px 20px 0;font-size:15px;line-height:1.6;color:#3E5163}
+  .faq .lead{color:#3E5163}
+
+  /* Kontakt */
+  .kon{background:#145DA0;color:#FFFFFF;display:flex;flex-direction:column;gap:24px}
+  .kon h2{font-size:clamp(46px,15vw,64px)}
+  .acts{display:flex;flex-direction:column;gap:10px}
+  .act{display:grid;grid-template-columns:44px minmax(0,1fr) 16px;align-items:center;gap:14px;min-height:72px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#FFFFFF;text-decoration:none}
+  .act.primary{background:#FFFFFF;color:#07121F;border-color:#FFFFFF}
+  .act .ic{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center}
+  .act.primary .ic{background:#145DA0}
+  .act strong{display:block;font-size:17px}
+  .act small{display:block;font-size:13px;color:#DCEBF8;overflow-wrap:anywhere}
+  .act.primary small{color:#3E5163}
+  .act.msg{grid-template-columns:44px minmax(0,1fr)}
+  .msg-btns{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .msg-btns a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;background:#FFFFFF;color:#145DA0;font-size:15px;font-weight:700;text-decoration:none}
+  .loc{border-radius:16px;overflow:hidden;background:#FFFFFF;color:#07121F}
+  .loc .ph{aspect-ratio:2/1}
+  .place{padding:22px 18px;background:#F3F7FB;border-bottom:1px solid #E3ECF4;display:flex;flex-direction:column;gap:16px}
+  .ph-head{display:flex;align-items:center;gap:12px}
+  .ph-head .pin{width:46px;height:46px;border-radius:50%;background:#145DA0;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ph-head div{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .ph-head strong{font-size:18px;color:#07121F}
+  .addr{display:flex;flex-direction:column;gap:4px}
+  .addr b{font-size:22px;letter-spacing:-.02em;color:#07121F}
+  .addr span{font-size:14.5px;color:#3E5163}
+  .pbtns{display:flex;flex-direction:column;gap:10px}
+  .pbtns .btn{min-height:52px;font-size:15px}
+  .pbtns .gm{border:1px solid #C3D6E8;color:#145DA0;background:#FFFFFF}
+  .loc .rows{padding:18px 18px 20px;display:flex;flex-direction:column;gap:12px;font-size:14.5px}
+  .loc .rows div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px}
+  .loc .rows span{color:#3E5163}
+  .loc .rows b{overflow-wrap:anywhere}
+
+  /* Footer */
+  .foot{background:#03080E;color:#FFFFFF;padding:48px var(--gut) 0;overflow:hidden;display:flex;flex-direction:column;gap:26px}
+  .foot .brand{display:flex;align-items:center;gap:14px}
+  .foot .brand .m-logo{width:56px;height:56px}.foot .brand .m-logo img{width:31px}
+  .foot nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;font-size:15px;font-weight:600}
+  .foot nav a{color:#9FB3C8;text-decoration:none;min-height:40px;display:flex;align-items:center}
+  .foot .copy{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:#9FB3C8;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+  .foot .big{font-size:18vw;line-height:.8;font-weight:900;color:transparent;-webkit-text-stroke:1.5px #145DA0;white-space:nowrap;text-align:center;margin:0 calc(var(--gut) * -1)}
+
+  .grp{color:#07121F !important;display:block;padding-bottom:10px;border-bottom:2px solid #07121F;margin-bottom:2px}
+  .pr-m .pv .dur{margin-top:4px;padding:4px 9px;border-radius:999px;background:#DCEBF8;color:#0A2540;font-size:12px;font-weight:700}
+  .call-box{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#FFFFFF;border:1px solid #D8E4EF;font-size:15px;line-height:1.5;color:#3E5163}
+  .call-box .btn{min-height:50px}
+  .pk-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  .pk-head .badge{padding:4px 9px;border-radius:999px;background:#FFFFFF;color:#0A2540;font-size:11.5px;font-weight:700}
+  .zm-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+  .zm-chip{appearance:none;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 10px;border-radius:12px;background:#0E1E30;border:1px solid rgba(255,255,255,.1);color:#B9C8D6;font:inherit;font-size:14.5px;font-weight:700;text-align:left}
+  .zm-chip.on{background:#FFFFFF;border-color:#FFFFFF;color:#07121F}
+  .zm-ic{flex-shrink:0;width:36px;height:36px;border-radius:10px;background:rgba(46,143,214,.14);color:#8CC4EE;display:flex;align-items:center;justify-content:center}
+  .zm-chip.on .zm-ic{background:#145DA0;color:#FFFFFF}
+  .zm-panel{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);animation:mx-in .4s ease both}
+  .zm-who{display:flex;flex-direction:column;gap:8px;padding:20px 18px;background:#0B1929}
+  .zm-who h3{margin:0;font-size:24px;line-height:1.15}
+  .zm-who p{margin:0;font-size:15px;line-height:1.55;color:#B9C8D6}
+  .zm-rec{display:flex;flex-direction:column;gap:14px;padding:20px 18px;background:#145DA0}
+  .zm-rec-main{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.22)}
+  .zm-rec-main h4{margin:0 0 4px;font-size:21px;line-height:1.2}
+  .zm-rec-main span{font-size:13.5px;color:#DCEBF8}
+  .zm-rec-main strong{font-size:24px;font-weight:800;white-space:nowrap}
+  .zm-rec-main small{font-size:12px;font-weight:600;opacity:.8}
+  .zm-all{align-self:center;font-size:15px;font-weight:700;color:#FFFFFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px}
+  .zm-alt{font-size:13px;color:#DCEBF8;text-align:center}
+  @media (prefers-reduced-motion: reduce){.zm-panel{animation:none}}
+  @media (max-width:374px){.zm-ic{display:none}.zm-chip{justify-content:center;text-align:center;padding:8px 6px}}
+  .mx-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;border-radius:12px;background:#FFFFFF;border:1px solid #D8E4EF}
+  .mx-tab{appearance:none;border:0;cursor:pointer;min-height:44px;padding:0 6px;border-radius:9px;background:transparent;color:#3E5163;font:inherit;font-size:14px;font-weight:700}
+  .mx-tab.on{background:#07121F;color:#FFFFFF}
+  .mx-panel{display:none;flex-direction:column;margin-top:-8px;border-top:2px solid #07121F}
+  .mx-panel.on{display:flex;animation:mx-in .4s ease both}
+  @keyframes mx-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .mx-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;padding:18px 0;border-bottom:1px solid #D0DEEB;color:#07121F;text-decoration:none}
+  .mx-l h3{margin:0 0 4px;font-size:18px;line-height:1.25;color:#07121F}
+  .mx-l p{margin:0;font-size:14px;line-height:1.5;color:#3E5163}
+  .mx-meta{display:inline-block;margin-top:8px;padding:4px 9px;border-radius:999px;background:#DCEBF8;color:#0A2540;font-size:12px;font-weight:700}
+  .mx-r{display:flex;flex-direction:column;align-items:flex-end;gap:2px;white-space:nowrap}
+  .mx-r s{font-size:12.5px;color:#8A9BAC}
+  .mx-r strong{font-size:19px;font-weight:800}
+  .mx-r small{font-size:11.5px;font-weight:600;color:#3E5163}
+  .mx-note{margin:14px 0 0;font-size:13px;color:#3E5163}
+  .mx-help{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:15px;line-height:1.5;color:#3E5163}
+  .mx-tel{font-size:17px;font-weight:700;color:#07121F;text-decoration:none;border-bottom:1px solid #9FB3C8;padding-bottom:2px}
+  @media (prefers-reduced-motion: reduce){.mx-panel.on{animation:none}}
+  .stp-panel{margin-top:22px;padding:22px 18px;border-radius:16px;background:#0B1929;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:6px}
+  .stp-panel h3{margin:4px 0 8px;font-size:22px}
+  .stp-m{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;padding:14px 0;border-top:2px solid rgba(46,143,214,.5)}
+  .stp-m .disp{font-size:32px;font-weight:900;line-height:1;color:#2E8FD6}
+  .stp-m h4{margin:0 0 4px;font-size:17px;color:#FFFFFF}
+  .stp-m p{margin:0;font-size:14px;line-height:1.5;color:#B9C8D6}
+  .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+  .fcol{display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.5;color:#C9D6E3;min-width:0;overflow-wrap:anywhere}
+  .fcol h4{margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6F93B8}
+  .fcol a{color:#C9D6E3;text-decoration:none}
+  .socs{display:flex;gap:10px}
+  .soc{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#FFFFFF}
+  .ut{background:#07121F;color:#FFFFFF;display:flex;flex-direction:column;gap:18px}
+  .ut h2 em{font-style:normal;color:#2E8FD6}
+  .ut .lead{color:#B9C8D6}
+  .t-list{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+  .t-card{margin:0;padding:22px 20px 18px;border-radius:16px;background:#0E1E30;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:14px}
+  .t-card svg[aria-hidden]{width:26px;height:20px}
+  .t-card blockquote{margin:0;font-size:16px;line-height:1.6;color:#E6EEF6}
+  .t-card figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+  .t-tag{padding:4px 9px;border-radius:999px;background:rgba(46,143,214,.16);color:#8CC4EE;font-size:11.5px;font-weight:700}
+  .t-src{display:flex;align-items:center;gap:6px;font-size:12px;color:#8FA6BC}
+  /* Stalna traka za zakazivanje */
+  .sticky-cta{position:sticky;bottom:0;z-index:30;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:10px;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(3,8,14,.96);border-top:1px solid rgba(255,255,255,.1)}
+  .sticky-cta .btn{min-height:52px;font-size:15px}
+}
+
+@media (prefers-reduced-motion: reduce){.hz-vid{display:none}}
+
+/* Najuži telefoni (320px) */
+@media (max-width: 359px){
+  .fgrid{grid-template-columns:1fr}
+  .m-root{--gut:16px}
+  .m-word{display:none}
+  .hero h1{font-size:41px}
+  .card-big h3{font-size:30px}
+  .card-sm h3{font-size:19px}
+  .faq-q span{font-size:17px}
+  .trust b{font-size:24px}
+  .sticky-cta{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:8px}
+  .sticky-cta .btn{padding:0 12px;font-size:14px}
+}
+@keyframes wm-shine{0%{background-position:150% 0}100%{background-position:-50% 0}}
+.shine-text{color:transparent !important;-webkit-text-fill-color:transparent;background-image:linear-gradient(100deg,#2E8FD6 0%,#2E8FD6 40%,#CFE9FF 50%,#2E8FD6 60%,#2E8FD6 100%);background-size:250% 100%;background-repeat:no-repeat;background-color:#2E8FD6;-webkit-background-clip:text;background-clip:text;animation:wm-shine 5s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.shine-text{animation:none;background-image:none;-webkit-text-fill-color:#2E8FD6}}
+section[id]{scroll-margin-top:64px}
+
+/* ===== FADE-IN PRI SKROLOVANJU ===== */
+[data-rv]{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+[data-rv="1"]{transition-delay:.08s}[data-rv="2"]{transition-delay:.18s}[data-rv="3"]{transition-delay:.28s}[data-rv="4"]{transition-delay:.38s}
+html.rv-on [data-rv]:not([data-in]){opacity:0;transform:translateY(32px)}
+html.rv-on img[data-rv]:not([data-in]){transform:scale(.96)}
+@media (prefers-reduced-motion: reduce){html.rv-on [data-rv]:not([data-in]){opacity:1;transform:none}[data-rv]{transition:none}}
+
+/* Aktivna kartica u „Za koga“: jasno označen izbor */
+.zm-chip{position:relative;-webkit-tap-highlight-color:transparent;transition:background-color .25s ease,border-color .25s ease,color .25s ease,transform .15s ease,box-shadow .25s ease}
+.zm-chip:active{transform:scale(.97)}
+.zm-chip:hover{border-color:rgba(46,143,214,.7);color:#FFFFFF}
+.zm-chip.on{background:#0E1E30;border-color:#2E8FD6;color:#FFFFFF;box-shadow:0 0 12px -4px rgba(46,143,214,.45)}
+@keyframes chk-pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* Slike: ne hvataju skrol/prevlačenje, brže crtanje */
+img{height:auto;pointer-events:none;-webkit-user-drag:none;user-select:none}
+
+/* Veće površine za dodir */
+.mx-tel,.zm-all{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box}
+.loc .rows a{display:inline-flex;align-items:center;min-height:44px}
+.loc .rows div{align-items:center}
+
+/* Skrol prstom preko slika i ukrasa na svim telefonima i tabletima */
+img{touch-action:pan-x pan-y pinch-zoom;-webkit-touch-callout:none}
+.hv,.hv *,.disc,.ter-img,.t-card,.foot .big,.wordmark{touch-action:pan-x pan-y pinch-zoom}
+
+/* iPhone / iPad (Safari): stabilan prikaz i skrol */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width: 1023px){body{overflow-x:hidden;-webkit-tap-highlight-color:rgba(46,143,214,.15)}}
+@supports not (aspect-ratio: 1 / 1){.hv{height:min(calc(100vw - 40px),380px)}}
+
+/* Ukrasni krugovi i talasi oko fotografije ne smeju da hvataju klik/dodir */
+.hv,.hv *,.hz-rip,[aria-hidden="true"] .hz-rip,.wordmark,.foot .big{pointer-events:none}
+</style>
+</helmet>
+
+<div id="top" class="m-root">
+
+<!-- ===== HEADER ===== -->
+<header class="m-head">
+<a href="#top" class="m-brand">
+<div class="m-logo"><img src="img/md-logo.png" width="240" height="288" decoding="async" draggable="false" alt="Movera Fizio logo"></div>
+<span class="m-word disp">Movera Fizio</span>
+</a>
+<div class="m-tools">
+<button type="button" class="burger" aria-label="{{menuLabel}}" aria-expanded="{{openStr}}" onClick="{{toggle}}">
+<sc-if value="{{closed}}" hint-placeholder-val="{{ true }}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+</sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</sc-if>
+</button>
+</div>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<nav class="m-menu" aria-label="Glavni meni">
+<a class="lnk disp" href="#top" onClick="{{close}}">Početna</a>
+<a class="lnk disp" href="#usluge" onClick="{{close}}">Usluge i cene</a>
+<a class="lnk disp" href="#terapeut" onClick="{{close}}">O nama</a>
+<a class="lnk disp" href="#kontakt" onClick="{{close}}">Kontakt</a>
+<a class="btn btn-blue" href="#kontakt" onClick="{{close}}" style="margin-top: 20px">Zakaži termin</a>
+</nav>
+</sc-if>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="eyebrow">Studio za masažu · Kragujevac</div>
+<h1 class="disp">Sportska i terapeutska <em class="shine-text">masaža.</em></h1><p style="height: 55px">Individualni tretmani za brži oporavak, manje napetosti i veću pokretljivost.</p>
+
+<div class="hero-ctas">
+<a href="#kontakt" class="btn btn-blue">Zakaži termin <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="trust-m"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E8FD6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Fizioterapeutski tehničar</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E8FD6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Sertifikovan za dry cupping</span></div>
+<div class="hv" aria-hidden="true">
+<div class="rg rg3"></div><div class="rg rg2"></div><div class="rg rg1"></div>
+<div class="rip"></div><div class="rip d2"></div><div class="rip d3"></div>
+<div class="orb"><i></i></div>
+<div class="disc"><img src="img/md-slika-2.jpg" width="960" height="960" fetchpriority="high" decoding="async" draggable="false" alt="Terapeut Movera Fizio tokom procene pokretljivosti ramena" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></div>
+</div>
+</section>
+
+<!-- ===== USLUGE I CENE ===== -->
+<section id="usluge" class="sec usl">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div data-rv="" class="eyebrow" style="color: #145DA0">01 · Usluge i cene</div>
+<h2 data-rv="1" class="disp">Tretmani i cene</h2>
+<p data-rv="2" class="lead" style="color: #3E5163">Masaže, kombinovani tretmani i paketi sa uštedom. Sve cene su u dinarima.</p>
+</div>
+<div data-rv="2" class="mx-tabs" role="tablist">
+<button type="button" role="tab" class="mx-tab {{tab0}}" onClick="{{setTab0}}">Masaže</button>
+<button type="button" role="tab" class="mx-tab {{tab1}}" onClick="{{setTab1}}">Kombinovani</button>
+<button type="button" role="tab" class="mx-tab {{tab2}}" onClick="{{setTab2}}">Paketi</button>
+</div>
+<div class="mx-panel {{tab0}}">
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Relax masaža</h3><p>Lagan pritisak i miran ritam za opuštanje celog tela.</p><span class="mx-meta">60 min</span></div><div class="mx-r"><strong>2.000 <small>RSD</small></strong></div></a>
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Deep relax</h3><p>Jači pritisak za dublje opuštanje mišića.</p><span class="mx-meta">60 min</span></div><div class="mx-r"><strong>2.400 <small>RSD</small></strong></div></a>
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Sportska masaža</h3><p>Za pripremu pred takmičenje i brži oporavak posle treninga.</p><span class="mx-meta">50 min</span></div><div class="mx-r"><strong>3.000 <small>RSD</small></strong></div></a>
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Terapeutska masaža leđa</h3><p>Ciljan rad na napetim mišićima leđa.</p><span class="mx-meta">45 min</span></div><div class="mx-r"><strong>2.700 <small>RSD</small></strong></div></a>
+</div>
+<div class="mx-panel {{tab1}}">
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Body Recharge</h3><p>Suvi cupping, sportska masaža i Theragun.</p><span class="mx-meta">3 tehnike</span></div><div class="mx-r"><strong>3.700 <small>RSD</small></strong></div></a>
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Body Detox</h3><p>Mokra hidžama i terapeutska masaža.</p><span class="mx-meta">2 tehnike</span></div><div class="mx-r"><strong>4.500 <small>RSD</small></strong></div></a>
+<p class="mx-note">Kombinovani tretmani spajaju više tehnika u jednom terminu.</p>
+</div>
+<div class="mx-panel {{tab2}}">
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Relax × 5</h3><p>5 × 60 min</p><span class="mx-meta">Ušteda 1.500 RSD</span></div><div class="mx-r"><s>10.000 RSD</s><strong>8.500 <small>RSD</small></strong></div></a>
+<a href="#kontakt" class="mx-row"><div class="mx-l"><h3 class="sub">Terapeutska leđa × 5</h3><p>5 × 45 min</p><span class="mx-meta">Ušteda 3.000 RSD</span></div><div class="mx-r"><s>13.500 RSD</s><strong>10.500 <small>RSD</small></strong></div></a>
+<p class="mx-note">Isti tretman pet puta, po nižoj ceni.</p>
+</div>
+<div class="mx-help"><span>Niste sigurni koji tretman da izaberete? Pozovite i posavetovaćemo vas.</span></div>
+</section>
+
+<!-- ===== ZA KOGA I KAKO ===== -->
+<section class="sec zk">
+<div data-rv="" class="eyebrow" style="color: #8CC4EE">02 · Za koga</div>
+<h2 data-rv="1" class="disp">Pronađite tretman za <em>svoje telo.</em></h2>
+<p data-rv="2" class="lead">Izaberite šta vas najbolje opisuje i videćete sa kojim tretmanom je najbolje početi.</p>
+<div class="zm-chips" role="tablist">
+<button type="button" data-rv="1" class="zm-chip {{aud0}}" onClick="{{setAud0}}"><span class="zm-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg></span>Sportisti</button>
+<button type="button" data-rv="2" class="zm-chip {{aud1}}" onClick="{{setAud1}}"><span class="zm-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>Rekreativci</button>
+<button type="button" data-rv="3" class="zm-chip {{aud2}}" onClick="{{setAud2}}"><span class="zm-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg></span>Za računarom</button>
+<button type="button" data-rv="4" class="zm-chip {{aud3}}" onClick="{{setAud3}}"><span class="zm-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10c3-3 6 3 10 0s7 3 10 0"></path><path d="M2 16c3-3 6 3 10 0s7 3 10 0"></path></svg></span>Opuštanje</button>
+</div>
+<div class="zm-panel" key="{{audKey}}">
+<div class="zm-who"><h3 class="sub">{{pTitle}}</h3><p>{{pDesc}}</p></div>
+<div class="zm-rec">
+<span class="eyebrow" style="color: #DCEBF8">Preporučujemo</span>
+<div class="zm-rec-main"><div><h4 class="sub">{{rName}}</h4><span>{{rMeta}}</span></div><strong>{{rPrice}} <small>RSD</small></strong></div>
+<a href="#kontakt" class="btn btn-white">Zakaži termin</a>
+<a href="#usluge" class="zm-all" onClick="{{goTab}}">Pogledaj sve cene →</a>
+<span class="zm-alt">Takođe: {{alt}}</span>
+</div>
+</div>
+<div class="stp-panel">
+<span class="eyebrow" style="color: #8CC4EE">Kako izgleda termin</span>
+<h3 class="sub">Vaš prvi dolazak</h3>
+<div class="stp-m" data-rv="1"><span class="disp">01</span><div><h4 class="sub">Razgovor</h4><p>Šta vas muči, kakav je vaš trening ili posao i šta želite da postignete.</p></div></div>
+<div class="stp-m" data-rv="2"><span class="disp">02</span><div><h4 class="sub">Procena</h4><p>Proveravamo napetost i pokretljivost i biramo pravi tretman.</p></div></div>
+<div class="stp-m" data-rv="3"><span class="disp">03</span><div><h4 class="sub">Tretman</h4><p>Radimo ciljano, uz pritisak koji vam odgovara sve vreme.</p></div></div>
+<div class="stp-m" data-rv="4"><span class="disp">04</span><div><h4 class="sub">Saveti za dalje</h4><p>Dobijate vežbe i preporuke da efekat potraje.</p></div></div>
+</div>
+</section>
+
+<!-- ===== TERAPEUT ===== -->
+<section id="terapeut" class="sec ter">
+<div data-rv="" class="eyebrow" style="color: #145DA0">03 · O nama</div>
+<h2 data-rv="1" class="disp">Stručnost i lični pristup.</h2>
+<img data-rv="" class="ter-img" src="img/md-slika-1.jpg" width="840" height="1120" loading="lazy" decoding="async" draggable="false" alt="Marko Ilić, terapeut Movera Fizio, sa sertifikatom za dry cupping">
+<p data-rv="2" class="lead">Svaki termin posvećen je samo vama. Iza studija stoji Marko Ilić, fizioterapeutski tehničar i student medicinske rehabilitacije.</p>
+<div data-rv="2" class="creds">
+<div><span>Obrazovanje</span><b>Fizioterapeutski tehničar · student medicinske rehabilitacije</b></div>
+<div><span>Sertifikati</span><b>Dry cupping, Akademija za masažu, Kragujevac</b></div>
+</div>
+</section>
+
+<!-- ===== STALNA TRAKA ===== -->
+<div class="sticky-cta">
+<a href="tel:+381601234567" class="btn btn-ghost">Pozovite</a>
+<a href="#kontakt" class="btn btn-blue">Zakaži termin</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":4570}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._io = null;
+    if (typeof IntersectionObserver !== 'undefined') {
+      var rvRoot = document.documentElement;
+      rvRoot.classList.add('rv-on');
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.setAttribute('data-in', ''); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+      this._io = io;
+      setTimeout(function () { document.querySelectorAll('[data-rv]').forEach(function (el) { io.observe(el); }); }, 60);
+    }
+  }
+  componentWillUnmount() { if (this._io) { this._io.disconnect(); } }
+  renderVals() {
+    var FAQ = [
+      { q: 'Koliko traje tretman?', a: 'Masaže traju od 45 do 60 minuta, zavisno od tretmana. Prvi dolazak je malo duži zbog razgovora i procene.' },
+      { q: 'Da li sportska masaža boli?', a: 'Može biti intenzivna, ali pritisak uvek prilagođavamo vama. Dovoljno je da kažete ako je previše.' },
+      { q: 'Da li mi treba uput lekara?', a: 'Za masažu ne. Kod sveže povrede ili jakog bola preporučujemo da se prvo javite lekaru.' },
+      { q: 'Gde se nalazite?', a: 'Radimo na dve lokacije u Kragujevcu: u centru grada i u FitZona trening centru, Bulevar primer 12. Pri zakazivanju recite koja vam lokacija više odgovara.' },
+      { q: 'Šta su Body Recharge i Body Detox?', a: 'Kombinovani tretmani. Body Recharge spaja suvi cupping, sportsku masažu i Theragun, a Body Detox mokru hidžamu i terapeutsku masažu.' }
+    ];
+    var s = this.state || {};
+    var open = !!s.open;
+    var lang = s.lang || 'sr';
+    var faqIdx = s.faq != null ? s.faq : 0;
+    var self = this;
+    var AUD = [
+      { title: 'Trenirate i takmičite se', desc: 'Priprema pred takmičenje i brži oporavak između treninga.', name: 'Sportska masaža', meta: '50 min', price: '3.000', alt: 'Body Recharge, 3.700 RSD', tab: 0 },
+      { title: 'Trenirate iz zadovoljstva', desc: 'Teretana, trčanje ili fudbal: da upala posle treninga ne potraje.', name: 'Body Recharge', meta: 'Suvi cupping, sportska masaža i Theragun', price: '3.700', alt: 'Sportska masaža, 3.000 RSD', tab: 1 },
+      { title: 'Ceo dan sedite', desc: 'Napeta leđa, vrat i ramena od dugog sedenja.', name: 'Terapeutska masaža leđa', meta: '45 min', price: '2.700', alt: 'paket od 5 tretmana, 10.500 RSD', tab: 0 },
+      { title: 'Treba vam predah', desc: 'Kad telu i glavi treba sat vremena mira.', name: 'Relax masaža', meta: '60 min', price: '2.000', alt: 'Deep relax, 2.400 RSD', tab: 0 }
+    ];
+    var ai = s.aud || 0;
+    var A = AUD[ai];
+    var setAud = function (n) { return function () { self.setState({ aud: n }); }; };
+    var tab = s.tab || 0;
+    var setTab = function (n) { return function () { self.setState({ tab: n }); }; };
+    return {
+      tab0: tab === 0 ? 'on' : '', tab1: tab === 1 ? 'on' : '', tab2: tab === 2 ? 'on' : '',
+      setTab0: setTab(0), setTab1: setTab(1), setTab2: setTab(2),
+      aud0: ai === 0 ? 'on' : '', aud1: ai === 1 ? 'on' : '', aud2: ai === 2 ? 'on' : '', aud3: ai === 3 ? 'on' : '',
+      setAud0: setAud(0), setAud1: setAud(1), setAud2: setAud(2), setAud3: setAud(3),
+      audKey: 'a' + ai, pTitle: A.title, pDesc: A.desc, rName: A.name, rMeta: A.meta, rPrice: A.price, alt: A.alt,
+      goTab: setTab(A.tab),
+      vref: function (el) { if (el) { el.muted = true; el.defaultMuted = true; var p = el.play && el.play(); if (p && p.catch) { p.catch(function () {}); } } },
+      open: open,
+      closed: !open,
+      openStr: open ? 'true' : 'false',
+      menuLabel: open ? 'Zatvori meni' : 'Otvori meni',
+      toggle: function () { self.setState({ open: !open }); },
+      close: function () { self.setState({ open: false }); },
+      srCls: lang === 'sr' ? 'on' : '',
+      enCls: lang === 'en' ? 'on' : '',
+      srOn: lang === 'sr' ? 'true' : 'false',
+      enOn: lang === 'en' ? 'true' : 'false',
+      setSr: function () { self.setState({ lang: 'sr' }); },
+      setEn: function () { self.setState({ lang: 'en' }); },
+      faqs: FAQ.map(function (f, i) {
+        var o = i === faqIdx;
+        return { q: f.q, a: f.a, open: o, exp: o ? 'true' : 'false', rot: o ? 'rotate(45deg)' : 'none',
+          toggle: function () { self.setState({ faq: o ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

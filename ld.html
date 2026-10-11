@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mikron Lab | digitalna zubotehnička laboratorija</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F2F7}
+a{color:#5B2A86}
+.ldl-nav a{transition:background-color .2s ease}
+.ldl-nav a:hover{background:#ECE6F3}
+.ldl-btn{transition:transform .25s ease, box-shadow .25s ease}
+.ldl-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(21,17,26,.22)}
+.ldl-row{transition:background-color .2s ease}
+.ldl-row:hover{background:#F4EFF9}
+.ldl-zoom img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.ldl-zoom:hover img{transform:scale(1.06)}
+.ldl-card{transition:transform .3s ease}
+.ldl-card:hover{transform:translateY(-4px)}
+.ldl-link:hover{text-decoration:underline}
+@media (max-width: 640px){.ldl-sub,.ldl-body{line-height:1.25!important;font-size:16px!important}.ldl-h1{line-height:1.12!important}.ldl-sub{line-height:1.4!important}.ldl-herowrap{row-gap:28px!important}.ldl-svcname{font-size:18px!important;font-weight:700!important}.ldl-two{grid-template-columns:minmax(0,1fr) !important}}
+.ldl-burger{display:none}
+@media (max-width: 900px){.ldl-nav{display:none !important}.ldl-cta{display:none !important}.ldl-burger{display:flex !important}}
+@media (min-width: 901px){.ldl-mob{display:none !important}.ldl-h1a{white-space:nowrap}}
+.ldl-mob a:hover{background:#ECE6F3}
+@media (max-width: 640px){
+.ldl-procbox{gap:28px !important;padding:28px 20px !important;border-radius:28px !important}
+.ldl-step{min-height:0 !important;flex-direction:row !important;justify-content:flex-start !important;align-items:flex-start !important;gap:16px !important;padding:20px !important;border-radius:22px !important}
+.ldl-step > span:first-child{font-size:34px !important;flex:none;min-width:48px}
+.ldl-step strong{font-size:18px !important}
+.ldl-shead{gap:10px !important;align-items:flex-start !important}
+.ldl-form{gap:12px !important;border-radius:28px !important}
+.ldl-form > div{gap:12px !important}
+.ldl-form label{gap:6px !important;font-size:13px !important}
+.ldl-form .ldl-field{padding:8px 12px !important;border-radius:12px !important;font-size:16px !important}
+.ldl-form textarea.ldl-field{min-height:80px;height:80px}
+.ldl-form button{align-self:stretch !important;justify-content:space-between !important;padding:8px 8px 8px 22px !important;font-size:16px !important}
+.ldl-form button > span{width:40px !important;height:40px !important}
+.ldl-igcard{padding:18px 20px !important;gap:14px !important;flex-wrap:nowrap !important;border-radius:24px !important}
+.ldl-igcard > svg{width:28px !important;height:28px !important;flex:none}
+.ldl-igcard strong{font-size:18px !important}
+.ldl-igcard > div{gap:4px !important}
+.ldl-igcard > div > span{font-size:14px !important}
+.ldl-herocta{flex:1 1 100% !important;justify-content:space-between !important;padding:8px 8px 8px 22px !important;font-size:16px !important}
+.ldl-herocta > span{width:40px !important;height:40px !important}
+.ldl-br{display:none}
+.ldl-sec{padding-left:16px !important;padding-right:16px !important}
+#pocetak{padding-top:40px !important;padding-bottom:72px !important}
+#usluge,#proces,#radovi{padding-bottom:72px !important}
+.ldl-head{padding:10px 12px 0 !important}
+.ldl-svcimg{min-height:380px !important}
+}
+@media (max-width: 480px){
+.ldl-svc{padding:16px 14px !important;gap:12px !important}
+.ldl-svc > span:first-child{min-width:38px !important}
+.ldl-svc > span:last-child{width:34px !important;height:34px !important}
+}
+img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+.ldl-compare:focus-within{outline:2px solid #5B2A86;outline-offset:4px}
+.ldl-field:focus{outline:2px solid #5B2A86;outline-offset:1px;border-color:transparent}
+.ldl-strip{scroll-snap-type:x mandatory;scrollbar-width:thin}
+.ldl-strip > *{scroll-snap-align:start}
+@keyframes ldl-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.ldl-rise{animation:ldl-rise .9s cubic-bezier(.2,.7,.2,1) both}
+.ldl-d1{animation-delay:.08s}.ldl-d2{animation-delay:.16s}.ldl-d3{animation-delay:.24s}.ldl-d4{animation-delay:.32s}
+@keyframes ldl-pulse{0%,100%{box-shadow:0 0 0 0 rgba(91,42,134,.35)}50%{box-shadow:0 0 0 7px rgba(91,42,134,0)}}
+.ldl-dot{animation:ldl-pulse 2.4s ease-in-out infinite}
+.ldl-word{position:relative;display:inline-block;align-self:center;width:max-content}
+.ldl-out{display:inline-block;padding:0 0.12em 0 0.04em;color:#F4F2F7;-webkit-text-fill-color:#F4F2F7;-webkit-text-stroke:3px #9B62CC;paint-order:stroke fill}
+.ldl-sheen{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 0.12em 0 0.04em;background:linear-gradient(100deg,transparent 0%,transparent 40%,rgba(255,255,255,.15) 44%,rgba(240,226,255,.85) 50%,rgba(255,255,255,.15) 56%,transparent 60%,transparent 100%);background-size:300% 100%;background-position:50% 50%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;pointer-events:none}
+.ldl-glow{position:absolute;left:0;top:0;right:0;bottom:0;padding:0 0.12em 0 0.04em;background:linear-gradient(100deg,transparent 0%,transparent 39%,#9B62CC 45%,#5B2A86 50%,#9B62CC 55%,transparent 61%,transparent 100%);background-size:300% 100%;background-position:50% 50%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@keyframes ldl-shine{0%{background-position:90% 50%}100%{background-position:10% 50%}}
+@media (prefers-reduced-motion: reduce){.ldl-glow{animation:none;background-position:50% 50%}}
+@media (prefers-reduced-motion: reduce){.ldl-rise,.ldl-dot{animation:none}.ldl-zoom img,.ldl-btn,.ldl-card{transition:none}}
+</style>
+</helmet>
+<div style="font-family: 'Manrope', system-ui, sans-serif; color: #15111A; background: #F4F2F7; line-height: 1.6; font-size: 17px; overflow-x: clip">
+
+<!-- HEADER -->
+<header class="ldl-head" style="position: sticky; top: 0; z-index: 10; padding: 14px 24px 0">
+<div style="max-width: 1280px; margin: 0 auto; background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(230, 224, 236, 0.9); border-radius: 999px; padding: 7px 7px 7px 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 8px 30px -12px rgba(21, 17, 26, 0.12)">
+<a href="#pocetak" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #15111A">
+<div style="width: 44px; height: 44px; flex: none; border-radius: 50%; background: #FFFFFF; padding: 2px; box-sizing: border-box; box-shadow: 0 0 0 1px #E6E0EC">
+<img src="img/ld-logo.svg" alt="Mikron Lab logo" style="display: block; width: 100%; height: 100%; border-radius: 50%">
+</div>
+<span class="ldl-brand" style="font-size: 17px; font-weight: 800; letter-spacing: -0.03em">Mikron Lab</span>
+</a>
+<nav class="ldl-nav" aria-label="Glavna navigacija" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2px; font-size: 15px; font-weight: 600">
+<a href="#pocetak" style="color: #15111A; text-decoration: none; padding: 11px 16px; border-radius: 999px">Početna</a>
+<a href="#usluge" style="color: #15111A; text-decoration: none; padding: 11px 16px; border-radius: 999px">Usluge</a>
+<a href="#proces" style="color: #15111A; text-decoration: none; padding: 11px 16px; border-radius: 999px">Kako radimo</a>
+<a href="#radovi" style="color: #15111A; text-decoration: none; padding: 11px 16px; border-radius: 999px">Radovi</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 8px">
+<a class="ldl-btn ldl-cta" href="#kontakt" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; background: #15111A; text-decoration: none; padding: 7px 7px 7px 20px; border-radius: 999px; font-weight: 700; font-size: 15px; white-space: nowrap">Zakažite pregled
+<span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+</a>
+<button class="ldl-burger" type="button" onClick="{{toggleMenu}}" aria-label="{{menuLabel}}" aria-expanded="{{menuExpanded}}" style="width: 48px; height: 48px; flex: none; border-radius: 50%; border: 1px solid #E6E0EC; background: #FFFFFF; color: #15111A; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if>
+</button>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav class="ldl-mob" aria-label="Mobilni meni" style="max-width: 1280px; margin: 8px auto 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid #E6E0EC; border-radius: 28px; padding: 10px; display: flex; flex-direction: column; gap: 2px; font-size: 18px; font-weight: 700; box-shadow: 0 20px 40px -20px rgba(21, 17, 26, 0.25)">
+<a href="#pocetak" onClick="{{closeMenu}}" style="color: #15111A; text-decoration: none; padding: 14px 18px; border-radius: 18px">Početna</a>
+<a href="#usluge" onClick="{{closeMenu}}" style="color: #15111A; text-decoration: none; padding: 14px 18px; border-radius: 18px">Usluge</a>
+<a href="#proces" onClick="{{closeMenu}}" style="color: #15111A; text-decoration: none; padding: 14px 18px; border-radius: 18px">Kako radimo</a>
+<a href="#radovi" onClick="{{closeMenu}}" style="color: #15111A; text-decoration: none; padding: 14px 18px; border-radius: 18px">Radovi</a>
+<a href="#kontakt" onClick="{{closeMenu}}" style="color: #15111A; text-decoration: none; padding: 14px 18px; border-radius: 18px">Kontakt</a>
+<a href="#kontakt" onClick="{{closeMenu}}" style="margin-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #FFFFFF; background: #15111A; text-decoration: none; padding: 8px 8px 8px 22px; border-radius: 999px; font-weight: 700; font-size: 16px">Zakažite pregled
+<span style="width: 40px; height: 40px; flex: none; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+</a>
+</nav>
+</sc-if>
+</header>
+
+<!-- HERO -->
+
+
+<!-- USLUGE -->
+<section id="pocetak" class="ldl-sec" style="padding: 72px 24px 112px">
+<div class="ldl-herowrap" style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+<div style="flex: 1.1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<div class="ldl-fade" style="align-self: flex-start; display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E6E0EC; border-radius: 999px; padding: 7px 16px 7px 10px; font-size: 14px; font-weight: 600; color: #5E5566">
+<span class="ldl-dot" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 0 4px #EEE7F6"></span>
+Zubotehnička laboratorija
+</div>
+<h1 class="ldl-h1" style="margin: 0 0 0 -0.06em; font-weight: 800; font-size: clamp(42px, 9vw, 92px); line-height: 0.98; letter-spacing: -0.055em; display: flex; flex-direction: column">
+<span class="ldl-h1a" ref="{{h1a}}" style="display: block">Lepota počinje</span>
+<span ref="{{h1b}}" style="display: block">savršenim <span style="position: relative; display: inline-block"><span style="display: inline-block; padding: 0 0.12em 0 0.04em; color: {{accent}}">osmehom.</span><span class="ldl-sheen" ref="{{shineRef2}}" aria-hidden="true">osmehom.</span></span></span>
+</h1>
+<p class="ldl-fade ldl-w4 ldl-sub" style="margin: -16px 0 0; font-size: 19px; color: #5E5566; max-width: 580px">Precizna estetska i implantna protetika, izrađena s pažnjom<br class="ldl-br"> do svakog detalja, za osmehe na koje ćete biti ponosni.</p>
+<div class="ldl-fade ldl-w5" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a class="ldl-btn ldl-herocta" href="#kontakt" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; background: #15111A; text-decoration: none; padding: 7px 7px 7px 20px; border-radius: 999px; font-weight: 700; font-size: 15px">Zakažite pregled
+<span style="width: 34px; height: 34px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+</a>
+</div>
+</div>
+<figure class="ldl-fade ldl-fx-zoom ldl-w3" style="flex: 1 1 460px; min-width: 0; margin: 0; position: relative; padding-bottom: 28px">
+<div style="background: #FFFFFF; border: 1px solid #E6E0EC; border-radius: 36px; padding: 10px; box-shadow: 0 30px 60px -30px rgba(40, 20, 60, 0.35)">
+<div class="ldl-compare" onPointerDown="{{slideDown}}" onPointerMove="{{slideMove}}" onPointerUp="{{slideUp}}" onPointerCancel="{{slideUp}}" style="position: relative; aspect-ratio: 2 / 1; border-radius: 28px; overflow: hidden; background: #000000; touch-action: pan-y; cursor: ew-resize; user-select: none; -webkit-user-select: none">
+<img src="img/ld-slika-5.jpg" alt="Osmeh pacijenta sa novim bezmetalnim krunicama" style="position: absolute; left: 0; top: 0; width: 100%; height: auto; margin-top: -50%; display: block">
+<div style="position: absolute; inset: 0; clip-path: {{clip}}">
+<img src="img/ld-slika-5.jpg" alt="Osmeh pacijenta pre izrade bezmetalnih krunica" style="position: absolute; left: 0; top: 0; width: 100%; height: auto; margin-top: 0; display: block">
+</div>
+<div style="position: absolute; top: 0; bottom: 0; left: {{handle}}; width: 2px; margin-left: -1px; background: #FFFFFF; pointer-events: none">
+<div style="position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; background: #FFFFFF; color: #15111A; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25)">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"></path></svg>
+</div>
+</div>
+<input type="range" min="0" max="100" value="{{pos}}" onChange="{{onSlide}}" aria-label="Pomerite da uporedite osmeh pre i posle" style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; pointer-events: none">
+</div>
+</div>
+<figcaption class="ldl-fade ldl-w8" style="position: absolute; left: 28px; bottom: 0; display: flex; align-items: center; gap: 14px; background: #FFFFFF; border: 1px solid #E6E0EC; border-radius: 20px; padding: 12px 18px 12px 12px; box-shadow: 0 16px 40px -16px rgba(40, 20, 60, 0.3)">
+<span style="width: 40px; height: 40px; border-radius: 12px; background: #EEE7F6; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 5 2 8 .4 2.5 1 5.5 2.5 5.5S9 18 10 15c.5-1.5 1.5-1.5 2-1.5s1.5 0 2 1.5c1 3 1 6 2.5 6s2.1-3 2.5-5.5c.5-3 2-5 2-8C21 5 19.5 3 17 3c-2 0-3 1-5 1S9 3 7 3z"></path></svg></span>
+<span style="display: flex; flex-direction: column; line-height: 1.25"><strong style="font-size: 15px">Bezmetalne krunice</strong><span style="font-size: 13px; color: #5E5566">Povucite klizač: pre i posle</span></span>
+</figcaption>
+</figure>
+</div>
+</section><section id="usluge" class="ldl-sec" style="padding: 0 24px 104px">
+<div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div class="ldl-shead" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 0 8px">
+<h2 class="ldl-fade" style="margin: 0; max-width: 760px; font-weight: 800; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: -0.055em"><span style="color: {{accent}}">Naše</span> usluge</h2>
+<p class="ldl-fade ldl-w2 ldl-body" style="margin: 0; color: #5E5566; max-width: 380px">Svaki rad prolazi digitalni dizajn i ručnu završnu obradu, da boja, oblik i funkcija budu usklađeni sa pacijentom.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch">
+<ul class="ldl-fade ldl-fx-left" style="list-style: none; margin: 0; padding: 12px; flex: 1 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E6E0EC; border-radius: 36px; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{services}}" as="item" hint-placeholder-count="5">
+<li>
+<button class="ldl-row ldl-svc" type="button" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="width: 100%; border: 0; border-radius: 24px; padding: 22px 22px; display: flex; align-items: center; gap: 20px; text-align: left; cursor: pointer; font: inherit; color: {{item.color}}; background: {{item.bg}}">
+<span style="flex: none; min-width: 46px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: {{item.numColor}}; background: {{item.numBg}}">{{item.num}}</span>
+<span class="ldl-svcname" style="flex: 1; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.15; font-weight: 700; letter-spacing: -0.04em">{{item.name}}</span>
+<span style="flex: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: {{item.arrowBg}}; color: {{item.arrowColor}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+</button>
+</li>
+</sc-for>
+</ul>
+<div class="ldl-fade ldl-fx-right ldl-w2 ldl-svcimg" style="flex: 1 1 420px; min-width: 0; position: relative; min-height: 480px; border-radius: 36px; overflow: hidden; background: #000000">
+<img src="img/ld-slika-4.jpg" alt="Keramičke krunice na gipsanom modelu" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%">
+<div style="position: absolute; left: 14px; right: 14px; bottom: 14px; background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 26px; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700; color: {{accent}}">{{current.num}} / 0{{total}}</span>
+<strong class="ldl-svcname" style="font-size: 22px; letter-spacing: -0.035em; line-height: 1.2">{{current.name}}</strong>
+<p class="ldl-body" style="margin: 0; font-size: 16px; color: #3F3846">{{current.desc}}</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCES -->
+<section id="proces" class="ldl-sec" style="padding: 0 24px 104px">
+<div class="ldl-fade ldl-fx-zoom ldl-procbox" style="max-width: 1280px; margin: 0 auto; background: #15111A; color: #FFFFFF; border-radius: 40px; padding: clamp(28px, 5vw, 72px); box-sizing: border-box; display: flex; flex-direction: column; gap: 48px">
+<div class="ldl-shead" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<h2 class="ldl-fade" style="margin: 0; max-width: 760px; font-weight: 800; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: -0.055em"><span style="color: #C9A9EA">Kako</span> radimo</h2>
+<p class="ldl-fade ldl-w2 ldl-body" style="margin: 0; color: #B9AEC4; max-width: 360px">Digitalni tok rada od prvog skena, uz kontrolu na svakom koraku.</p>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+<li class="ldl-card ldl-step ldl-fade ldl-w2" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px; justify-content: space-between">
+<span style="font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.06em; color: #C9A9EA">01</span>
+<div style="display: flex; flex-direction: column; gap: 8px"><strong style="font-size: 20px; letter-spacing: -0.03em">Prijem slučaja</strong><span class="ldl-body" style="color: #B9AEC4; font-size: 15px">Intraoralni sken (STL) ili klasičan otisak, uz fotografije i boju.</span></div>
+</li>
+<li class="ldl-card ldl-step ldl-fade ldl-w4" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px; justify-content: space-between">
+<span style="font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.06em; color: #C9A9EA">02</span>
+<div style="display: flex; flex-direction: column; gap: 8px"><strong style="font-size: 20px; letter-spacing: -0.03em">Digitalni dizajn</strong><span class="ldl-body" style="color: #B9AEC4; font-size: 15px">CAD dizajn i, po potrebi, Digital Smile Design na odobrenje.</span></div>
+</li>
+<li class="ldl-card ldl-step ldl-fade ldl-w6" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px; justify-content: space-between">
+<span style="font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.06em; color: #C9A9EA">03</span>
+<div style="display: flex; flex-direction: column; gap: 8px"><strong style="font-size: 20px; letter-spacing: -0.03em">Izrada</strong><span class="ldl-body" style="color: #B9AEC4; font-size: 15px">Glodanje ili štampa, zatim ručno slojevanje i bojenje keramike.</span></div>
+</li>
+<li class="ldl-card ldl-step ldl-fade ldl-w8" style="background: {{accent}}; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px; justify-content: space-between">
+<span style="font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.06em; color: #FFFFFF">04</span>
+<div style="display: flex; flex-direction: column; gap: 8px"><strong style="font-size: 20px; letter-spacing: -0.03em">Kontrola i isporuka</strong><span class="ldl-body" style="color: rgba(255, 255, 255, 0.82); font-size: 15px">Provera prileganja i okluzije, isporuka u dogovorenom roku.</span></div>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- RADOVI -->
+<section id="radovi" class="ldl-sec" style="padding: 0 24px 104px">
+<div class="ldl-shead" style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<h2 class="ldl-fade" style="margin: 0; font-weight: 800; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: -0.055em"><span style="color: {{accent}}">Naši</span> radovi</h2>
+<a class="ldl-btn ldl-fade ldl-w2" href="https://www.instagram.com/mikronlab/" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; text-decoration: none; color: #15111A; background: #FFFFFF; border: 1px solid #E6E0EC; padding: 12px 20px; border-radius: 999px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg>
+@mikronlab
+</a>
+</div>
+<div class="ldl-two" style="max-width: 1280px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div class="ldl-zoom ldl-fade ldl-fx-zoom" style="min-width: 0; position: relative; aspect-ratio: 1 / 1; border-radius: 32px; overflow: hidden; background: #ECE6F3">
+<img src="img/ld-slika-7.jpg" alt="Osmeh pacijenta pre i posle" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</div>
+<div class="ldl-zoom ldl-fade ldl-fx-zoom ldl-w3" style="min-width: 0; position: relative; aspect-ratio: 1 / 1; border-radius: 32px; overflow: hidden; background: #ECE6F3">
+<img src="img/ld-slika-1.jpg" alt="Osmeh pacijentkinje pre i posle izrade novih nadoknada" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</div>
+<div class="ldl-zoom ldl-fade ldl-fx-zoom" style="min-width: 0; position: relative; aspect-ratio: 1 / 1; border-radius: 32px; overflow: hidden; background: #ECE6F3">
+<img src="img/ld-slika-6.jpg" alt="Osmeh pacijentkinje pre i posle, novi zubni niz" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</div>
+<div class="ldl-zoom ldl-fade ldl-fx-zoom ldl-w3" style="min-width: 0; position: relative; aspect-ratio: 1 / 1; border-radius: 32px; overflow: hidden; background: #ECE6F3">
+<img src="img/ld-slika-2.jpg" alt="Osmeh pacijentkinje pre i posle izrade novih krunica" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</div>
+<a class="ldl-card ldl-fade ldl-igcard" href="https://www.instagram.com/mikronlab/" style="grid-column: 1 / -1; min-width: 0; border-radius: 32px; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 28px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px 28px">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<strong style="font-size: 28px; line-height: 1.1; letter-spacing: -0.04em">Još radova na Instagramu</strong>
+<span style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px">@mikronlab<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+</div>
+</a>
+</div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="ldl-sec" style="padding: 0 24px 16px">
+<div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 16px">
+<div class="ldl-fade ldl-fx-left" style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E6E0EC; border-radius: 40px; padding: clamp(28px, 4.5vw, 64px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span style="align-self: flex-start; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: {{accent}}; background: #ECE6F3; padding: 6px 12px; border-radius: 999px">Kontakt</span>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.1; letter-spacing: -0.055em"><span style="color: {{accent}}">Kontaktirajte</span> nas</h2>
+<p class="ldl-body" style="margin: 0; color: #5E5566; max-width: 440px">Za ordinacije: pošaljite upit ili prvi slučaj. Pacijenti, pitajte svog stomatologa za rad iz naše laboratorije.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 15px; font-weight: 600">
+<a class="ldl-link" href="tel:+381601234567" style="text-decoration: none; color: #15111A; display: flex; gap: 12px; align-items: center; background: #F4F2F7; border-radius: 20px; padding: 14px"><span style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></span>Pozovite nas</a>
+<a class="ldl-link" href="mailto:kontakt@mikronlab.rs" style="text-decoration: none; color: #15111A; min-width: 0; display: flex; gap: 12px; align-items: center; background: #F4F2F7; border-radius: 20px; padding: 14px"><span style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><span style="min-width: 0; overflow-wrap: anywhere">kontakt@mikronlab.rs</span></a>
+</div>
+</div>
+<form class="ldl-fade ldl-fx-right ldl-w2 ldl-form" style="flex: 1 1 460px; min-width: 0; background: #15111A; color: #FFFFFF; border-radius: 40px; padding: clamp(24px, 4vw, 56px); box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+<strong style="font-size: 24px; letter-spacing: -0.035em; margin-bottom: 8px">Pošaljite upit</strong>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #C9BFD3">Ime i prezime
+<input class="ldl-field" type="text" name="ime" style="font: inherit; font-weight: 500; font-size: 16px; color: #FFFFFF; padding: 15px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: rgba(255, 255, 255, 0.06)">
+</label>
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #C9BFD3">Ordinacija
+<input class="ldl-field" type="text" name="ordinacija" style="font: inherit; font-weight: 500; font-size: 16px; color: #FFFFFF; padding: 15px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: rgba(255, 255, 255, 0.06)">
+</label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #C9BFD3">Telefon
+<input class="ldl-field" type="tel" name="telefon" style="font: inherit; font-weight: 500; font-size: 16px; color: #FFFFFF; padding: 15px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: rgba(255, 255, 255, 0.06)">
+</label>
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #C9BFD3">Vrsta rada
+<select class="ldl-field" name="vrsta" style="font: inherit; font-weight: 500; font-size: 16px; color: #FFFFFF; padding: 15px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: #221C29">
+<option>Fasete</option>
+<option>Platinum fasete</option>
+<option>Bezmetalna keramika</option>
+<option>Cirkonijum krunice / mostovi</option>
+<option>All-on-X</option>
+<option>Metalokeramika</option>
+<option>Digital Smile Design</option>
+<option>Drugo</option>
+</select>
+</label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #C9BFD3">Opis slučaja
+<textarea class="ldl-field" name="poruka" rows="4" style="font: inherit; font-weight: 500; font-size: 16px; color: #FFFFFF; padding: 15px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; background: rgba(255, 255, 255, 0.06); resize: vertical"></textarea>
+</label>
+<button class="ldl-btn" type="submit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 10px; font: inherit; font-weight: 700; font-size: 15px; color: #15111A; background: #FFFFFF; border: 0; border-radius: 999px; padding: 7px 7px 7px 20px; cursor: pointer">Pošaljite upit
+<span style="width: 34px; height: 34px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+</button>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding: 56px 24px 0; overflow: hidden">
+<div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div class="ldl-fade" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; font-size: 14px; color: #5E5566">
+<div style="display: flex; align-items: center; gap: 12px">
+<img src="img/ld-logo.svg" alt="" style="width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 0 0 1px #E6E0EC">
+<span>© 2026 Mikron Lab</span>
+</div>
+<nav aria-label="Podnožje" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-weight: 600">
+<a class="ldl-link" href="#usluge" style="color: #15111A; text-decoration: none; padding: 10px 0">Usluge</a>
+<a class="ldl-link" href="#proces" style="color: #15111A; text-decoration: none; padding: 10px 0">Kako radimo</a>
+<a class="ldl-link" href="#radovi" style="color: #15111A; text-decoration: none; padding: 10px 0">Radovi</a>
+<a class="ldl-btn" href="https://www.instagram.com/mikronlab/" aria-label="Instagram @mikronlab" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF; border: 1px solid #E6E0EC; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: {{accent}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg></a>
+</nav>
+</div>
+<div aria-hidden="true" class="ldl-word ldl-fade ldl-w2" style="font-weight: 800; font-size: min(170px, calc((100vw - 48px) / 7.2)); letter-spacing: -0.07em; white-space: nowrap; margin-bottom: -0.08em"><span class="ldl-out">Mikron Lab</span><span class="ldl-glow" ref="{{shineRef}}">Mikron Lab</span></div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#5B2A86","options":["#5B2A86","#7A3FA8","#3E1A5E","#15111A"]},"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    this.setupReveal();
+    [this.h1aEl, this.h1bEl].forEach((el, i) => {
+      if (!el) return;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.filter = 'blur(8px)';
+      el.getBoundingClientRect();
+      const d = 150 + i * 280;
+      el.style.transition = 'opacity 1.1s ease ' + d + 'ms, transform 1.1s cubic-bezier(.2,.7,.2,1) ' + d + 'ms, filter 1.1s ease ' + d + 'ms';
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.filter = 'none';
+      }));
+    });
+    const dur = 6500;
+    let start = null;
+    const tick = (t) => {
+      if (start === null) start = t;
+      const p = ((t - start) % dur) / dur;
+      const bp = (96 - 92 * p) + '% 50%';
+      if (this.shineEl) this.shineEl.style.backgroundPosition = bp;
+      if (this.shineEl2) this.shineEl2.style.backgroundPosition = bp;
+      this.raf = window.requestAnimationFrame(tick);
+    };
+    this.raf = window.requestAnimationFrame(tick);
+  }
+  setupReveal() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('.ldl-fade'));
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    const start = (el) => {
+      const c = el.classList;
+      const narrow = window.innerWidth <= 640;
+      if (c.contains('ldl-fx-left')) return narrow ? 'translateY(36px)' : 'translateX(-48px)';
+      if (c.contains('ldl-fx-right')) return narrow ? 'translateY(36px)' : 'translateX(48px)';
+      if (c.contains('ldl-fx-zoom')) return 'scale(.94)';
+      return 'translateY(36px)';
+    };
+    const delayOf = (el) => {
+      const m = (el.className || '').toString().match(/ldl-w(\d+)/);
+      return m ? Number(m[1]) * 80 : 0;
+    };
+    const show = (el) => {
+      const d = delayOf(el);
+      el.style.transition = 'opacity .9s ease ' + d + 'ms, transform 1s ' + ease + ' ' + d + 'ms';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      window.setTimeout(() => { el.style.transition = ''; el.style.transform = ''; el.style.opacity = ''; }, d + 1100);
+    };
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = start(el);
+      el.style.willChange = 'opacity, transform';
+    });
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { this.io.unobserve(en.target); window.requestAnimationFrame(() => show(en.target)); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach((el) => this.io.observe(el));
+  }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    if (this.raf) window.cancelAnimationFrame(this.raf);
+  }
+  slideTo(e) {
+    const el = e.currentTarget;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100));
+    this.setState({ pos: Math.round(p) });
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#5B2A86';
+    const list = [
+      { name: 'Fasete', desc: 'Keramičke fasete minimalne debljine, uključujući izradu na vatrostalnom modelu (refractory die) za najfiniju estetiku.' },
+      { name: 'Platinum fasete', desc: 'Ultratanke fasete rađene tehnikom na platinskoj foliji, za slučajeve sa minimalnom preparacijom zuba.' },
+      { name: 'Bezmetalna keramika', desc: 'Krunice i fasete bez metalne osnove: prirodna prozirnost i bez tamnog ruba uz desni.' },
+      { name: 'Cirkonijum krunice i mostovi', desc: 'Monolitni i slojevani cirkonijum: čvrstina za bočnu regiju, prirodna translucencija za front.' },
+      { name: 'All-on-X', desc: 'Fiksni radovi na implantatima za bezubu vilicu, od privremenih do definitivnih nadoknada.' },
+      { name: 'Metalokeramika', desc: 'Proverena, pouzdana rešenja za krunice i mostove, sa pažljivo slojevanom keramikom.' },
+      { name: 'Digital Smile Design', desc: 'Digitalni plan osmeha i mock-up, da vi i pacijent odobrite oblik pre konačne izrade.' }
+    ];
+    const sel = (this.state && this.state.picked) || 0;
+    const services = list.map((s, i) => ({
+      ...s,
+      num: '0' + (i + 1),
+      pressed: i === sel ? 'true' : 'false',
+      color: i === sel ? accent : '#15111A',
+      bg: i === sel ? '#F1EAF8' : 'transparent',
+      numColor: i === sel ? '#FFFFFF' : '#5E5566',
+      numBg: i === sel ? accent : '#F1EDF5',
+      arrowBg: i === sel ? accent : '#F1EDF5',
+      arrowColor: i === sel ? '#FFFFFF' : '#8A7E95',
+      pick: () => this.setState({ picked: i })
+    }));
+    const current = { ...list[sel], num: '0' + (sel + 1) };
+    const pos = (this.state && this.state.pos != null) ? this.state.pos : 50;
+    return {
+      accent, services, current, total: list.length,
+      shineRef: (el) => { this.shineEl = el; },
+      menuOpen: !!(this.state && this.state.menu),
+      menuClosed: !(this.state && this.state.menu),
+      menuExpanded: (this.state && this.state.menu) ? 'true' : 'false',
+      menuLabel: (this.state && this.state.menu) ? 'Zatvori meni' : 'Otvori meni',
+      toggleMenu: () => this.setState({ menu: !(this.state && this.state.menu) }),
+      closeMenu: () => { if (this.state && this.state.menu) this.setState({ menu: false }); },
+      shineRef2: (el) => { this.shineEl2 = el; },
+      h1a: (el) => { this.h1aEl = el; },
+      h1b: (el) => { this.h1bEl = el; },
+      pos,
+      clip: 'inset(0 0 0 ' + pos + '%)',
+      handle: pos + '%',
+      onSlide: (e) => this.setState({ pos: Number(e.target.value) }),
+      slideDown: (e) => { this.sliding = true; this.slideTo(e); },
+      slideMove: (e) => { if (this.sliding) this.slideTo(e); },
+      slideUp: () => { this.sliding = false; }
+    };
+  }
+}
+</script>
+</body>
+</html>

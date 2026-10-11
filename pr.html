@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Domara Nekretnine — Početna</title>
+<script src="./support.js"></script>
+<style>html,body{overflow-x:hidden}@supports(overflow:clip){html,body{overflow-x:clip}}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F6F5F2;font-family:'Work Sans',system-ui,sans-serif;color:#141311;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;}
+  a{color:#141311;text-decoration:none;}
+  a:hover{opacity:0.62;}
+  button{font-family:'Work Sans',sans-serif;cursor:pointer;}
+  input,textarea{font-family:'Work Sans',sans-serif;outline:none;}
+  input::placeholder,textarea::placeholder{color:#8B8880;}
+  .container{max-width:1200px;margin:0 auto;padding:0 64px;box-sizing:border-box;}
+  .hatch{background-image:repeating-linear-gradient(135deg,#E2DFD8 0,#E2DFD8 1px,transparent 1px,transparent 13px);background-color:#EFEEEA;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .nav-links{display:flex;gap:40px;align-items:center;}
+  .eyebrow{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#55524B;margin:0 0 16px 0;}
+  .h2{font-weight:800;font-size:clamp(32px,3.4vw,46px);line-height:1.06;letter-spacing:-0.02em;margin:0;color:#141311;}
+  .btn-primary{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 30px;background:#141311;color:#F6F5F2;font-size:15px;font-weight:600;border:1.5px solid #141311;border-radius:999px;box-shadow:0 14px 28px -12px rgba(20,19,17,0.45);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease;}
+  .btn-primary:hover{background:#F6F5F2;color:#141311;box-shadow:0 8px 18px -10px rgba(20,19,17,0.25);}
+  .btn-secondary{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 30px;background:transparent;color:#141311;font-size:15px;font-weight:600;border:1.5px solid #141311;border-radius:999px;transition:background-color .3s ease,color .3s ease;}
+  .btn-secondary:hover{background:#141311;color:#F6F5F2;}
+  .card{background:#FFFFFF;border-radius:20px;box-shadow:0 10px 28px -12px rgba(20,19,17,0.14);}
+  .card-hover{transition:box-shadow .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);}
+  .card-hover:hover{box-shadow:0 24px 44px -14px rgba(20,19,17,0.24);transform:translateY(-5px);}
+  .listing-img{transition:transform .6s cubic-bezier(.16,1,.3,1);}
+  .card-hover:hover .listing-img{transform:scale(1.07);}
+  .service-icon{transition:background .3s ease;}
+  .service-icon svg{transition:stroke .3s ease;}
+  .card:hover .service-icon{background:#141311;}
+  .card:hover .service-icon svg{stroke:#F6F5F2;}
+  .field label{display:block;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8F8C84;margin-bottom:8px;}
+  .field input,.field textarea{width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.14);border-radius:12px;color:#F6F5F2;height:50px;padding:0 18px;font-size:15px;transition:border-color .25s ease,background .25s ease;}
+  .field textarea{height:116px;padding:14px 18px;resize:none;}
+  .field input:focus,.field textarea:focus{border-color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.09);}
+  .social-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:#FFFFFF;box-shadow:0 4px 14px -6px rgba(20,19,17,0.18);transition:background-color .3s ease,box-shadow .3s ease;}
+  .social-btn:hover{background:#141311;box-shadow:0 10px 20px -10px rgba(20,19,17,0.35);}
+  .social-btn:hover svg{stroke:#FFFFFF;}
+  .social-btn:hover svg circle[fill]{fill:#FFFFFF;}
+
+  #site-nav{transition:box-shadow .35s ease;}
+  #site-nav.is-scrolled{box-shadow:0 8px 24px -16px rgba(20,19,17,0.2);}
+  #site-nav .nav-inner{transition:height .35s ease;}
+  #site-nav.is-scrolled .nav-inner{height:68px;}
+
+  .nav-links a{position:relative;opacity:1;}
+  .nav-links a::after{content:'';position:absolute;left:0;right:100%;bottom:-4px;height:1.5px;background:#141311;transition:right .3s cubic-bezier(.16,1,.3,1);}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a:hover::after{right:0;}
+
+  .reveal.reveal-armed{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+  .reveal.reveal-armed.is-visible{opacity:1;transform:translateY(0);}
+  .reveal-d1{transition-delay:.1s;}
+  .reveal-d2{transition-delay:.2s;}
+  .reveal-d3{transition-delay:.3s;}
+  .reveal-d4{transition-delay:.4s;}
+
+  @keyframes fadeUpIn{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  .hero-anim{opacity:0;animation:fadeUpIn 1s cubic-bezier(.16,1,.3,1) forwards;}
+  .hero-anim-1{animation-delay:.05s;}
+  .hero-anim-2{animation-delay:.18s;}
+  .hero-anim-3{animation-delay:.32s;}
+  .hero-anim-4{animation-delay:.46s;}
+  .hero-anim-5{animation-delay:.58s;}
+
+  @keyframes floatY{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-16px) rotate(-1.5deg);}}
+  .float-card{animation:floatY 4s ease-in-out infinite;}
+
+  @keyframes blobPulse{0%,100%{transform:scale(1);opacity:.55;}50%{transform:scale(1.3);opacity:.9;}}
+  .blob{animation:blobPulse 6s ease-in-out infinite;}
+
+  .project-row{display:flex;align-items:center;gap:32px;padding:28px 0;border-bottom:1px solid rgba(20,19,17,0.1);}
+  .project-row:last-child{border-bottom:none;}
+  .project-row img{width:140px;height:100px;object-fit:cover;border-radius:12px;flex-shrink:0;display:block;transition:transform .4s cubic-bezier(.16,1,.3,1);}
+  .project-row:hover img{transform:scale(1.05);}
+
+  .step-row{display:flex;justify-content:space-between;gap:16px;}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal.reveal-armed{opacity:1 !important;transform:none !important;transition:none !important;}
+    .hero-anim{animation:none !important;opacity:1 !important;}
+    .float-card,.blob{animation:none !important;}
+  }
+
+  @media (max-width:920px){
+    .container{padding:0 24px;}
+    .grid-3{grid-template-columns:1fr;}
+    .grid-4{grid-template-columns:1fr 1fr;}
+    .grid-2{grid-template-columns:1fr;gap:40px;}
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr !important;}
+    .stats-grid{grid-template-columns:1fr !important;gap:20px !important;margin-top:-32px !important;}
+    .stats-grid>div{border-right:none !important;border-bottom:1px solid rgba(20,19,17,0.08);padding-bottom:20px !important;}
+    .testi-grid{gap:32px !important;}
+    .testi-grid>div{border-right:none !important;padding:0 !important;border-bottom:1px solid rgba(246,245,242,0.14);padding-bottom:28px !important;}
+    .testi-grid>div:last-child{border-bottom:none !important;padding-bottom:0 !important;}
+    .project-row{gap:16px !important;}
+    .project-row img{width:76px !important;height:76px !important;}
+    .proj-arrow{display:none !important;}
+    .step-row{flex-direction:column !important;gap:28px !important;}
+    .step-line{display:none !important;}
+    .contact-panel{padding:40px 28px !important;border-radius:24px !important;}
+  }
+  @media (max-width:480px){
+    .grid-4{grid-template-columns:1fr !important;}
+    .hero-h1{font-size:34px !important;}
+    .stats-card{padding:28px 22px !important;}
+  }
+</style>
+</helmet>
+
+<div id="top" style="width:100%;background:#F6F5F2;">
+
+<!-- NAV -->
+<div id="site-nav" style="position:sticky;top:0;z-index:20;background:rgba(246,245,242,0.72);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(20,19,17,0.08);">
+  <div class="container nav-inner" style="display:flex;align-items:center;justify-content:space-between;height:84px;">
+    <a href="#top" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.02em;">DOMARA</a>
+    <nav class="nav-links">
+      <a href="#ponuda" style="font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;">Nekretnine</a>
+      <a href="#projekti" style="font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;">Projekti</a>
+      <a href="#usluge" style="font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;">Usluge</a>
+      <a href="#o-nama" style="font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;">O nama</a>
+      <a href="#kontakt" style="font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="btn-primary" style="height:44px;padding:0 22px;font-size:13px;text-transform:uppercase;letter-spacing:0.04em;box-shadow:none;">Zakažite razgovor</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section style="padding:88px 0 64px 0;overflow:visible;position:relative;">
+  <div class="container hero-grid" style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;position:relative;z-index:1;">
+    <div>
+      <p class="eyebrow hero-anim hero-anim-1">Agencija za nekretnine</p>
+      <h1 class="hero-anim hero-anim-2 hero-h1" style="font-weight:800;font-size:clamp(40px,5.2vw,72px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 28px 0;">Nekretnine bez<br><span style="color:#8B8880;">nagađanja.</span></h1>
+      <p class="hero-anim hero-anim-3" style="font-size:19px;line-height:1.6;color:#3A3832;max-width:460px;margin:0 0 36px 0;">DOMARA vam pomaže da kupite, prodate ili iznajmite nekretninu jasno i bez stresa — uz posrednika koji vas vodi od prve posete do primopredaje ključeva.</p>
+
+      <div class="hero-anim hero-anim-4" style="display:flex;flex-wrap:wrap;border-radius:18px;overflow:hidden;box-shadow:0 20px 44px -16px rgba(20,19,17,0.22);background:#FFFFFF;">
+        <div style="flex:1 1 150px;padding:14px 18px;border-right:1px solid rgba(20,19,17,0.08);box-sizing:border-box;">
+          <label for="hero-loc" style="display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8B8880;margin-bottom:4px;">Lokacija</label>
+          <select id="hero-loc" name="lokacija" style="width:100%;border:none;background:transparent;font-size:14px;font-weight:600;color:#141311;padding:0;">
+            <option>Svi delovi grada</option>
+            <option>Centar grada</option>
+            <option>Priobalje</option>
+            <option>Zelena zona</option>
+            <option>Poslovni kraj</option>
+            <option>Mirno naselje</option>
+            <option>Prigradska zona</option>
+          </select>
+        </div>
+        <div style="flex:1 1 150px;padding:14px 18px;border-right:1px solid rgba(20,19,17,0.08);box-sizing:border-box;">
+          <label for="hero-tip" style="display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8B8880;margin-bottom:4px;">Tip nekretnine</label>
+          <select id="hero-tip" name="tip" style="width:100%;border:none;background:transparent;font-size:14px;font-weight:600;color:#141311;padding:0;">
+            <option>Stan</option>
+            <option>Kuća</option>
+            <option>Poslovni prostor</option>
+          </select>
+        </div>
+        <div style="flex:1 1 130px;padding:14px 18px;box-sizing:border-box;">
+          <label for="hero-cena" style="display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8B8880;margin-bottom:4px;">Cena do</label>
+          <select id="hero-cena" name="cena" style="width:100%;border:none;background:transparent;font-size:14px;font-weight:600;color:#141311;padding:0;">
+            <option>Bez limita</option>
+            <option>100.000 €</option>
+            <option>200.000 €</option>
+            <option>350.000 €</option>
+          </select>
+        </div>
+        <button type="button" aria-label="Pretraži ponudu" style="flex:0 0 60px;display:flex;align-items:center;justify-content:center;background:#141311;border:none;color:#F6F5F2;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6F5F2" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+      </div>
+      <a href="#ponuda" class="hero-anim hero-anim-5" style="display:inline-block;margin-top:20px;font-size:14px;font-weight:600;border-bottom:1px solid #141311;padding-bottom:2px;">Ili pogledajte svu ponudu →</a>
+    </div>
+
+    <div class="hero-anim hero-anim-3" style="position:relative;margin-bottom:40px;">
+      <div class="blob" style="position:absolute;top:-60px;right:-60px;width:420px;height:420px;background:radial-gradient(circle,rgba(20,19,17,0.07),rgba(20,19,17,0) 70%);filter:blur(30px);pointer-events:none;z-index:0;"></div>
+      <img src="img/pr-slika-3.jpg" alt="Moderna stambena zgrada u zalasku sunca" style="position:relative;z-index:1;display:block;aspect-ratio:4/5;width:80%;margin-left:auto;border-radius:24px;box-shadow:0 24px 48px -20px rgba(20,19,17,0.28);object-fit:cover;" />
+      <img src="img/pr-slika-8.jpg" alt="Svetao, minimalistički uređen dnevni boravak" style="position:absolute;z-index:1;left:0;bottom:-32px;width:46%;aspect-ratio:1/1;border-radius:18px;border:4px solid #F6F5F2;box-shadow:0 16px 32px -14px rgba(20,19,17,0.22);object-fit:cover;display:block;" />
+      <div class="float-card" style="position:absolute;z-index:2;left:-20px;top:42%;background:#141311;color:#F6F5F2;padding:22px 24px;width:190px;border-radius:16px;box-sizing:border-box;box-shadow:0 24px 44px -16px rgba(20,19,17,0.4);">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;"><span data-count-to="240" data-suffix="+">240+</span></div>
+        <div style="font-size:13px;color:#B7B4AC;margin-top:6px;line-height:1.4;">nekretnina trenutno u ponudi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS (overlapping elevated card) -->
+<section style="padding:0 0 112px 0;position:relative;z-index:2;">
+  <div class="container">
+    <div class="card grid-3 stats-grid stats-card reveal" style="padding:40px 48px;margin-top:-40px;">
+      <div style="padding-right:32px;border-right:1px solid rgba(20,19,17,0.08);">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:36px;"><span data-count-to="14" data-suffix="+">14+</span></div>
+        <div style="font-size:14px;color:#55524B;margin-top:6px;">godina iskustva na tržištu</div>
+      </div>
+      <div style="padding-left:8px;padding-right:32px;border-right:1px solid rgba(20,19,17,0.08);">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:36px;"><span data-count-to="520" data-suffix="+">520+</span></div>
+        <div style="font-size:14px;color:#55524B;margin-top:6px;">zatvorenih kupoprodaja i zakupa</div>
+      </div>
+      <div style="padding-left:8px;">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:36px;"><span data-count-to="97" data-suffix="%">97%</span></div>
+        <div style="font-size:14px;color:#55524B;margin-top:6px;">klijenata nas preporučuje dalje</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section id="ponuda" style="padding:0 0 112px 0;">
+  <div class="container">
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap;">
+      <div>
+        <p class="eyebrow">Izdvojeno</p>
+        <h2 class="h2">Ponuda ove nedelje</h2>
+      </div>
+      <a href="Sve-nekretnine.dc.html" style="font-size:15px;font-weight:600;border-bottom:1px solid #141311;padding-bottom:2px;white-space:nowrap;">Sve nekretnine →</a>
+    </div>
+    <div class="grid-3">
+
+      <div class="card card-hover reveal" style="overflow:hidden;">
+        <div style="aspect-ratio:4/3;position:relative;overflow:hidden;">
+          <img class="listing-img" src="img/pr-slika-10.jpg" alt="Trosoban stan u centru grada" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+          <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;background:#141311;color:#F6F5F2;padding:6px 12px;border-radius:999px;">Izdvojeno</span>
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-weight:700;font-size:20px;margin:0 0 6px 0;">Trosoban stan u centru grada</h3>
+          <p style="font-size:14px;color:#55524B;margin:0 0 16px 0;">78 m² · 3 sobe · 2 kupatila</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:16px;font-weight:700;">Cena na upit</span>
+            <a href="Nekretnina-Vracar.dc.html" style="font-size:13px;font-weight:600;border-bottom:1px solid #141311;padding:0 0 2px 0;color:#141311;">Detaljnije</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-hover reveal reveal-d1" style="overflow:hidden;">
+        <div style="aspect-ratio:4/3;position:relative;overflow:hidden;">
+          <img class="listing-img" src="img/pr-slika-2.jpg" alt="Porodična kuća sa dvorištem" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+          <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;background:#141311;color:#F6F5F2;padding:6px 12px;border-radius:999px;">Nova ponuda</span>
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-weight:700;font-size:20px;margin:0 0 6px 0;">Porodična kuća sa dvorištem</h3>
+          <p style="font-size:14px;color:#55524B;margin:0 0 16px 0;">210 m² · 5 soba · dvorište</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:16px;font-weight:700;">Cena na upit</span>
+            <a href="Nekretnina-Zemun.dc.html" style="font-size:13px;font-weight:600;border-bottom:1px solid #141311;padding:0 0 2px 0;color:#141311;">Detaljnije</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-hover reveal reveal-d2" style="overflow:hidden;">
+        <div style="aspect-ratio:4/3;position:relative;overflow:hidden;">
+          <img class="listing-img" src="img/pr-slika-6.jpg" alt="Kancelarijski prostor u poslovnoj zoni" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+          <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;background:#141311;color:#F6F5F2;padding:6px 12px;border-radius:999px;">Poslovni prostor</span>
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-weight:700;font-size:20px;margin:0 0 6px 0;">Kancelarijski prostor u poslovnoj zoni</h3>
+          <p style="font-size:14px;color:#55524B;margin:0 0 16px 0;">140 m² · open space</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:16px;font-weight:700;">Cena na upit</span>
+            <a href="Nekretnina-NoviBeograd.dc.html" style="font-size:13px;font-weight:600;border-bottom:1px solid #141311;padding:0 0 2px 0;color:#141311;">Detaljnije</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-hover reveal reveal-d3" style="overflow:hidden;">
+        <div style="aspect-ratio:4/3;position:relative;overflow:hidden;">
+          <img class="listing-img" src="img/pr-slika-7.jpg" alt="Garsonjera u gradskom jezgru" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+          <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;background:#141311;color:#F6F5F2;padding:6px 12px;border-radius:999px;">Za izdavanje</span>
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-weight:700;font-size:20px;margin:0 0 6px 0;">Garsonjera u gradskom jezgru</h3>
+          <p style="font-size:14px;color:#55524B;margin:0 0 16px 0;">32 m² · 1 soba · 1 kupatilo</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:16px;font-weight:700;">Cena na upit</span>
+            <a href="Nekretnina-Dorcol.dc.html" style="font-size:13px;font-weight:600;border-bottom:1px solid #141311;padding:0 0 2px 0;color:#141311;">Detaljnije</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-hover reveal reveal-d4" style="overflow:hidden;">
+        <div style="aspect-ratio:4/3;position:relative;overflow:hidden;">
+          <img class="listing-img" src="img/pr-slika-11.jpg" alt="Vikendica u prirodi" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+          <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;background:#141311;color:#F6F5F2;padding:6px 12px;border-radius:999px;">Vikendica</span>
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-weight:700;font-size:20px;margin:0 0 6px 0;">Vikendica u prirodi</h3>
+          <p style="font-size:14px;color:#55524B;margin:0 0 16px 0;">95 m² · 3 sobe · 600 m² plac</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:16px;font-weight:700;">Cena na upit</span>
+            <a href="Nekretnina-Avala.dc.html" style="font-size:13px;font-weight:600;border-bottom:1px solid #141311;padding:0 0 2px 0;color:#141311;">Detaljnije</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-hover reveal" style="overflow:hidden;">
+        <div style="aspect-ratio:4/3;position:relative;overflow:hidden;">
+          <img class="listing-img" src="img/pr-slika-4.jpg" alt="Ekskluzivan penthouse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+          <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;background:#141311;color:#F6F5F2;padding:6px 12px;border-radius:999px;">Ekskluzivno</span>
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-weight:700;font-size:20px;margin:0 0 6px 0;">Ekskluzivan penthouse</h3>
+          <p style="font-size:14px;color:#55524B;margin:0 0 16px 0;">165 m² · 4 sobe · terasa 60 m²</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:16px;font-weight:700;">Cena na upit</span>
+            <a href="Nekretnina-Dedinje.dc.html" style="font-size:13px;font-weight:600;border-bottom:1px solid #141311;padding:0 0 2px 0;color:#141311;">Detaljnije</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projekti" style="padding:112px 0;background:#EFEEEA;">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;max-width:620px;">
+      <p class="eyebrow">Naši projekti</p>
+      <h2 class="h2">Veći stambeni i poslovni kompleksi</h2>
+    </div>
+    <div class="reveal">
+      <a href="#kontakt" class="project-row">
+        <img src="img/pr-slika-1.jpg" alt="Rezidencija Obala" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <h3 style="font-weight:700;font-size:19px;margin:0;">Rezidencija Obala</h3>
+            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8B8880;">U izgradnji</span>
+          </div>
+          <p style="font-size:14px;color:#55524B;margin:4px 0 0 0;">86 stanova · Priobalna zona</p>
+        </div>
+        <span class="proj-arrow" style="font-size:20px;color:#8B8880;flex-shrink:0;">→</span>
+      </a>
+      <a href="#kontakt" class="project-row">
+        <img src="img/pr-slika-9.jpg" alt="Rečni tornjevi" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <h3 style="font-weight:700;font-size:19px;margin:0;">Rečni tornjevi</h3>
+            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8B8880;">Useljivo odmah</span>
+          </div>
+          <p style="font-size:14px;color:#55524B;margin:4px 0 0 0;">Stanovi i poslovni prostor · Poslovni kraj</p>
+        </div>
+        <span class="proj-arrow" style="font-size:20px;color:#8B8880;flex-shrink:0;">→</span>
+      </a>
+      <a href="#kontakt" class="project-row">
+        <img src="img/pr-slika-5.jpg" alt="Zelene vile" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <h3 style="font-weight:700;font-size:19px;margin:0;">Zelene vile</h3>
+            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8B8880;">Faza prodaje</span>
+          </div>
+          <p style="font-size:14px;color:#55524B;margin:4px 0 0 0;">12 vila · Zelena zona</p>
+        </div>
+        <span class="proj-arrow" style="font-size:20px;color:#8B8880;flex-shrink:0;">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="usluge" style="padding:96px 0;">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:56px;max-width:560px;">
+      <p class="eyebrow">Usluge</p>
+      <h2 class="h2">Kako izgleda saradnja sa nama</h2>
+    </div>
+    <div class="reveal" style="position:relative;">
+      <div class="step-line" style="position:absolute;top:21px;left:0;right:0;height:1px;background:rgba(20,19,17,0.14);"></div>
+      <div class="step-row">
+        <div style="flex:1;max-width:250px;">
+          <div style="width:42px;height:42px;border-radius:999px;background:#141311;color:#F6F5F2;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;position:relative;z-index:1;margin-bottom:18px;">01</div>
+          <div style="font-weight:700;font-size:16px;margin-bottom:6px;">Prvi razgovor</div>
+          <div style="font-size:14px;color:#55524B;line-height:1.5;">Utvrdimo šta tražite i u kom roku.</div>
+        </div>
+        <div style="flex:1;max-width:250px;">
+          <div style="width:42px;height:42px;border-radius:999px;background:#141311;color:#F6F5F2;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;position:relative;z-index:1;margin-bottom:18px;">02</div>
+          <div style="font-weight:700;font-size:16px;margin-bottom:6px;">Obilasci</div>
+          <div style="font-size:14px;color:#55524B;line-height:1.5;">Zakazujemo i vodimo vas kroz ponudu.</div>
+        </div>
+        <div style="flex:1;max-width:250px;">
+          <div style="width:42px;height:42px;border-radius:999px;background:#141311;color:#F6F5F2;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;position:relative;z-index:1;margin-bottom:18px;">03</div>
+          <div style="font-weight:700;font-size:16px;margin-bottom:6px;">Pregovori</div>
+          <div style="font-size:14px;color:#55524B;line-height:1.5;">Pregovaramo uslove i cenu u vaše ime.</div>
+        </div>
+        <div style="flex:1;max-width:250px;">
+          <div style="width:42px;height:42px;border-radius:999px;background:#141311;color:#F6F5F2;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;position:relative;z-index:1;margin-bottom:18px;">04</div>
+          <div style="font-weight:700;font-size:16px;margin-bottom:6px;">Papirologija</div>
+          <div style="font-size:14px;color:#55524B;line-height:1.5;">Ugovor i overa, korak po korak.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="zasto" style="padding:96px 0;background:#EFEEEA;">
+  <div class="container grid-2" style="align-items:center;">
+    <div class="reveal">
+      <p class="eyebrow">Zašto DOMARA</p>
+      <h2 class="h2" style="margin-bottom:20px;">Pristup u kome znate šta se dešava, u svakom trenutku.</h2>
+      <p style="font-size:16px;line-height:1.65;color:#3A3832;margin:0;">Nekretnine su retko jednostavna odluka. Zato radimo transparentno — bez skrivenih provizija i bez pritiska da potpišete pre nego što ste sigurni.</p>
+    </div>
+    <div class="reveal reveal-d1" style="border-left:3px solid #141311;padding-left:28px;">
+      <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:23px;line-height:1.4;letter-spacing:-0.01em;color:#141311;margin:0 0 14px 0;">Jedan agent, od prve posete do ključeva u ruci.</p>
+      <p style="font-size:14px;color:#55524B;margin:0;">Bez prebacivanja između kolega i bez gubljenja konteksta — odgovor isti radni dan, obilazak u roku od 48 sati.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / AGENT -->
+<section id="o-nama" style="padding:112px 0;">
+  <div class="container" style="max-width:720px;text-align:center;">
+    <p class="eyebrow reveal" style="margin-left:auto;margin-right:auto;">Tim</p>
+    <h2 class="h2 reveal reveal-d1" style="margin-bottom:20px;">Upoznajte agenta</h2>
+    <p class="reveal reveal-d2" style="font-size:17px;line-height:1.7;color:#3A3832;margin:0 0 16px 0;">Marko Jovanović je licencirani posrednik u prometu nepokretnosti sa 14 godina iskustva, specijalizovan za stambene nekretnine. Ličan pristup svakom klijentu, bez obzira na veličinu transakcije.</p>
+    <a href="#kontakt" class="reveal reveal-d3" style="display:inline-block;font-size:15px;font-weight:600;border-bottom:1px solid #141311;padding-bottom:2px;">Zakažite konsultacije →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="padding:112px 0;background:#141311;">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 56px auto;">
+      <p class="eyebrow" style="color:#A9A69E;margin:0 auto 12px auto;">Utisci klijenata</p>
+      <h2 class="h2" style="color:#F6F5F2;">Šta kažu oni koji su već prošli kroz proces</h2>
+    </div>
+    <div class="grid-3 testi-grid reveal">
+      <div style="padding-right:32px;border-right:1px solid rgba(246,245,242,0.14);">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#4A4842;margin-bottom:14px;">"</div>
+        <p style="font-size:15px;line-height:1.65;color:#C7C4BC;margin:0 0 20px 0;">Prodaja stana je za nas bila potpuno bezbolna — DOMARA je organizovao sve obilaske, pregovarao cenu i vodio nas kroz papirologiju korak po korak.</p>
+        <p style="font-size:14px;font-weight:600;color:#F6F5F2;margin:0;">Primer utiska</p>
+        <p style="font-size:13px;color:#8B8880;margin:2px 0 0 0;">Prodaja stana</p>
+      </div>
+      <div style="padding:0 32px;border-right:1px solid rgba(246,245,242,0.14);">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#4A4842;margin-bottom:14px;">"</div>
+        <p style="font-size:15px;line-height:1.65;color:#C7C4BC;margin:0 0 20px 0;">Tražili smo kuću skoro šest meseci sami, bez rezultata — agent nam je u dve nedelje organizovao pet obilazaka koji su stvarno odgovarali onome što smo tražili.</p>
+        <p style="font-size:14px;font-weight:600;color:#F6F5F2;margin:0;">Primer utiska</p>
+        <p style="font-size:13px;color:#8B8880;margin:2px 0 0 0;">Kupovina kuće</p>
+      </div>
+      <div style="padding-left:32px;">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#4A4842;margin-bottom:14px;">"</div>
+        <p style="font-size:15px;line-height:1.65;color:#C7C4BC;margin:0 0 20px 0;">Izdavanje poslovnog prostora preko agencije uštedelo nam je mesece provere zakupaca, uz ugovor pripremljen korektno i transparentno.</p>
+        <p style="font-size:14px;font-weight:600;color:#F6F5F2;margin:0;">Primer utiska</p>
+        <p style="font-size:13px;color:#8B8880;margin:2px 0 0 0;">Izdavanje poslovnog prostora</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section style="padding:0 0 112px 0;">
+  <div class="container">
+    <div class="contact-panel reveal" style="background:#141311;color:#F6F5F2;border-radius:32px;padding:72px 64px;">
+      <div class="grid-2">
+        <div>
+          <p class="eyebrow" style="color:#A9A69E;">Kontakt</p>
+          <h2 class="h2" style="color:#F6F5F2;margin-bottom:20px;">Spremni za sledeći korak?</h2>
+          <p style="font-size:16px;line-height:1.65;color:#B7B4AC;max-width:420px;margin:0 0 40px 0;">Ostavite poruku i javljamo se isti radni dan — ili nas kontaktirajte direktno.</p>
+
+          <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:8px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6F5F2" stroke-width="1.5" style="margin-top:2px;flex-shrink:0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+              <span style="font-size:15px;">kontakt@domaranekretnine.rs</span>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6F5F2" stroke-width="1.5" style="margin-top:2px;flex-shrink:0;"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span style="font-size:15px;">Bulevar primer 12</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div class="field">
+            <label for="ime">Ime i prezime</label>
+            <input id="ime" name="ime" type="text" placeholder="Vaše ime">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="vas@email.com">
+          </div>
+          <div class="field">
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="tel" placeholder="+381 ...">
+          </div>
+          <div class="field">
+            <label for="poruka">Poruka</label>
+            <textarea id="poruka" name="poruka" placeholder="Opišite šta tražite..."></textarea>
+          </div>
+          <button type="button" style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;background:#F6F5F2;color:#141311;font-size:15px;font-weight:600;border:none;border-radius:999px;margin-top:4px;">Pošaljite poruku</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:56px 0;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+    <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+      <a href="#top" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;">DOMARA</a>
+      <span style="font-size:13px;color:#55524B;">© 2026 Domara Nekretnine. Sva prava zadržana.</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+      <a href="javascript:void(0)" style="font-size:13px;color:#55524B;">Politika privatnosti</a>
+      <a href="javascript:void(0)" style="font-size:13px;color:#55524B;">Uslovi korišćenja</a>
+      <div style="display:flex;gap:14px;">
+        <a href="javascript:void(0)" aria-label="Instagram" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141311" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="#141311" stroke="none"/></svg></a>
+        <a href="javascript:void(0)" aria-label="Facebook" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141311" stroke-width="1.5"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
+        <a href="javascript:void(0)" aria-label="LinkedIn" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141311" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6440}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._observers = [];
+    this.setupRevealAnimations();
+    this.setupStatCounters();
+    this.setupNavScroll();
+  }
+
+  componentWillUnmount() {
+    if (this._observers) {
+      this._observers.forEach((o) => o.disconnect());
+    }
+    if (this._onScroll) {
+      window.removeEventListener('scroll', this._onScroll);
+    }
+    if (this._revealSafety) {
+      clearTimeout(this._revealSafety);
+    }
+  }
+
+  setupRevealAnimations() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    // Progressive enhancement: only hide elements once JS has actually taken
+    // over, so content is never stuck invisible if something goes wrong.
+    els.forEach((el) => el.classList.add('reveal-armed'));
+    const reveal = (el) => el.classList.add('is-visible');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          reveal(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((el) => observer.observe(el));
+    this._observers.push(observer);
+    // Safety net: guarantee everything is visible even if the observer
+    // never fires for some reason (e.g. an unusual preview viewport).
+    this._revealSafety = setTimeout(() => {
+      els.forEach(reveal);
+    }, 2500);
+  }
+
+  setupStatCounters() {
+    const statEls = Array.prototype.slice.call(document.querySelectorAll('[data-count-to]'));
+    if (!statEls.length) return;
+    const animateCount = (el) => {
+      const target = parseFloat(el.getAttribute('data-count-to')) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1400;
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(target * eased);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (!('IntersectionObserver' in window)) {
+      statEls.forEach(animateCount);
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statEls.forEach((el) => observer.observe(el));
+    this._observers.push(observer);
+  }
+
+  setupNavScroll() {
+    const nav = document.getElementById('site-nav');
+    if (!nav) return;
+    this._onScroll = () => {
+      if (window.scrollY > 24) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

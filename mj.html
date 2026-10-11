@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nest Beauty | Kragujevac</title>
+<script>try{history.scrollRestoration="manual"}catch(e){}if(!location.hash){addEventListener("load",function(){scrollTo(0,0)})}</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -17,13 +18,14 @@ body{margin:0;background:#E9EDE4}
 .mj-in{animation:mjFadeUp .9s cubic-bezier(.2,.7,.2,1) both}
 .mj-d1{animation-delay:.12s}
 .mj-d2{animation-delay:.3s}
-@supports (animation-timeline: view()){.mj-reveal{animation:mjFadeUp linear both;animation-timeline:view();animation-range:entry 0% entry 35%}}
-@media (prefers-reduced-motion: reduce){.mj-in,.mj-reveal{animation:none!important}}
+html.mj-js .mj-reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+html.mj-js .mj-reveal[data-rv]{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.mj-in,.mj-reveal{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
 a{color:#16271D}a:hover{color:#000000}
 .mj-nav{display:flex}.mj-burger,.mj-mnav{display:none}
 @media (max-width: 860px){.mj-nav{display:none}.mj-burger{display:inline-flex}.mj-mnav{display:flex}}
 @media (max-width: 420px){.mj-eyebrow{letter-spacing:.12em!important;font-size:12px!important}.mj-card{padding:22px!important}}
-@media (max-width: 600px){.mj-slider{flex-wrap:nowrap!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px!important}.mj-slider::-webkit-scrollbar{display:none}.mj-slide{flex:0 0 100%!important;height:auto!important;aspect-ratio:4/5;scroll-snap-align:center;scroll-snap-stop:always}.mj-cta{width:100%;justify-content:space-between}.mj-fl{width:52px;padding:0!important;justify-content:center}.mj-fl-label{display:none}}
+@media (max-width: 600px){.mj-slider{flex-wrap:nowrap!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y;scrollbar-width:none;gap:12px!important}.mj-slider::-webkit-scrollbar{display:none}.mj-slide{flex:0 0 100%!important;height:auto!important;aspect-ratio:4/5;scroll-snap-align:center}.mj-cta{width:100%;justify-content:space-between}.mj-fl{width:52px;padding:0!important;justify-content:center}.mj-fl-label{display:none}}
 </style>
 </helmet>
 <div style="font-family: 'Geist', system-ui, sans-serif; color: #16271D; background: #E9EDE4; width: 100%; overflow-x: clip; box-sizing: border-box; display: flex; flex-direction: column">
@@ -254,6 +256,17 @@ Studio za negu lica · Kragujevac
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"sage":{"editor":"color","default":"#B8CCA9","options":["#B8CCA9","#C9D6BC","#A7BC98"]},"$preview":{"width":1440,"height":6400}}'>
 class Component extends DCLogic {
+componentDidMount() {
+const root = document.documentElement;
+if (!('IntersectionObserver' in window)) return;
+root.classList.add('mj-js');
+const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-rv', ''); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+const scan = () => document.querySelectorAll('.mj-reveal:not([data-rv])').forEach((el) => { if (!el.__rv) { el.__rv = 1; io.observe(el); } });
+scan();
+this._mo = new MutationObserver(scan); this._mo.observe(document.body, { childList: true, subtree: true });
+this._io = io;
+}
+componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._mo) this._mo.disconnect(); }
 renderVals() {
 const s = this.state || {};
 const names = ['Face up masaža', 'Zatezanje lica', 'Masaža tela'];
@@ -287,7 +300,7 @@ faqs: [
 ['Da li je tretman bolan?', 'Ne. Pritisak prilagođavam vama, a tokom tretmana uvek možete da kažete ako vam nešto ne prija.'],
 ['Kome se tretman ne preporučuje?', 'Uz akutne upale ili povrede kože lica, povišenu temperaturu ili skorašnje estetske zahvate tretman odlažemo. Ako niste sigurni, pitajte pre zakazivanja.'],
 ['Kako da se pripremim?', 'Najbolje je da dođete bez šminke. Peškire, ulja i sve ostalo imam u studiju.'],
-['Mogu li da otkažem ili pomerim termin?', 'Naravno. Javite se najkasnije [24] sata ranije kako bih termin mogao da ponudim nekom drugom.']
+['Mogu li da otkažem ili pomerim termin?', 'Naravno. Javite se najkasnije dan ranije, kako bih termin mogla da ponudim nekom drugom.']
 ].map((qa, i) => {
 const open = (s.faq ?? 0) === i;
 return { q: qa[0], a: qa[1], open, expanded: open ? 'true' : 'false', iconCss: open ? 'transform: rotate(45deg)' : '', toggle: () => this.setState({ faq: open ? -1 : i }) };

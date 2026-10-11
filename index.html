@@ -8,7 +8,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Webstudio.dev · Web sajtovi koji donose rezultate">
 <meta property="og:description" content="UI/UX dizajn, web dizajn i programiranje sajtova, od prve skice do lansiranja i dugoročnog održavanja.">
-<meta property="og:image" content="og.jpg">
+<meta property="og:image" content="https://webstudiodev.net/og.jpg">
+<meta property="og:url" content="https://webstudiodev.net/">
+<link rel="canonical" href="https://webstudiodev.net/">
 <meta name="twitter:card" content="summary_large_image">
 <style>html,body{margin:0}</style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -968,7 +970,8 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
   /* full design viewer */
   var vw=document.getElementById('viewer'),vframe=document.getElementById('vframe'),vopen=document.getElementById('vopen'),vname=document.getElementById('vname'),vk='md',vmode='d',lastFocus=null;
   var MOBSRC={md:'md-m.html'};function showMode(){var src=vmode==='m'&&MOBSRC[vk]?MOBSRC[vk]:''+vk+'.html';if(vframe.getAttribute('src')!==src)vframe.setAttribute('src',src);vopen.setAttribute('href',src);vw.querySelector('.vbody').classList.toggle('mob',vmode==='m');vw.querySelectorAll('.vtab').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===vmode)})}
-  function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(x){return x.k===k})[0];vname.textContent=p.n;lastFocus=document.activeElement;vw.hidden=false;document.body.style.overflow='hidden';showMode();vw.querySelector('.vclose').focus()}
+  vframe.addEventListener('load',function(){try{var w=vframe.contentWindow;w.history.scrollRestoration='manual';w.scrollTo(0,0);setTimeout(function(){try{if(!w.location.hash)w.scrollTo(0,0)}catch(e){}},400)}catch(e){}});
+function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(x){return x.k===k})[0];vname.textContent=p.n;lastFocus=document.activeElement;vw.hidden=false;document.body.style.overflow='hidden';showMode();vw.querySelector('.vclose').focus()}
   function closeView(){vw.hidden=true;vframe.removeAttribute('src');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
   vw.querySelectorAll('.vtab').forEach(function(b){b.onclick=function(){vmode=b.dataset.m;showMode()}});
   vw.querySelector('.vclose').onclick=closeView;vw.addEventListener('click',function(e){if(e.target===vw)closeView()});
@@ -986,7 +989,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
     b6h:'Long-term maintenance',b6p:'New price, new service or new photos? Send a message, we handle it. You focus on your business.',
     m1:'Can you change the sports massage price to 3,500 RSD?',m2:'Sure, we are on it.',m3:'Done ✓ The new price is live on desktop and mobile.',
     prTag:'Process',prH:'From sketch to <span class="grad">launch</span>',prP:'Four clear steps. You always know what is happening and what comes next.',
-    p1h:'Discovery',p1t:'1 day',p1p:'We learn your business, clients and the site’s goal.',p2h:'Sketch & design',p2t:'3–5 days',p2p:'A design proposal we refine together.',p3h:'Development',p3t:'1–2 weeks',p3p:'Copy, images, forms and testing on every screen.',p4h:'Launch',p4t:'1 day',p4p:'The site goes live and we stay on for maintenance.',
+    p1h:'Discovery',p1p:'We learn your business, clients and the site’s goal.',p2h:'Sketch & design',p2p:'A design proposal we refine together.',p3h:'Development',p3p:'Copy, images, forms and testing on every screen.',p4h:'Launch',p4p:'The site goes live and we stay on for maintenance.',
     fqTag:'FAQ',fqH:'Common <span class="grad">questions</span>',q1:'How much does a website cost?',a1:'It depends on pages and features such as booking or a gallery. After a short call you get an exact quote with no hidden costs.',q2:'Will the site work on phones?',a2:'Yes. Every site is built for phones first, then for tablets and desktops.',q3:'What if I want to change something on the site?',a3:'Just send us a message with the change, such as a new price, text or photo, and we update the site. You never have to touch anything technical.',q4:'Do you handle domain and hosting?',a4:'Yes. We take care of domain, hosting and business email, so you never touch anything technical.',
     ctTag:'Contact',ctH:'Let’s start your <span class="grad">project</span>',ctP:'Message us on Viber, WhatsApp or email, or give us a call. We get back to you with a proposal and a rough price.',
     fName:'Name and business',fNeed:'What do you need',o1:'New website',o2:'Redesign',o3:'Landing page',o4:'Maintenance',fMsg:'What do you do?',cta2:'Start a project',

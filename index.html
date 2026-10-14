@@ -607,6 +607,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 .pgrid2 .proj.wide{grid-column:1/-1}
 .pgrid2 .proj.wide .pstage{aspect-ratio:21/9}
 .pgrid2 .proj.wide .devices{width:min(100%,780px)}
+@media (max-width:860px){.pgrid2 .proj.wide .pstage{aspect-ratio:16/11}.pgrid2 .proj.wide .devices{width:100%}}
 .proj{cursor:pointer}
 .laptop .scr{position:relative}
 .scr .sc-img,.phone .sc-img{position:absolute;left:0;top:0;width:100%;height:auto;display:block;transform:translateY(0);transition:transform var(--dur,6s) cubic-bezier(.45,0,.55,1)}

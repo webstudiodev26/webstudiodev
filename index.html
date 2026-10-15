@@ -839,7 +839,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
   </div>
 </footer>
 
-<script>var SHOTS={"md": {"full": "md-full.jpg", "hero": "md-hero.jpg", "mob": "md-mob.jpg", "fh": 4560, "mh": 3444}, "mx": {"full": "mx-full.jpg", "hero": "mx-hero.jpg", "mob": "mx-mob.jpg", "fh": 5216, "mh": 9000}, "ld": {"full": "ld-full.jpg", "hero": "ld-hero.jpg", "mob": "ld-mob.jpg", "fh": 3457, "mh": 4817}, "mj": {"full": "mj-full.jpg", "hero": "mj-hero.jpg", "mob": "mj-mob.jpg", "fh": 3231, "mh": 4735}, "pr": {"full": "pr-full.jpg", "hero": "pr-hero.jpg", "mob": "pr-mob.jpg", "fh": 3976, "mh": 7094}, "zr": {"full": "zr-full.jpg", "hero": "zr-hero.jpg", "mob": "zr-mob.jpg", "fh": 3976, "mh": 7094}, "kf": {"full": "kf-full.jpg", "hero": "kf-hero.jpg", "mob": "kf-mob.jpg", "fh": 3976, "mh": 7094}};</script>
+<script>var SHOTS={"md": {"full": "md-full.jpg", "hero": "md-hero.jpg", "mob": "md-mob.jpg", "fh": 4560, "mh": 3444}, "mx": {"full": "mx-full.jpg", "hero": "mx-hero.jpg", "mob": "mx-mob.jpg", "fh": 5216, "mh": 9000}, "ld": {"full": "ld-full.jpg", "hero": "ld-hero.jpg", "mob": "ld-mob.jpg", "fh": 3457, "mh": 4817}, "mj": {"full": "mj-full.jpg", "hero": "mj-hero.jpg", "mob": "mj-mob.jpg", "fh": 3231, "mh": 4735}, "pr": {"full": "pr-full.jpg", "hero": "pr-hero.jpg", "mob": "pr-mob.jpg", "fh": 3976, "mh": 7094}, "zr": {"full": "zr-full.jpg", "hero": "zr-hero.jpg", "mob": "zr-mob.jpg", "fh": 3976, "mh": 7094}, "kf": {"full": "kf-full.jpg", "hero": "kf-hero.jpg", "mob": "kf-mob.jpg", "fh": 3976, "mh": 7094}, "pw": {"full": "pw-full.jpg", "hero": "pw-hero.jpg", "mob": "pw-mob.jpg", "fh": 3976, "mh": 7094}};</script>
 <script>
 /* spirala radova */
 (function(){
@@ -851,7 +851,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
     {n:'Nest Beauty',acc:'#B4525F',pg:'#FFFAF8',ink:'#3A2125',img:'linear-gradient(150deg,#FFF1EE,#EBB4BB 60%,#B4525F)',h:'Vreme samo za vas.',s:'Salon lepote',c:'Rezerviši'}];
   function ms(b){return '<div class="ms" style="--pg:'+b.pg+';--ink:'+b.ink+';--acc:'+b.acc+';--img:'+b.img+'"><div class="n">'+b.n+'<em><span>Usluge</span><span>O nama</span></em><b>'+b.c+'</b></div><div class="h"><div><small>'+b.s+'</small><h4>'+b.h+'</h4><span class="c">'+b.c+'</span></div><div class="i"></div></div><div class="k"><div>Usluga<span>60 min</span></div><div>Paket<span>popust</span></div><div>Kontakt<span>poruka</span></div></div></div>'}
   var mob=innerWidth<720,N=mob?12:18,R=mob?420:760,STEP=mob?150:170,ANG=34;
-  for(var i=0;i<N;i++){var e=document.createElement('div'),b=B[i%4],kk=['md','mx','ld','mj','pr','zr','kf'][i%7];e.className='spx-p';e.style.cssText='--acc:'+b.acc+';--w:'+(mob?260:420)+'px;transform:translateY('+(i*STEP)+'px) rotateY('+(i*ANG)+'deg) translateZ('+(-R)+'px)';e.innerHTML='<img src="'+SHOTS[kk].hero+'" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">';w.appendChild(e)}
+  for(var i=0;i<N;i++){var e=document.createElement('div'),b=B[i%4],kk=['md','mx','ld','mj','pr','zr','kf','pw'][i%8];e.className='spx-p';e.style.cssText='--acc:'+b.acc+';--w:'+(mob?260:420)+'px;transform:translateY('+(i*STEP)+'px) rotateY('+(i*ANG)+'deg) translateZ('+(-R)+'px)';e.innerHTML='<img src="'+SHOTS[kk].hero+'" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">';w.appendChild(e)}
   for(var j=0;j<10;j++){var l=document.createElement('div');l.className='spx-l';l.style.cssText='height:'+(N*STEP)+'px;top:0;transform:rotateY('+(j*36)+'deg) translateZ('+(-R-60)+'px)';w.appendChild(l)}
   var rot=0,y=0,mx=0,my=0,tmx=0,tmy=0,vis=false,running=false,secTop=0,tot=1,lastT='',lastCi=-1,root=document.documentElement;
   function measure(){var r=sec.getBoundingClientRect();secTop=r.top+scrollY;tot=Math.max(1,sec.offsetHeight-innerHeight)}
@@ -883,7 +883,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
   var items=[],DEPTH=7000,mob=innerWidth<720,lowEnd=(navigator.hardwareConcurrency||8)<=4;
   function add(html,cls,x,y,z,ry,rz,style){var e=document.createElement('div');e.className='it '+cls;e.innerHTML=html;if(style)e.setAttribute('style',style);e.style.visibility='hidden';world.appendChild(e);items.push({e:e,x:x,y:y,z:z,ry:ry||0,rz:rz||0,ring:cls.indexOf('ring')===0,o:-1,v:false,tr:''});}
   var spread=mob?210:600,NP=mob?8:12;
-  for(var i=0;i<NP;i++){var side=i%2?1:-1,b=B[i%B.length];add('<div class="pnl" style="--pw:'+(mob?300:520)+'px"><img src="'+SHOTS[['md','mx','ld','mj','pr','zr','kf'][i%7]].hero+'" alt="" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>','',side*(spread+Math.random()*(mob?60:160)),(Math.random()-.5)*(mob?260:320),-600-i*520,-side*22,(Math.random()-.5)*6)}
+  for(var i=0;i<NP;i++){var side=i%2?1:-1,b=B[i%B.length];add('<div class="pnl" style="--pw:'+(mob?300:520)+'px"><img src="'+SHOTS[['md','mx','ld','mj','pr','zr','kf','pw'][i%8]].hero+'" alt="" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>','',side*(spread+Math.random()*(mob?60:160)),(Math.random()-.5)*(mob?260:320),-600-i*520,-side*22,(Math.random()-.5)*6)}
   /* prstenovi se crtaju na canvasu (mnogo brze od velikih 3D elemenata) */
   var RINGS=[],RW=mob?700:1100;for(var r=0;r<(mob?6:9);r++)RINGS.push({z:-900-r*700,rz:r*8,sq:r%3===2});
   var words=['DIZAJN','BRZINA','SEO','REZULTATI'];
@@ -988,7 +988,11 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
     {k:'kf',n:'Kafe Lipa',acc:'#E0A526',loc:'Kafić u komšiluku',le:'Neighbourhood café',
       sr:'Topao, svetao sajt za kafić: meni po kategorijama sa cenama, galerija prostora, bašta i kontakt forma za rezervacije i proslave.',
       en:'A warm, bright site for a café: menu by category with prices, a space gallery, the garden and a contact form for bookings and parties.',
-      tg:{sr:['Kafić','Meni','Kontakt forma'],en:['Café','Menu','Contact form']}}];
+      tg:{sr:['Kafić','Meni','Kontakt forma'],en:['Café','Menu','Contact form']}},
+    {k:'pw',n:'PawCare',acc:'#007C96',loc:'Veterinarska klinika',le:'Veterinary clinic',
+      sr:'Prijatan, svetao sajt za veterinarsku ambulantu na dva jezika: usluge, tim, česta pitanja i kontakt forma, kroz pet povezanih stranica.',
+      en:'A friendly, bright bilingual site for a veterinary clinic: services, team, FAQ and a contact form across five linked pages.',
+      tg:{sr:['Veterina','Dva jezika','Više stranica'],en:['Vet clinic','Bilingual','Multi-page']}}];
   function renderProjects(){var h='';PR.forEach(function(p,i){var S=SHOTS[p.k];
     h+='<article class="gc proj'+(i===0||(i===PR.length-1&&i%2===1)?' wide':'')+'" style="--acc:'+p.acc+'" data-k="'+p.k+'" tabindex="0" role="button" aria-label="'+(lang==='en'?'Open live site ':'Otvori sajt uživo ')+p.n+'"><div class="pstage"><div class="devices"><div class="laptop"><div class="scr"><img class="sc-img" alt="" loading="lazy" src="'+S.full+'"></div><div class="base"></div></div>'+
       '<div class="phone"><img class="sc-img" alt="" loading="lazy" src="'+S.mob+'"></div></div><span class="pview">'+(lang==='en'?'View live site':'Pogledaj sajt uživo')+' ↗</span></div>'+

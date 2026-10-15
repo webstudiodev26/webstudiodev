@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Homepage of PAWCARE, a fictional veterinary clinic created as a portfolio design concept. Explore the services, team and FAQ layout of this demonstration website.">
+<meta name="robots" content="noindex">
+<title>PAWCARE | Veterinary Clinic Concept (Portfolio Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;color:#24272A;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Nunito',system-ui,sans-serif;margin:0}
+p{margin:0}
+:focus-visible{outline:3px solid #007C96;outline-offset:3px;border-radius:8px}
+.nav-link{position:relative;display:flex;align-items:center;padding:0 10px;font-weight:500;font-size:15px;color:#24272A;transition:color .2s}
+.nav-link:after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:2px;background:#007C96;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-link:hover{color:#007C96}.nav-link:hover:after,.nav-link.active:after{transform:scaleX(1)}
+.nav-link.active{color:#007C96}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;cursor:pointer;border:2px solid #007C96;transition:transform .2s,box-shadow .2s,background .2s,color .2s;box-sizing:border-box}
+.btn-primary{background:#007C96;color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,124,150,.28)}
+.btn-primary .arr{transition:transform .2s}.btn-primary:hover .arr{transform:translateX(4px)}
+.btn-ghost{background:#fff;color:#007C96}
+.btn-ghost:hover{background:#F3FAF9;transform:translateY(-2px)}
+.btn-white{background:#fff;color:#006379;border-color:#fff}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,60,75,.2)}
+.btn-sm{min-height:46px;padding:0 22px;font-size:15px}
+.card{background:#fff;border:1.5px solid #DCEFED;border-radius:24px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(0,124,150,.12);border-color:#7FD3CB}
+.more{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:#007C96;font-size:15px;min-height:44px}
+.more svg{transition:transform .2s}.more:hover svg{transform:translateX(4px)}
+.lang{display:flex;gap:2px;padding:3px;border:1.5px solid #CFE9E6;border-radius:999px;background:#fff}
+.lang-btn{min-width:44px;min-height:36px;border:0;border-radius:999px;background:transparent;font:700 13px 'DM Sans',sans-serif;color:#4A5558;cursor:pointer}
+.lang-btn.on{background:#007C96;color:#fff}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:16px 24px;background:transparent;border:0;cursor:pointer;text-align:left;font:800 19px 'Nunito',sans-serif;color:#24272A}
+.faq-q:hover{color:#007C96}
+.faq-ico{flex:none;width:32px;height:32px;border-radius:50%;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s}
+.faq-ico.open{transform:rotate(45deg);background:#007C96;color:#fff}
+.foot-link{display:inline-block;padding:6px 0;color:#CFE9E6;font-size:15px;transition:color .2s}
+.foot-link:hover{color:#fff}
+.burger{display:none}
+.hero-visual{--lx:calc(20px + max(0px,(100vw - 1360px)/2));margin-left:calc(-1 * var(--lx));margin-right:var(--lx);height:600px;aspect-ratio:1024/1536;flex:none;max-width:100%}
+.hero-copy{padding:40px 64px 40px 0}
+.paw{position:absolute;pointer-events:none;z-index:1}
+.stage{height:96%}
+@media (min-width:1200px){.stage{height:calc(96% * 1.12);bottom:-45px!important;max-width:none!important}}
+
+@media (min-width:821px) and (max-width:1180px){.hd-in{padding:12px 8px!important;gap:12px!important}.nav-links{gap:16px!important;margin-right:4px!important}.nav-link,.nav-cta{white-space:nowrap}.nav-link{font-size:14px!important}.hd-logo span{font-size:21px!important}.hd-right{gap:8px!important}.nav-cta{padding-left:16px!important;padding-right:16px!important}}
+@media (max-width:820px){
+ .nav-links,.nav-cta{display:none!important}
+ .burger{display:flex!important}
+ .hero-visual{height:440px}
+ .hero-copy{padding:28px 24px 40px}
+ .hero-visual{aspect-ratio:auto;width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;max-width:none;background:#F3FAF9;border-radius:0 0 32px 0;overflow:hidden}
+ .stage{height:92%}
+ .hide-sm{display:none!important}
+}
+@media (max-width:600px){
+ .cta-grid{row-gap:0!important;padding-left:24px!important;padding-right:24px!important}
+ .cta-btn{text-align:center}
+ .cta-btn .btn{white-space:nowrap}
+ .cta-copy{display:contents}
+ .cta-copy>h2,.cta-copy>p,.cta-btn{position:relative}
+ .cta-img{order:2;margin-top:32px;height:auto!important;aspect-ratio:4/5}
+ .cta-img img{inset:0!important;width:100%!important;height:100%!important}
+ .cta-btn{order:3;margin-top:32px!important}
+ .hero-cta{flex-direction:column;flex-wrap:nowrap;gap:12px!important}
+ .hero-cta .btn{width:100%;box-sizing:border-box;min-height:54px;white-space:nowrap}
+}
+@media (max-width:560px){
+ .hero-visual{height:380px}
+ .lang-btn{min-width:40px}
+}
+@media (max-width:420px){
+ .hd-in{padding:14px 6px!important;gap:8px!important}
+ .hd-right{gap:8px!important}
+}
+@media (max-width:375px){
+ .hd-logo{gap:7px!important}
+ .hd-logo svg{width:30px;height:30px}
+ .hd-logo span{font-size:21px!important}
+ .lang-btn{min-width:36px}
+}
+@media (max-width:340px){
+ .hd-wrap{padding:0 12px!important}
+ .hd-in{padding:14px 0!important}
+ .hd-logo{gap:6px!important}
+ .hd-logo svg{width:28px;height:28px}
+ .hd-logo span{font-size:20px!important}
+}
+@media (max-width:600px){
+ .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:36px 16px!important}
+ .ft-brand,.ft-contact{grid-column:1/-1!important}
+ .ft-grid .foot-link{overflow-wrap:break-word}
+}
+@media (max-width:339px){
+ .ft-grid{grid-template-columns:minmax(0,1fr)!important}
+}
+@media (prefers-reduced-motion:no-preference){
+ @keyframes inLeft{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+ @keyframes inUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+ @keyframes drift{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(var(--r,0deg))}}
+ .a-cat{animation:inLeft 1s cubic-bezier(.2,.7,.2,1) both}
+ .a-1{animation:inUp .8s .15s both}.a-2{animation:inUp .8s .3s both}.a-3{animation:inUp .8s .45s both}
+ @media (min-width:961px){.paw{animation:drift 9s ease-in-out infinite}}
+ /* .rv scroll-reveal intentionally not applied: it was inert under the old overflow:hidden root and would otherwise activate (opacity 0 until scrolled into view) */
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+<div style="position:relative;overflow:clip;background:#fff">
+
+
+<div class="hd-wrap" style="position:sticky;top:0;z-index:50;padding:0 20px;background:rgba(255,255,255,.96);box-shadow:0 8px 28px rgba(0,124,150,.06)">
+<header class="hd-in" style="box-sizing:border-box;max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:transparent">
+<a class="hd-logo" href="#top" aria-label="PAWCARE" style="display:flex;align-items:center;gap:10px;min-height:44px">
+<svg width="34" height="34" viewBox="0 0 64 64" fill="#007C96" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:24px;letter-spacing:.02em;color:#007C96">PAWCARE</span>
+</a>
+<nav class="nav-links" aria-label="Main" style="display:flex;gap:30px;margin-left:auto;margin-right:12px;align-self:stretch;align-items:stretch">
+<a class="nav-link active" href="#top">Home</a>
+<a class="nav-link" href="pw-about.html">About Us</a>
+<a class="nav-link" href="pw-services.html">Services</a>
+<a class="nav-link" href="pw-team.html">Our Team</a>
+</nav>
+<div class="hd-right" style="display:flex;align-items:center;gap:12px">
+<div class="lang" role="group" aria-label="Language">
+<button class="lang-btn on" aria-pressed="true">EN</button>
+<button class="lang-btn" aria-pressed="false">SR</button>
+</div>
+<a class="btn btn-primary btn-sm nav-cta" href="pw-contact.html">Contact Us</a>
+<button class="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav-main" style="width:46px;height:46px;border-radius:50%;border:1.5px solid #CFE9E6;background:#fff;align-items:center;justify-content:center;cursor:pointer;color:#007C96">
+
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+</div>
+</header>
+
+</div>
+
+<main id="top">
+
+
+<section style="position:relative;padding:0 20px 72px;background:#fff">
+<div style="position:relative;box-sizing:border-box;max-width:1320px;margin:0 auto">
+<svg class="paw" style="right:2.5%;top:28px;width:104px;--r:18deg;transform:rotate(18deg)" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="right:32px;bottom:-18px;width:176px;--r:-14deg;transform:rotate(-14deg)" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="left:46%;bottom:12px;width:84px;--r:24deg;transform:rotate(24deg)" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+
+<div style="position:relative;display:flex;flex-wrap:wrap;gap:0 56px;align-items:flex-end">
+
+<div class="hero-visual a-cat" style="position:relative;align-self:end">
+<div class="stage" style="position:absolute;left:0;bottom:0;aspect-ratio:1024/1536;max-width:100%">
+<img src="pw-hero-cat.webp" alt="A tabby cat sitting with one paw raised, peeking into the page in front of two teal shapes" fetchpriority="high" width="1024" height="1536" style="position:absolute;left:0;bottom:0;height:100%;width:auto;max-width:100%;display:block;-webkit-mask-image:linear-gradient(to right,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 1.5%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 1.5%);mask-composite:intersect">
+</div>
+</div>
+
+<div class="hero-copy" style="flex:1 1 440px;max-width:700px;align-self:center">
+<h1 style="font-size:clamp(38px,4.6vw,66px);line-height:1.02;font-weight:900;letter-spacing:-.01em">
+<span class="a-1" style="display:block;color:#24272A">WELCOME TO</span>
+<span class="a-1" style="display:block;color:#007C96">PAWCARE CLINIC</span>
+</h1>
+<p class="a-2" style="margin-top:24px;font-size:18px;line-height:1.65;color:#3C4447;max-width:520px;text-wrap:pretty">Compassionate veterinary care for the pets who make life brighter. From everyday checkups to attentive medical support, we're here for every paw.</p>
+<div class="a-3 hero-cta" style="margin-top:34px;display:flex;flex-wrap:wrap;gap:14px">
+<a class="btn btn-primary" href="pw-contact.html">Contact Us <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn btn-ghost" href="#services">Explore Our Services</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="services" style="background:#F3FAF9;padding:96px 24px;scroll-margin-top:90px">
+<div style="max-width:1240px;margin:0 auto">
+<div class="rv" style="max-width:640px;margin:0 auto 52px;text-align:center">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">Our Services</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900;color:#24272A">Care for every stage of their life</h2>
+<p style="margin-top:16px;font-size:17px;line-height:1.65;color:#3C4447;text-wrap:pretty">From the first kitten checkup to the golden years, our services are designed to keep pets healthy, comfortable and happy.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px">
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">General Veterinary Checkups</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">Routine wellness visits that help us spot small concerns early and keep your pet feeling their best.</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2l4 4M15 5l4 4M3 21l5-5M7 17l-3 3M9 15L19 5l-3-3L6 12z"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">Vaccination &amp; Prevention</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">Guidance on vaccines and preventive care, tailored to your pet’s age, lifestyle and needs.</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">Veterinary Diagnostics</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">Careful examinations and diagnostic support to understand what your pet needs.</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c-3 0-4.5 3-3.5 6S5.500 14 6 18c.3 2 1 3 2 3s1.500-4 2-4h4c.5 0 1 4 2 4s1.700-1 2-3c.5-4 1.500-6 2.500-9S20 3 17 3c-1.500 0-3 1-5 1S8.500 3 7 3z"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">Dental Care</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">Attention to teeth and gums, because healthy mouths are part of a healthy, happy pet.</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.500" y="8.500" width="19" height="7" rx="3.500" transform="rotate(-45 12 12)"></rect><path d="M9.500 9.500l5 5"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">Surgery &amp; Treatment</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">Attentive medical support and treatment, explained clearly every step of the way.</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">Puppy &amp; Kitten Care</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">A gentle, reassuring start for the newest members of your family.</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<section id="trust" style="padding:104px 24px;scroll-margin-top:90px">
+<div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:56px;align-items:center">
+<div class="rv" style="position:relative;height:520px">
+<div style="position:absolute;left:-11%;top:5%;width:80%;height:88%;background:#B7EFEB;border-radius:52% 48% 44% 56% / 48% 54% 46% 52%"></div>
+<div style="position:absolute;right:2%;bottom:-2%;width:53%;height:46%;background:#007C96;border-radius:56% 44% 50% 50% / 50% 56% 44% 50%"></div>
+<img src="pw-trust-vet-cat.webp" alt="A smiling veterinarian in a white coat gently examining a small fluffy dog on an exam table" loading="lazy" decoding="async" width="900" height="1124" style="position:absolute;left:5%;top:0;width:86%;height:92%;object-fit:cover;object-position:45% 40%;border-radius:40px;display:block;box-shadow:0 14px 34px rgba(0,90,110,.12)">
+</div>
+<div class="rv">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">Care You Can Trust</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900">Gentle hands, honest conversations</h2>
+<p style="margin-top:18px;font-size:17px;line-height:1.7;color:#3C4447;text-wrap:pretty">We believe good veterinary care starts with patience. Every pet is treated as an individual, and every owner is treated as a partner.</p>
+<ul style="list-style:none;margin:30px 0 0;padding:0;display:flex;flex-direction:column;gap:20px">
+
+<li style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;width:36px;height:36px;border-radius:50%;background:#007C96;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"></path></svg></span>
+<div><div style="font:800 19px 'Nunito',sans-serif">Compassionate, patient-centered care</div><div style="margin-top:4px;font-size:15.5px;line-height:1.6;color:#3C4447">Calm handling and unhurried visits, so pets feel safe.</div></div>
+</li>
+
+<li style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;width:36px;height:36px;border-radius:50%;background:#007C96;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"></path></svg></span>
+<div><div style="font:800 19px 'Nunito',sans-serif">Clear communication with pet owners</div><div style="margin-top:4px;font-size:15.5px;line-height:1.6;color:#3C4447">Plain-language explanations, so you always know what comes next.</div></div>
+</li>
+
+<li style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;width:36px;height:36px;border-radius:50%;background:#007C96;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"></path></svg></span>
+<div><div style="font:800 19px 'Nunito',sans-serif">Attention to preventive health</div><div style="margin-top:4px;font-size:15.5px;line-height:1.6;color:#3C4447">A focus on keeping small issues from becoming big ones.</div></div>
+</li>
+
+</ul>
+</div>
+</div>
+</section>
+
+
+<section id="team" style="background:#F3FAF9;padding:96px 24px;scroll-margin-top:90px">
+<div style="max-width:1240px;margin:0 auto">
+<div class="rv" style="max-width:640px;margin:0 auto 48px;text-align:center">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">Meet Our Team</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900">The people behind the care</h2>
+<p style="margin-top:16px;font-size:17px;line-height:1.65;color:#3C4447;text-wrap:pretty">A friendly team that treats every pet like family.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">
+
+<article class="card rv" style="padding:16px 16px 26px;text-align:center">
+<div style="position:relative;height:300px;border-radius:18px;background:#B7EFEB;overflow:hidden;display:flex;align-items:center;justify-content:center">
+<img src="pw-team-1.webp" alt="A smiling veterinarian in teal scrubs with a stethoscope, sitting with a friendly dog in a bright clinic" loading="lazy" decoding="async" width="900" height="1200" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block">
+
+
+</div>
+<h3 style="font-size:22px;font-weight:800;margin-top:20px">Dr. Sample Name One</h3>
+<div style="margin-top:4px;color:#007C96;font-weight:700;font-size:15px">Veterinarian</div>
+<div style="margin-top:12px;display:inline-block;padding:4px 12px;border-radius:999px;background:#F3FAF9;border:1px solid #CFE9E6;font-size:12px;font-weight:700;color:#4A5558">Sample profile</div>
+</article>
+
+<article class="card rv" style="padding:16px 16px 26px;text-align:center">
+<div style="position:relative;height:300px;border-radius:18px;background:#B7EFEB;overflow:hidden;display:flex;align-items:center;justify-content:center">
+<img src="pw-team-2.webp" alt="A smiling veterinarian in teal scrubs with a stethoscope, sitting with a golden retriever in a bright clinic" loading="lazy" decoding="async" width="900" height="1200" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block">
+
+
+</div>
+<h3 style="font-size:22px;font-weight:800;margin-top:20px">Dr. Sample Name Two</h3>
+<div style="margin-top:4px;color:#007C96;font-weight:700;font-size:15px">Veterinary Surgeon</div>
+<div style="margin-top:12px;display:inline-block;padding:4px 12px;border-radius:999px;background:#F3FAF9;border:1px solid #CFE9E6;font-size:12px;font-weight:700;color:#4A5558">Sample profile</div>
+</article>
+
+<article class="card rv" style="padding:16px 16px 26px;text-align:center">
+<div style="position:relative;height:300px;border-radius:18px;background:#B7EFEB;overflow:hidden;display:flex;align-items:center;justify-content:center">
+<img src="pw-team-3.webp" alt="A gray-haired veterinarian in a white coat gently holding a ginger cat on an exam table" loading="lazy" decoding="async" width="900" height="1200" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block">
+
+
+</div>
+<h3 style="font-size:22px;font-weight:800;margin-top:20px">Sample Name Three</h3>
+<div style="margin-top:4px;color:#007C96;font-weight:700;font-size:15px">Veterinary Nurse</div>
+<div style="margin-top:12px;display:inline-block;padding:4px 12px;border-radius:999px;background:#F3FAF9;border:1px solid #CFE9E6;font-size:12px;font-weight:700;color:#4A5558">Sample profile</div>
+</article>
+
+</div>
+<div class="rv" style="margin-top:44px;text-align:center"><a class="btn btn-ghost" href="pw-team.html">Meet Our Team</a></div>
+</div>
+</section>
+
+
+<section id="contact" style="padding:96px 24px 40px;scroll-margin-top:90px">
+<div class="rv cta-grid" style="position:relative;overflow:hidden;max-width:1240px;margin:0 auto;background:#007C96;border-radius:48px;padding:72px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:56px;align-items:center">
+<div style="position:absolute;left:-120px;top:-150px;width:300px;height:300px;border-radius:50%;background:#0888A4"></div>
+<svg class="paw hide-sm" style="left:39%;bottom:28px;width:108px;--r:12deg;transform:rotate(12deg);opacity:.32" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="left:4%;bottom:24px;width:56px;--r:-20deg;transform:rotate(-20deg);opacity:.25" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="left:47%;top:26px;width:64px;--r:-14deg;transform:rotate(-14deg);opacity:.28" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<div class="cta-copy" style="position:relative">
+<h2 style="font-size:clamp(32px,4vw,52px);line-height:1.08;font-weight:900;color:#fff;text-wrap:balance">YOUR PET DESERVES THE BEST CARE.</h2>
+<p style="margin-top:18px;font-size:18px;line-height:1.6;color:#E6F7F5;max-width:460px">Have a question about your pet's health? Our caring team is here to help.</p>
+<div class="cta-btn" style="margin-top:34px"><a class="btn btn-white" href="pw-contact.html" style="min-height:58px;padding:0 36px;font-size:17px;box-shadow:0 8px 20px rgba(0,50,65,.22)">Get in Touch</a></div>
+</div>
+<div class="cta-img" style="position:relative;height:420px">
+<img src="pw-cta-pet.webp" alt="A smiling veterinarian in a white coat gently petting a tabby cat on an exam table" loading="lazy" decoding="async" width="900" height="1124" style="position:absolute;inset:18px 0 0 9%;width:91%;height:calc(100% - 18px);object-fit:cover;object-position:50% 35%;border-radius:44px;display:block;box-shadow:0 14px 32px rgba(0,50,65,.18)">
+</div>
+</div>
+</section>
+
+
+<section id="faq" style="padding:72px 24px 104px;scroll-margin-top:90px">
+<div style="max-width:800px;margin:0 auto">
+<div class="rv" style="text-align:center;margin-bottom:40px">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">FAQ</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900">Frequently asked questions</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+
+<div class="rv" style="background:#fff;border:1.5px solid #DCEFED;border-radius:22px;overflow:hidden">
+<h3 style="font-size:inherit"><button class="faq-q" id="faq-q-main-1" aria-expanded="false" aria-controls="faq-a-main-1"><span>How often should my pet have a wellness visit?</span><span class="faq-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+
+</div>
+
+<div class="rv" style="background:#fff;border:1.5px solid #DCEFED;border-radius:22px;overflow:hidden">
+<h3 style="font-size:inherit"><button class="faq-q" id="faq-q-main-2" aria-expanded="false" aria-controls="faq-a-main-2"><span>How can I prepare for an appointment?</span><span class="faq-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+
+</div>
+
+<div class="rv" style="background:#fff;border:1.5px solid #DCEFED;border-radius:22px;overflow:hidden">
+<h3 style="font-size:inherit"><button class="faq-q" id="faq-q-main-3" aria-expanded="false" aria-controls="faq-a-main-3"><span>Do pets need vaccinations?</span><span class="faq-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+
+</div>
+
+<div class="rv" style="background:#fff;border:1.5px solid #DCEFED;border-radius:22px;overflow:hidden">
+<h3 style="font-size:inherit"><button class="faq-q" id="faq-q-main-4" aria-expanded="false" aria-controls="faq-a-main-4"><span>How can I contact the clinic?</span><span class="faq-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+
+<footer style="background:#00596B;color:#fff;padding:72px 24px 28px;position:relative;overflow:hidden">
+<svg class="paw hide-sm" style="right:4%;top:28px;width:130px;--r:-12deg;transform:rotate(-12deg);opacity:.12" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<div style="position:relative;max-width:1240px;margin:0 auto">
+<div class="ft-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:40px">
+<div class="ft-brand" style="grid-column:span 1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px"><svg width="34" height="34" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg><span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:24px;letter-spacing:.02em">PAWCARE</span></div>
+<p style="margin-top:16px;font-size:15px;line-height:1.65;color:#CFE9E6;max-width:280px">Compassionate veterinary care for the pets who make life brighter.</p>
+</div>
+<div>
+<div style="font:800 16px 'Nunito',sans-serif;margin-bottom:10px">Navigate</div>
+<nav aria-label="Footer" style="display:flex;flex-direction:column">
+<a class="foot-link" href="#top">Home</a><a class="foot-link" href="pw-about.html">About Us</a><a class="foot-link" href="pw-services.html">Services</a><a class="foot-link" href="pw-team.html">Our Team</a><a class="foot-link" href="#faq">FAQ</a><a class="foot-link" href="pw-contact.html">Contact</a>
+</nav>
+</div>
+<div>
+<div style="font:800 16px 'Nunito',sans-serif;margin-bottom:10px">Services</div>
+<div style="display:flex;flex-direction:column"><a class="foot-link" href="#services">General Veterinary Checkups</a><a class="foot-link" href="#services">Vaccination &amp; Prevention</a><a class="foot-link" href="#services">Dental Care</a><a class="foot-link" href="#services">Puppy &amp; Kitten Care</a></div>
+</div>
+<div class="ft-contact">
+<div style="font:800 16px 'Nunito',sans-serif;margin-bottom:10px">Contact</div>
+<div style="display:flex;flex-direction:column;gap:8px;color:#CFE9E6;font-size:15px"><span>[Address placeholder]</span><span>[Phone placeholder]</span><span>[Email placeholder]</span></div>
+<div style="display:flex;gap:10px;margin-top:18px" aria-label="Social links">
+<span title="Facebook" style="width:44px;height:44px;border-radius:50%;border:1.5px dashed #7FD3CB;display:flex;align-items:center;justify-content:center;font:800 13px 'DM Sans',sans-serif;color:#B7EFEB">Fb</span>
+<span title="Instagram" style="width:44px;height:44px;border-radius:50%;border:1.5px dashed #7FD3CB;display:flex;align-items:center;justify-content:center;font:800 13px 'DM Sans',sans-serif;color:#B7EFEB">Ig</span>
+<span title="TikTok" style="width:44px;height:44px;border-radius:50%;border:1.5px dashed #7FD3CB;display:flex;align-items:center;justify-content:center;font:800 13px 'DM Sans',sans-serif;color:#B7EFEB">Tt</span>
+</div>
+</div>
+</div>
+<div style="margin-top:48px;padding-top:22px;border-top:1px solid rgba(183,239,235,.28);display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:14px;color:#CFE9E6">
+<span>© 2026 PAWCARE. All rights reserved.</span>
+<span style="color:#fff;font-weight:500">Portfolio concept: PAWCARE is a fictional veterinary clinic.</span>
+</div>
+</div>
+</footer>
+
+</div>
+</div>
+<template id="dc-template">
+<div style="position:relative;overflow:clip;background:#fff">
+
+<!-- HEADER -->
+<div onKeyDown="{{menuKey}}" class="hd-wrap" style="position:sticky;top:0;z-index:50;padding:0 20px;background:rgba(255,255,255,.96);box-shadow:0 8px 28px rgba(0,124,150,.06)">
+<header class="hd-in" style="box-sizing:border-box;max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:transparent">
+<a class="hd-logo" href="#top" aria-label="PAWCARE" style="display:flex;align-items:center;gap:10px;min-height:44px">
+<svg width="34" height="34" viewBox="0 0 64 64" fill="#007C96" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:24px;letter-spacing:.02em;color:#007C96">PAWCARE</span>
+</a>
+<nav class="nav-links" aria-label="Main" style="display:flex;gap:30px;margin-left:auto;margin-right:12px;align-self:stretch;align-items:stretch">
+<a class="nav-link active" href="#top">{{t.navHome}}</a>
+<a class="nav-link" href="pw-about.html">{{t.navAbout}}</a>
+<a class="nav-link" href="pw-services.html">{{t.navServices}}</a>
+<a class="nav-link" href="pw-team.html">{{t.navTeam}}</a>
+</nav>
+<div class="hd-right" style="display:flex;align-items:center;gap:12px">
+<div class="lang" role="group" aria-label="Language">
+<button class="{{enClass}}" onClick="{{setEn}}" aria-pressed="{{isEn}}">EN</button>
+<button class="{{srClass}}" onClick="{{setSr}}" aria-pressed="{{isSr}}">SR</button>
+</div>
+<a class="btn btn-primary btn-sm nav-cta" href="pw-contact.html">{{t.book}}</a>
+<button class="burger" onClick="{{toggleMenu}}" aria-label="{{t.menuLabel}}" aria-expanded="{{menuOpen}}" aria-controls="mobile-nav-main" style="width:46px;height:46px;border-radius:50%;border:1.5px solid #CFE9E6;background:#fff;align-items:center;justify-content:center;cursor:pointer;color:#007C96">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if>
+</button>
+</div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav id="mobile-nav-main" aria-label="Mobile" style="box-sizing:border-box;max-height:calc(100vh - 94px);max-height:calc(100dvh - 94px);overflow-y:auto;overscroll-behavior:contain;max-width:1240px;margin:8px auto 0;padding:12px 24px 20px;background:#fff;border:1.5px solid #DCEFED;border-radius:28px;box-shadow:0 14px 34px rgba(0,124,150,.14);display:flex;flex-direction:column">
+<a href="#top" onClick="{{closeMenu}}" style="padding:14px 0;font-weight:700;border-bottom:1px solid #E3F3F1;color:#007C96">{{t.navHome}}</a>
+<a href="pw-about.html" style="padding:14px 0;font-weight:700;border-bottom:1px solid #E3F3F1">{{t.navAbout}}</a>
+<a href="pw-services.html" style="padding:14px 0;font-weight:700;border-bottom:1px solid #E3F3F1">{{t.navServices}}</a>
+<a href="pw-team.html" style="padding:14px 0;font-weight:700;margin-bottom:14px">{{t.navTeam}}</a>
+<a class="btn btn-primary" href="pw-contact.html" onClick="{{closeMenu}}">{{t.book}}</a>
+</nav>
+</sc-if>
+</div>
+
+<main id="top">
+
+<!-- 01 HERO -->
+<section style="position:relative;padding:0 20px 72px;background:#fff">
+<div style="position:relative;box-sizing:border-box;max-width:1320px;margin:0 auto">
+<svg class="paw" style="right:2.5%;top:28px;width:104px;--r:18deg;transform:rotate(18deg)" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="right:32px;bottom:-18px;width:176px;--r:-14deg;transform:rotate(-14deg)" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="left:46%;bottom:12px;width:84px;--r:24deg;transform:rotate(24deg)" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.5" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+
+<div style="position:relative;display:flex;flex-wrap:wrap;gap:0 56px;align-items:flex-end">
+
+<div class="hero-visual a-cat" style="position:relative;align-self:end">
+<div class="stage" style="position:absolute;left:0;bottom:0;aspect-ratio:1024/1536;max-width:100%">
+<img src="pw-hero-cat.webp" alt="{{t.altHero}}" fetchpriority="high" width="1024" height="1536" style="position:absolute;left:0;bottom:0;height:100%;width:auto;max-width:100%;display:block;-webkit-mask-image:linear-gradient(to right,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 1.5%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 1.5%);mask-composite:intersect">
+</div>
+</div>
+
+<div class="hero-copy" style="flex:1 1 440px;max-width:700px;align-self:center">
+<h1 style="font-size:clamp(38px,4.6vw,66px);line-height:1.02;font-weight:900;letter-spacing:-.01em">
+<span class="a-1" style="display:block;color:#24272A">{{t.heroL1}}</span>
+<span class="a-1" style="display:block;color:#007C96">{{t.heroL2}}</span>
+</h1>
+<p class="a-2" style="margin-top:24px;font-size:18px;line-height:1.65;color:#3C4447;max-width:520px;text-wrap:pretty">{{t.heroP}}</p>
+<div class="a-3 hero-cta" style="margin-top:34px;display:flex;flex-wrap:wrap;gap:14px">
+<a class="btn btn-primary" href="pw-contact.html">{{t.book}} <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn btn-ghost" href="#services">{{t.explore}}</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 02 SERVICES -->
+<section id="services" style="background:#F3FAF9;padding:96px 24px;scroll-margin-top:90px">
+<div style="max-width:1240px;margin:0 auto">
+<div class="rv" style="max-width:640px;margin:0 auto 52px;text-align:center">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">{{t.svcEyebrow}}</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900;color:#24272A">{{t.svcH}}</h2>
+<p style="margin-top:16px;font-size:17px;line-height:1.65;color:#3C4447;text-wrap:pretty">{{t.svcP}}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px">
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">{{t.s1t}}</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">{{t.s1d}}</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">{{t.learn}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2l4 4M15 5l4 4M3 21l5-5M7 17l-3 3M9 15L19 5l-3-3L6 12z"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">{{t.s2t}}</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">{{t.s2d}}</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">{{t.learn}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">{{t.s3t}}</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">{{t.s3d}}</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">{{t.learn}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c-3 0-4.5 3-3.5 6S5.500 14 6 18c.3 2 1 3 2 3s1.500-4 2-4h4c.5 0 1 4 2 4s1.700-1 2-3c.5-4 1.500-6 2.500-9S20 3 17 3c-1.500 0-3 1-5 1S8.500 3 7 3z"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">{{t.s4t}}</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">{{t.s4d}}</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">{{t.learn}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.500" y="8.500" width="19" height="7" rx="3.500" transform="rotate(-45 12 12)"></rect><path d="M9.500 9.500l5 5"></path></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">{{t.s5t}}</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">{{t.s5d}}</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">{{t.learn}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+<article class="card rv" style="padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#E3F6F3;color:#007C96;display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg></div>
+<h3 style="font-size:22px;font-weight:800;margin:20px 0 8px">{{t.s6t}}</h3>
+<p style="font-size:15.5px;line-height:1.6;color:#3C4447">{{t.s6d}}</p>
+<a class="more" href="pw-contact.html" style="margin-top:10px">{{t.learn}} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- 03 CARE YOU CAN TRUST -->
+<section id="trust" style="padding:104px 24px;scroll-margin-top:90px">
+<div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:56px;align-items:center">
+<div class="rv" style="position:relative;height:520px">
+<div style="position:absolute;left:-11%;top:5%;width:80%;height:88%;background:#B7EFEB;border-radius:52% 48% 44% 56% / 48% 54% 46% 52%"></div>
+<div style="position:absolute;right:2%;bottom:-2%;width:53%;height:46%;background:#007C96;border-radius:56% 44% 50% 50% / 50% 56% 44% 50%"></div>
+<img src="pw-trust-vet-cat.webp" alt="{{t.altTrust}}" loading="lazy" decoding="async" width="900" height="1124" style="position:absolute;left:5%;top:0;width:86%;height:92%;object-fit:cover;object-position:45% 40%;border-radius:40px;display:block;box-shadow:0 14px 34px rgba(0,90,110,.12)">
+</div>
+<div class="rv">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">{{t.trEyebrow}}</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900">{{t.trH}}</h2>
+<p style="margin-top:18px;font-size:17px;line-height:1.7;color:#3C4447;text-wrap:pretty">{{t.trP}}</p>
+<ul style="list-style:none;margin:30px 0 0;padding:0;display:flex;flex-direction:column;gap:20px">
+<sc-for list="{{benefits}}" as="b" hint-placeholder-count="3">
+<li style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;width:36px;height:36px;border-radius:50%;background:#007C96;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"></path></svg></span>
+<div><div style="font:800 19px 'Nunito',sans-serif">{{b.title}}</div><div style="margin-top:4px;font-size:15.5px;line-height:1.6;color:#3C4447">{{b.desc}}</div></div>
+</li>
+</sc-for>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 04 TEAM -->
+<section id="team" style="background:#F3FAF9;padding:96px 24px;scroll-margin-top:90px">
+<div style="max-width:1240px;margin:0 auto">
+<div class="rv" style="max-width:640px;margin:0 auto 48px;text-align:center">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">{{t.tmEyebrow}}</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900">{{t.tmH}}</h2>
+<p style="margin-top:16px;font-size:17px;line-height:1.65;color:#3C4447;text-wrap:pretty">{{t.tmP}}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">
+<sc-for list="{{team}}" as="m" hint-placeholder-count="3">
+<article class="card rv" style="padding:16px 16px 26px;text-align:center">
+<div style="position:relative;height:300px;border-radius:18px;background:#B7EFEB;overflow:hidden;display:flex;align-items:center;justify-content:center">
+<sc-if value="{{m.hasPhoto}}" hint-placeholder-val="{{ false }}"><img src="{{m.photo}}" alt="{{m.alt}}" loading="lazy" decoding="async" width="900" height="1200" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block"></sc-if>
+<sc-if value="{{m.noPhoto}}" hint-placeholder-val="{{ true }}"><div style="position:absolute;right:-30px;bottom:-40px;width:180px;height:180px;border-radius:50%;background:#007C96;opacity:.9"></div></sc-if>
+<sc-if value="{{m.noPhoto}}" hint-placeholder-val="{{ true }}"><div style="position:relative;padding:12px 18px;border:2px dashed #007C96;border-radius:14px;background:rgba(255,255,255,.9);font:800 12px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#005F73">{{t.phPortrait}}</div></sc-if>
+</div>
+<h3 style="font-size:22px;font-weight:800;margin-top:20px">{{m.name}}</h3>
+<div style="margin-top:4px;color:#007C96;font-weight:700;font-size:15px">{{m.role}}</div>
+<div style="margin-top:12px;display:inline-block;padding:4px 12px;border-radius:999px;background:#F3FAF9;border:1px solid #CFE9E6;font-size:12px;font-weight:700;color:#4A5558">{{t.sample}}</div>
+</article>
+</sc-for>
+</div>
+<div class="rv" style="margin-top:44px;text-align:center"><a class="btn btn-ghost" href="pw-team.html">{{t.meetTeam}}</a></div>
+</div>
+</section>
+
+<!-- 05 CTA -->
+<section id="contact" style="padding:96px 24px 40px;scroll-margin-top:90px">
+<div class="rv cta-grid" style="position:relative;overflow:hidden;max-width:1240px;margin:0 auto;background:#007C96;border-radius:48px;padding:72px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:56px;align-items:center">
+<div style="position:absolute;left:-120px;top:-150px;width:300px;height:300px;border-radius:50%;background:#0888A4"></div>
+<svg class="paw hide-sm" style="left:39%;bottom:28px;width:108px;--r:12deg;transform:rotate(12deg);opacity:.32" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="left:4%;bottom:24px;width:56px;--r:-20deg;transform:rotate(-20deg);opacity:.25" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<svg class="paw hide-sm" style="left:47%;top:26px;width:64px;--r:-14deg;transform:rotate(-14deg);opacity:.28" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<div class="cta-copy" style="position:relative">
+<h2 style="font-size:clamp(32px,4vw,52px);line-height:1.08;font-weight:900;color:#fff;text-wrap:balance">{{t.ctaH}}</h2>
+<p style="margin-top:18px;font-size:18px;line-height:1.6;color:#E6F7F5;max-width:460px">{{t.ctaP}}</p>
+<div class="cta-btn" style="margin-top:34px"><a class="btn btn-white" href="pw-contact.html" style="min-height:58px;padding:0 36px;font-size:17px;box-shadow:0 8px 20px rgba(0,50,65,.22)">{{t.getInTouch}}</a></div>
+</div>
+<div class="cta-img" style="position:relative;height:420px">
+<img src="pw-cta-pet.webp" alt="{{t.altCta}}" loading="lazy" decoding="async" width="900" height="1124" style="position:absolute;inset:18px 0 0 9%;width:91%;height:calc(100% - 18px);object-fit:cover;object-position:50% 35%;border-radius:44px;display:block;box-shadow:0 14px 32px rgba(0,50,65,.18)">
+</div>
+</div>
+</section>
+
+<!-- 06 FAQ -->
+<section id="faq" style="padding:72px 24px 104px;scroll-margin-top:90px">
+<div style="max-width:800px;margin:0 auto">
+<div class="rv" style="text-align:center;margin-bottom:40px">
+<div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#007C96;margin-bottom:12px">{{t.faqEyebrow}}</div>
+<h2 style="font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:900">{{t.faqH}}</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{faq}}" as="f" hint-placeholder-count="4">
+<div class="rv" style="background:#fff;border:1.5px solid #DCEFED;border-radius:22px;overflow:hidden">
+<h3 style="font-size:inherit"><button class="faq-q" id="{{f.btnId}}" onClick="{{f.toggle}}" aria-expanded="{{f.open}}" aria-controls="{{f.panelId}}"><span>{{f.q}}</span><span class="{{f.icoClass}}" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}"><p id="{{f.panelId}}" style="padding:0 24px 24px;font-size:16px;line-height:1.7;color:#3C4447;text-wrap:pretty">{{f.a}}</p></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- 07 FOOTER -->
+<footer style="background:#00596B;color:#fff;padding:72px 24px 28px;position:relative;overflow:hidden">
+<svg class="paw hide-sm" style="right:4%;top:28px;width:130px;--r:-12deg;transform:rotate(-12deg);opacity:.12" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg>
+<div style="position:relative;max-width:1240px;margin:0 auto">
+<div class="ft-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:40px">
+<div class="ft-brand" style="grid-column:span 1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px"><svg width="34" height="34" viewBox="0 0 64 64" fill="#B7EFEB" aria-hidden="true"><path d="M32 30c-8 0-15 8-15 15 0 5 4 8 9 8 3 0 4-1 6-1s3 1 6 1c5 0 9-3 9-8 0-7-7-15-15-15z"></path><ellipse cx="13" cy="29" rx="5" ry="7" transform="rotate(-20 13 29)"></ellipse><ellipse cx="25" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="39" cy="14" rx="5.500" ry="8"></ellipse><ellipse cx="51" cy="29" rx="5" ry="7" transform="rotate(20 51 29)"></ellipse></svg><span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:24px;letter-spacing:.02em">PAWCARE</span></div>
+<p style="margin-top:16px;font-size:15px;line-height:1.65;color:#CFE9E6;max-width:280px">{{t.fDesc}}</p>
+</div>
+<div>
+<div style="font:800 16px 'Nunito',sans-serif;margin-bottom:10px">{{t.fNav}}</div>
+<nav aria-label="Footer" style="display:flex;flex-direction:column">
+<a class="foot-link" href="#top">{{t.navHome}}</a><a class="foot-link" href="pw-about.html">{{t.navAbout}}</a><a class="foot-link" href="pw-services.html">{{t.navServices}}</a><a class="foot-link" href="pw-team.html">{{t.navTeam}}</a><a class="foot-link" href="#faq">{{t.fFaq}}</a><a class="foot-link" href="pw-contact.html">{{t.navContact}}</a>
+</nav>
+</div>
+<div>
+<div style="font:800 16px 'Nunito',sans-serif;margin-bottom:10px">{{t.navServices}}</div>
+<div style="display:flex;flex-direction:column"><a class="foot-link" href="#services">{{t.s1t}}</a><a class="foot-link" href="#services">{{t.s2t}}</a><a class="foot-link" href="#services">{{t.s4t}}</a><a class="foot-link" href="#services">{{t.s6t}}</a></div>
+</div>
+<div class="ft-contact">
+<div style="font:800 16px 'Nunito',sans-serif;margin-bottom:10px">{{t.fContact}}</div>
+<div style="display:flex;flex-direction:column;gap:8px;color:#CFE9E6;font-size:15px"><span>{{t.fAddr}}</span><span>{{t.fPhone}}</span><span>{{t.fMail}}</span></div>
+<div style="display:flex;gap:10px;margin-top:18px" aria-label="{{t.fSocial}}">
+<span title="Facebook" style="width:44px;height:44px;border-radius:50%;border:1.5px dashed #7FD3CB;display:flex;align-items:center;justify-content:center;font:800 13px 'DM Sans',sans-serif;color:#B7EFEB">Fb</span>
+<span title="Instagram" style="width:44px;height:44px;border-radius:50%;border:1.5px dashed #7FD3CB;display:flex;align-items:center;justify-content:center;font:800 13px 'DM Sans',sans-serif;color:#B7EFEB">Ig</span>
+<span title="TikTok" style="width:44px;height:44px;border-radius:50%;border:1.5px dashed #7FD3CB;display:flex;align-items:center;justify-content:center;font:800 13px 'DM Sans',sans-serif;color:#B7EFEB">Tt</span>
+</div>
+</div>
+</div>
+<div style="margin-top:48px;padding-top:22px;border-top:1px solid rgba(183,239,235,.28);display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:14px;color:#CFE9E6">
+<span>© 2026 PAWCARE. {{t.rights}}</span>
+<span style="color:#fff;font-weight:500">{{t.notice}}</span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<script>
+/* PAWCARE static runtime | renders each page's template with its component state.
+   Small self-contained replacement for the design tool's runtime. No dependencies. */
+(function () {
+  'use strict';
+
+  function DCLogic(props) { this.props = props || {}; }
+  DCLogic.prototype.setState = function (s) {
+    if (!this.state) this.state = {};
+    Object.assign(this.state, s);
+    if (this.__render) this.__render();
+  };
+  window.DCLogic = DCLogic;
+
+  function ev(e, scope) {
+    e = e.trim();
+    if (e === 'false') return false;
+    if (e === 'true') return true;
+    return e.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, scope);
+  }
+  function interp(s, scope) {
+    var w = s.match(/^\{\{([^}]*)\}\}$/);
+    if (w) return ev(w[1], scope);
+    return s.replace(/\{\{([^}]*)\}\}/g, function (m, e) {
+      var v = ev(e, scope);
+      return v == null ? '' : v;
+    });
+  }
+
+  function addHandler(el, type) {
+    el.__l = el.__l || {};
+    if (el.__l[type]) return;
+    el.__l[type] = true;
+    el.addEventListener(type, function (e) {
+      var f = el.__h && el.__h[type];
+      if (typeof f === 'function') f(e);
+    });
+  }
+
+  function build(node, scope, parent) {
+    if (node.nodeType === 3) {
+      parent.appendChild(document.createTextNode(interp(node.nodeValue, scope)));
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    var tag = node.localName;
+    if (tag === 'helmet') return;
+    var c, i;
+    if (tag === 'sc-if') {
+      if (interp(node.getAttribute('value'), scope)) {
+        for (c = node.firstChild; c; c = c.nextSibling) build(c, scope, parent);
+      }
+      return;
+    }
+    if (tag === 'sc-for') {
+      var list = interp(node.getAttribute('list'), scope) || [];
+      var as = node.getAttribute('as');
+      list.forEach(function (it) {
+        var s = Object.create(scope);
+        s[as] = it;
+        for (var ch = node.firstChild; ch; ch = ch.nextSibling) build(ch, s, parent);
+      });
+      return;
+    }
+    var el = document.createElementNS(node.namespaceURI, node.localName);
+    el.__h = {};
+    for (i = 0; i < node.attributes.length; i++) {
+      var a = node.attributes[i], n = a.name;
+      if (n.indexOf('on') === 0) {
+        var fn = interp(a.value, scope);
+        if (typeof fn === 'function') { el.__h[n.slice(2)] = fn; addHandler(el, n.slice(2)); }
+        continue;
+      }
+      var v = interp(a.value, scope);
+      if (v === false || v == null) {
+        if (n.indexOf('aria-') === 0) el.setAttribute(n, 'false');
+        continue;
+      }
+      el.setAttribute(n, String(v));
+    }
+    for (c = node.firstChild; c; c = c.nextSibling) build(c, scope, el);
+    parent.appendChild(el);
+  }
+
+  /* Patch the live DOM to match a freshly built tree, keeping existing elements
+     (so form values, focus and scroll position survive re-renders). */
+  function morph(live, fresh) {
+    var lc = live.firstChild, fc = fresh.firstChild, nextF;
+    while (fc) {
+      nextF = fc.nextSibling;
+      if (!lc) {
+        live.appendChild(fc);
+      } else if (lc.nodeType === 3 && fc.nodeType === 3) {
+        if (lc.nodeValue !== fc.nodeValue) lc.nodeValue = fc.nodeValue;
+        lc = lc.nextSibling;
+      } else if (lc.nodeType === 1 && fc.nodeType === 1 &&
+                 lc.localName === fc.localName && lc.namespaceURI === fc.namespaceURI) {
+        syncAttrs(lc, fc);
+        morph(lc, fc);
+        lc = lc.nextSibling;
+      } else {
+        live.replaceChild(fc, lc);
+        lc = fc.nextSibling;
+      }
+      fc = nextF;
+    }
+    while (lc) { var nx = lc.nextSibling; live.removeChild(lc); lc = nx; }
+  }
+  function syncAttrs(live, fresh) {
+    var i, a;
+    for (i = live.attributes.length - 1; i >= 0; i--) {
+      a = live.attributes[i];
+      if (!fresh.hasAttribute(a.name)) live.removeAttribute(a.name);
+    }
+    for (i = 0; i < fresh.attributes.length; i++) {
+      a = fresh.attributes[i];
+      if (live.getAttribute(a.name) !== a.value) live.setAttribute(a.name, a.value);
+    }
+    live.__h = fresh.__h || {};
+    for (var t in live.__h) addHandler(live, t);
+  }
+
+  window.DC = {
+    mount: function (Comp) {
+      var tpl = document.getElementById('dc-template');
+      var app = document.getElementById('app');
+      var inst = new Comp({});
+      inst.__render = function () {
+        var vals = inst.renderVals();
+        var frag = document.createDocumentFragment();
+        for (var c = tpl.content.firstChild; c; c = c.nextSibling) build(c, vals, frag);
+        morph(app, frag);
+      };
+      inst.__render();
+      if (inst.componentDidMount) inst.componentDidMount();
+      window.__pawcare = inst;
+    }
+  };
+})();
+
+</script>
+<script>
+(function(){
+"use strict";
+var Comp=(function(DCLogic){
+const L = {
+en: {
+altHero:'A tabby cat sitting with one paw raised, peeking into the page in front of two teal shapes', altTrust:'A smiling veterinarian in a white coat gently examining a small fluffy dog on an exam table', altCta:'A smiling veterinarian in a white coat gently petting a tabby cat on an exam table', altT1:'A smiling veterinarian in teal scrubs with a stethoscope, sitting with a friendly dog in a bright clinic', altT2:'A smiling veterinarian in teal scrubs with a stethoscope, sitting with a golden retriever in a bright clinic', altT3:'A gray-haired veterinarian in a white coat gently holding a ginger cat on an exam table',
+navHome:'Home', navAbout:'About Us', navServices:'Services', navTeam:'Our Team', navContact:'Contact', book:'Contact Us', menuLabel:'Toggle menu',
+heroL1:'WELCOME TO', heroL2:'PAWCARE CLINIC',
+heroP:"Compassionate veterinary care for the pets who make life brighter. From everyday checkups to attentive medical support, we're here for every paw.",
+explore:'Explore Our Services',
+phLabel:'Image placeholder', phCat:'Tabby kitten photo', phCatNote:'Large photorealistic cutout peeking in from the left edge, face prominent. Swap in a transparent PNG here.',
+phVet:'Veterinarian gently examining a cat or dog', phPortrait:'Portrait placeholder', phDog:'Friendly dog photo',
+svcEyebrow:'Our Services', svcH:'Care for every stage of their life', svcP:'From the first kitten checkup to the golden years, our services are designed to keep pets healthy, comfortable and happy.',
+learn:'Learn More',
+s1t:'General Veterinary Checkups', s1d:'Routine wellness visits that help us spot small concerns early and keep your pet feeling their best.',
+s2t:'Vaccination & Prevention', s2d:'Guidance on vaccines and preventive care, tailored to your pet’s age, lifestyle and needs.',
+s3t:'Veterinary Diagnostics', s3d:'Careful examinations and diagnostic support to understand what your pet needs.',
+s4t:'Dental Care', s4d:'Attention to teeth and gums, because healthy mouths are part of a healthy, happy pet.',
+s5t:'Surgery & Treatment', s5d:'Attentive medical support and treatment, explained clearly every step of the way.',
+s6t:'Puppy & Kitten Care', s6d:'A gentle, reassuring start for the newest members of your family.',
+trEyebrow:'Care You Can Trust', trH:'Gentle hands, honest conversations', trP:'We believe good veterinary care starts with patience. Every pet is treated as an individual, and every owner is treated as a partner.',
+b1t:'Compassionate, patient-centered care', b1d:'Calm handling and unhurried visits, so pets feel safe.',
+b2t:'Clear communication with pet owners', b2d:'Plain-language explanations, so you always know what comes next.',
+b3t:'Attention to preventive health', b3d:'A focus on keeping small issues from becoming big ones.',
+tmEyebrow:'Meet Our Team', tmH:'The people behind the care', tmP:'A friendly team that treats every pet like family.',
+sample:'Sample profile', meetTeam:'Meet Our Team',
+r1:'Veterinarian', r2:'Veterinary Surgeon', r3:'Veterinary Nurse',
+ctaH:'YOUR PET DESERVES THE BEST CARE.', ctaP:"Have a question about your pet's health? Our caring team is here to help.", getInTouch:'Get in Touch',
+faqEyebrow:'FAQ', faqH:'Frequently asked questions',
+q1:'How often should my pet have a wellness visit?', a1:'Many vets suggest a routine checkup at least once a year, and more often for puppies, kittens and senior pets. Your veterinarian can recommend a schedule that suits your pet.',
+q2:'How can I prepare for an appointment?', a2:'Bring any previous records, note changes in appetite, energy or behavior, and write down your questions. Use a carrier for cats and small pets, and a leash for dogs.',
+q3:'Do pets need vaccinations?', a3:'Vaccines help protect against common, preventable illnesses. Which ones are right depends on age, lifestyle and local guidelines, so ask your veterinarian.',
+q4:'How can I contact the clinic?', a4:'PAWCARE is a fictional clinic, so there are no real contact details. On a live site, this answer would list the clinic’s phone, email and hours.',
+fDesc:'Compassionate veterinary care for the pets who make life brighter.', fNav:'Navigate', fFaq:'FAQ', fContact:'Contact', fSocial:'Social links',
+fAddr:'[Address placeholder]', fPhone:'[Phone placeholder]', fMail:'[Email placeholder]',
+rights:'All rights reserved.', notice:'Portfolio concept: PAWCARE is a fictional veterinary clinic.'
+},
+sr: {
+altHero:'Tigrasta mačka sedi podignute šape i viri u stranicu ispred dva tirkizna oblika', altTrust:'Nasmejani veterinar u beloj kuti nežno pregleda malog čupavog psa na stolu za pregled', altCta:'Nasmejani veterinar u beloj kuti nežno miluje tigrastu mačku na stolu za pregled', altT1:'Nasmejani veterinar u tirkiznoj uniformi sa stetoskopom sedi sa prijateljskim psom u svetloj klinici', altT2:'Nasmejani veterinar u tirkiznoj uniformi sa stetoskopom sedi sa zlatnim retriverom u svetloj klinici', altT3:'Veterinar sede kose u beloj kuti nežno drži narandžastu mačku na stolu za pregled',
+navHome:'Početna', navAbout:'O nama', navServices:'Usluge', navTeam:'Naš tim', navContact:'Kontakt', book:'Kontaktirajte nas', menuLabel:'Otvori ili zatvori meni',
+heroL1:'DOBRODOŠLI U', heroL2:'PAWCARE KLINIKU',
+heroP:'Brižna veterinarska nega za ljubimce koji život čine svetlijim. Od redovnih pregleda do pažljive medicinske podrške, tu smo za svaku šapu.',
+explore:'Pogledajte usluge',
+phLabel:'Mesto za sliku', phCat:'Fotografija tabi mačeta', phCatNote:'Velika fotorealistična slika sa providnom pozadinom, viri sa leve ivice, lice u fokusu. Ovde ubacite providni PNG.',
+phVet:'Veterinar nežno pregleda mačku ili psa', phPortrait:'Mesto za portret', phDog:'Fotografija ljubaznog psa',
+svcEyebrow:'Naše usluge', svcH:'Nega za svaki period njihovog života', svcP:'Od prvog pregleda mačeta do zlatnih godina, naše usluge čuvaju ljubimce zdravim, udobnim i srećnim.',
+learn:'Saznajte više',
+s1t:'Opšti veterinarski pregledi', s1d:'Redovni pregledi koji pomažu da na vreme uočimo sitne probleme i da se vaš ljubimac oseća najbolje.',
+s2t:'Vakcinacija i preventiva', s2d:'Saveti o vakcinama i preventivnoj nezi, prilagođeni uzrastu, načinu života i potrebama ljubimca.',
+s3t:'Veterinarska dijagnostika', s3d:'Pažljivi pregledi i dijagnostička podrška da bismo razumeli šta vašem ljubimcu treba.',
+s4t:'Stomatološka nega', s4d:'Briga o zubima i desnima, jer su zdrava usta deo zdravog i srećnog ljubimca.',
+s5t:'Hirurgija i lečenje', s5d:'Pažljiva medicinska podrška i lečenje, jasno objašnjeni u svakom koraku.',
+s6t:'Briga o štencima i mačićima', s6d:'Nežan i umirujući početak za najmlađe članove vaše porodice.',
+trEyebrow:'Nega kojoj možete verovati', trH:'Nežne ruke, iskreni razgovori', trP:'Verujemo da dobra veterinarska nega počinje strpljenjem. Svaki ljubimac je individua, a svaki vlasnik partner.',
+b1t:'Brižna nega usmerena na pacijenta', b1d:'Mirno rukovanje i pregledi bez žurbe, da se ljubimci osećaju bezbedno.',
+b2t:'Jasna komunikacija sa vlasnicima', b2d:'Objašnjenja običnim jezikom, da uvek znate šta sledi.',
+b3t:'Pažnja posvećena prevenciji', b3d:'Fokus na tome da sitni problemi ne postanu veliki.',
+tmEyebrow:'Upoznajte naš tim', tmH:'Ljudi koji stoje iza nege', tmP:'Ljubazan tim koji prema svakom ljubimcu postupa kao prema članu porodice.',
+sample:'Primer profila', meetTeam:'Upoznajte naš tim',
+r1:'Veterinar', r2:'Veterinar hirurg', r3:'Veterinarski tehničar',
+ctaH:'VAŠ LJUBIMAC ZASLUŽUJE NAJBOLJU NEGU.', ctaP:'Imate pitanje o zdravlju vašeg ljubimca? Naš brižan tim je tu da pomogne.', getInTouch:'Javite nam se',
+faqEyebrow:'ČPP', faqH:'Često postavljana pitanja',
+q1:'Koliko često ljubimac treba da ide na redovan pregled?', a1:'Mnogi veterinari preporučuju redovan pregled bar jednom godišnje, a češće za štence, mačiće i starije ljubimce. Veterinar može da predloži raspored koji odgovara vašem ljubimcu.',
+q2:'Kako da se pripremim za pregled?', a2:'Ponesite prethodnu dokumentaciju, zabeležite promene u apetitu, energiji ili ponašanju i zapišite pitanja. Mačke i male ljubimce vodite u transporteru, a pse na povodcu.',
+q3:'Da li ljubimcima trebaju vakcine?', a3:'Vakcine štite od čestih bolesti koje se mogu sprečiti. Koje su prave zavisi od uzrasta, načina života i lokalnih preporuka, pa pitajte veterinara.',
+q4:'Kako mogu da kontaktiram kliniku?', a4:'PAWCARE je izmišljena klinika, pa nema pravih kontakt podataka. Na pravom sajtu ovde bi stajali telefon, imejl i radno vreme klinike.',
+fDesc:'Brižna veterinarska nega za ljubimce koji život čine svetlijim.', fNav:'Navigacija', fFaq:'ČPP', fContact:'Kontakt', fSocial:'Društvene mreže',
+fAddr:'[Adresa – mesto za unos]', fPhone:'[Telefon – mesto za unos]', fMail:'[Imejl – mesto za unos]',
+rights:'Sva prava zadržana.', notice:'Portfolio koncept: PAWCARE je izmišljena veterinarska klinika.'
+}
+};
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { lang:'en', menu:false, faq:-1 }; }
+  componentDidMount(){
+    try { const s = window.localStorage.getItem('pawcare-lang'); if (s==='en' || s==='sr') { this.setState({ lang:s }); this.setDocLang(s); } } catch(e) {}
+  }
+  setDocLang(l){ try { document.documentElement.setAttribute('lang', l==='sr' ? 'sr' : 'en'); } catch(e) {} }
+  pick(l){ try { window.localStorage.setItem('pawcare-lang', l); } catch(e) {} this.setDocLang(l); this.setState({ lang:l }); }
+  renderVals() {
+    const lang = this.state.lang, t = L[lang];
+    const open = this.state.faq;
+    return {
+      t,
+      isEn: lang==='en', isSr: lang==='sr',
+      enClass: 'lang-btn' + (lang==='en' ? ' on' : ''),
+      srClass: 'lang-btn' + (lang==='sr' ? ' on' : ''),
+      setEn: () => this.pick('en'),
+      setSr: () => this.pick('sr'),
+      menuOpen: this.state.menu, menuClosed: !this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      closeMenu: () => this.setState({ menu:false }),
+      menuKey: (e) => { if (e && e.key === 'Escape' && this.state.menu) this.setState({ menu:false }); },
+      benefits: [1,2,3].map(i => ({ title:t['b'+i+'t'], desc:t['b'+i+'d'] })),
+      team: [
+        { name:'Dr. Sample Name One', role:t.r1, hasPhoto:true, noPhoto:false, photo:'pw-team-1.webp', alt:t.altT1 },
+        { name:'Dr. Sample Name Two', role:t.r2, hasPhoto:true, noPhoto:false, photo:'pw-team-2.webp', alt:t.altT2 },
+        { name:'Sample Name Three', role:t.r3, hasPhoto:true, noPhoto:false, photo:'pw-team-3.webp', alt:t.altT3 }
+      ],
+      faq: [1,2,3,4].map((n,i) => ({
+        q:t['q'+n], a:t['a'+n], btnId:'faq-q-main-'+n, panelId:'faq-a-main-'+n, open: open===i,
+        icoClass: 'faq-ico' + (open===i ? ' open' : ''),
+        toggle: () => this.setState({ faq: open===i ? -1 : i })
+      }))
+    };
+  }
+}
+return Component;
+})(window.DCLogic);
+window.DC.mount(Comp);
+})();
+
+</script>
+</body>
+</html>

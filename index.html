@@ -370,6 +370,9 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .flabel{font-size:.82rem;color:var(--muted)}
 .note{padding:13px 15px;border-radius:14px;background:rgba(163,230,53,.12);border:1px solid rgba(163,230,53,.4);font-size:.9rem}
 .note.err{background:rgba(255,110,80,.1);border-color:rgba(255,110,80,.4)}
+.fbox{position:relative}.fbox button:disabled{opacity:.6;cursor:wait}
+#toast{position:fixed;left:50%;bottom:22px;z-index:9999;transform:translate(-50%,20px);max-width:min(92vw,460px);padding:14px 18px;border-radius:14px;background:var(--fg);color:var(--bg);font-size:.92rem;line-height:1.4;box-shadow:0 18px 50px -12px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
 @media (max-width:900px){.cta-p{grid-template-columns:1fr}}
 
 /* footer */
@@ -808,6 +811,8 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
       </div>
       <form class="fbox" id="form" novalidate>
         <label class="l" for="ime"><span data-i="fName">Ime i naziv biznisa</span><input id="ime" name="ime" autocomplete="name" placeholder="Ana · Salon Ana"></label>
+        <label class="l" for="fkontakt"><span data-i="fContact">Telefon ili mejl</span><input id="fkontakt" name="fkontakt" autocomplete="email" placeholder="062 123 4567 · ana@mail.com"></label>
+        <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <span class="flabel" data-i="fNeed">Šta vam treba</span>
         <div class="chips">
           <label><input type="radio" name="tip" id="t1" value="o1" checked><span data-i="o1">Nov sajt</span></label>
@@ -1030,11 +1035,11 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
     p1h:'Discovery',p1p:'We learn your business, clients and the site’s goal.',p2h:'Sketch & design',p2p:'A design proposal we refine together.',p3h:'Development',p3p:'Copy, images, forms and testing on every screen.',p4h:'Launch',p4p:'The site goes live and we stay on for maintenance.',
     fqTag:'FAQ',fqH:'Common <span class="grad">questions</span>',q1:'How much does a website cost?',a1:'It depends on pages and features such as booking or a gallery. After a short call you get an exact quote with no hidden costs.',q2:'Will the site work on phones?',a2:'Yes. Every site is built for phones first, then for tablets and desktops.',q3:'What if I want to change something on the site?',a3:'Just send us a message with the change, such as a new price, text or photo, and we update the site. You never have to touch anything technical.',q4:'Do you handle domain and hosting?',a4:'Yes. We take care of domain, hosting and business email, so you never touch anything technical.',
     ctTag:'Contact',ctH:'Let’s start your <span class="grad">project</span>',ctP:'Message us on Viber, WhatsApp or email, or give us a call. We get back to you with a proposal and a rough price.',
-    fName:'Name and business',fNeed:'What do you need',o1:'New website',o2:'Redesign',o3:'Landing page',o4:'Maintenance',fMsg:'What do you do?',cta2:'Start a project',
+    fName:'Name and business',fContact:'Phone or email',fNeed:'What do you need',o1:'New website',o2:'Redesign',o3:'Landing page',o4:'Maintenance',fMsg:'What do you do?',cta2:'Start a project',
     fAbout:'UI/UX design, web design and website development, from the first sketch to launch and long-term maintenance.',sv1:'UI/UX design',sv2:'Web design',sv3:'Web development',sv4:'Maintenance',fNav:'Navigation',nHome2:'Home',nWork2:'Work',nAbout2:'About',nSvc:'Services',fCt:'Contact',fLoc:'Serbia · remote',fTop:'Back to top ↑'};
   var SR={};document.querySelectorAll('[data-i]').forEach(function(el){SR[el.dataset.i]=el.innerHTML});
-  var TXT={sr:{kin:'Web sajtovi koji donose',word:'rezultate',copy:'Kopiraj',copied:'Kopirano ✓',sel:'Označeno',err:'Upišite ime i naziv biznisa da bismo znali kome odgovaramo.',ok:function(n,t){return 'Hvala, '+n+'! Upit („'+t+'“) je spreman. Pošaljite ga na webstudiodev26@gmail.com i javićemo vam se.'},busy:'Precrtani termini su zauzeti',picked:function(d,s){return '✓ Izabran termin: '+d+' u '+s},days:['Pon','Uto','Sre','Čet','Pet']},
-    en:{kin:'Websites that deliver',word:'results',copy:'Copy',copied:'Copied ✓',sel:'Selected',err:'Add your name and business so we know who to reply to.',ok:function(n,t){return 'Thanks, '+n+'! Your inquiry ("'+t+'") is ready. Send it to webstudiodev26@gmail.com and we will get back to you.'},busy:'Crossed-out slots are taken',picked:function(d,s){return '✓ Selected: '+d+' at '+s},days:['Mon','Tue','Wed','Thu','Fri']}};
+  var TXT={sr:{kin:'Web sajtovi koji donose',word:'rezultate',copy:'Kopiraj',copied:'Kopirano ✓',sel:'Označeno',err:'Upišite ime i naziv biznisa da bismo znali kome odgovaramo.',errC:'Upišite telefon ili mejl da bismo mogli da vam odgovorimo.',sending:'Šaljem…',fail:'Poruka nije poslata. Pišite nam direktno na webstudiodev26@gmail.com ili na Viber/WhatsApp 062 820 5276.',ok:function(n,t){return 'Hvala, '+n+'! Upit („'+t+'“) je poslat. Javićemo vam se.'},vbHint:'Viber se nije otvorio. Broj je kopiran: 062 820 5276',emHint:'Mejl aplikacija se nije otvorila. Adresa je kopirana: webstudiodev26@gmail.com',busy:'Precrtani termini su zauzeti',picked:function(d,s){return '✓ Izabran termin: '+d+' u '+s},days:['Pon','Uto','Sre','Čet','Pet']},
+    en:{kin:'Websites that deliver',word:'results',copy:'Copy',copied:'Copied ✓',sel:'Selected',err:'Add your name and business so we know who to reply to.',errC:'Add a phone number or email so we can reply.',sending:'Sending…',fail:'The message was not sent. Write to us directly at webstudiodev26@gmail.com or on Viber/WhatsApp +381 62 820 5276.',ok:function(n,t){return 'Thanks, '+n+'! Your inquiry ("'+t+'") has been sent. We will get back to you.'},vbHint:'Viber did not open. The number is copied: +381 62 820 5276',emHint:'Your mail app did not open. The address is copied: webstudiodev26@gmail.com',busy:'Crossed-out slots are taken',picked:function(d,s){return '✓ Selected: '+d+' at '+s},days:['Mon','Tue','Wed','Thu','Fri']}};
   var lang='sr',manWords=[];
   function splitMani(){var p=document.getElementById('mani');function walk(node){[].slice.call(node.childNodes).forEach(function(n){if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(w))}else{var s=document.createElement('span');s.className='wo';s.textContent=w;f.appendChild(s)}});n.replaceWith(f)}else walk(n)})}walk(p);manWords=p.querySelectorAll('.wo')}
   function setLang(l){lang=l;root.lang=l==='en'?'en':'sr-Latn';
@@ -1112,9 +1117,22 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
   var copy=document.getElementById('copy'),mail=document.getElementById('mail');
   copy.addEventListener('click',function(){function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent=TXT[lang].sel}
     try{navigator.clipboard.writeText(mail.textContent).then(function(){copy.textContent=TXT[lang].copied},sel)}catch(e){sel()}});
-  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ime=document.getElementById('ime'),note=document.getElementById('note'),v=ime.value.trim();note.hidden=false;
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var f=this,ime=document.getElementById('ime'),kon=document.getElementById('fkontakt'),por=document.getElementById('poruka'),note=document.getElementById('note'),btn=f.querySelector('button[type=submit]'),v=ime.value.trim(),c=kon.value.trim();note.hidden=false;
     if(!v){note.className='note err';note.textContent=TXT[lang].err;ime.focus();return}
-    var k=document.querySelector('input[name="tip"]:checked').value;note.className='note';note.textContent=TXT[lang].ok(v.split(/[,·]/)[0].trim(),lang==='en'?EN[k]:SR[k])});
+    if(!c){note.className='note err';note.textContent=TXT[lang].errC;kon.focus();return}
+    if(document.getElementById('honey').value)return;
+    var k=document.querySelector('input[name="tip"]:checked').value,tip=(lang==='en'?EN[k]:SR[k]).replace(/<[^>]+>/g,'');
+    note.className='note';note.textContent=TXT[lang].sending;btn.disabled=true;
+    fetch('https://formsubmit.co/ajax/webstudiodev26@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'Novi upit sa sajta: '+v,_template:'table',_captcha:'false','Ime i biznis':v,'Telefon ili mejl':c,'Šta im treba':tip,'Poruka':por.value.trim()||'-',_replyto:/@/.test(c)?c:''})})
+    .then(function(r){return r.json()}).then(function(d){if(String(d.success)!=='true')throw 0;note.className='note';note.textContent=TXT[lang].ok(v.split(/[,·]/)[0].trim(),tip);f.reset()})
+    .catch(function(){note.className='note err';note.textContent=TXT[lang].fail})
+    .then(function(){btn.disabled=false})});
+  function toast(t){var el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';el.setAttribute('role','status');document.body.appendChild(el)}el.textContent=t;el.className='show';clearTimeout(el._t);el._t=setTimeout(function(){el.className=''},6000)}
+  function cp(t){try{navigator.clipboard.writeText(t).catch(function(){})}catch(e){}}
+  document.getElementById('msgbtns').addEventListener('click',function(e){var a=e.target.closest('a.vb,a.em');if(!a)return;var vb=a.classList.contains('vb'),left=false;
+    function off(){left=true}addEventListener('blur',off,{once:true});document.addEventListener('visibilitychange',off,{once:true});
+    setTimeout(function(){removeEventListener('blur',off);document.removeEventListener('visibilitychange',off);if(left||document.hidden)return;cp(vb?'+381628205276':'webstudiodev26@gmail.com');toast(TXT[lang][vb?'vbHint':'emHint'])},1600)});
 
 
   /* KONTAKT PREKO PORUKA: upiši svoje podatke, dugmad se pojave sama */

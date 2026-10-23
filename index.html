@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Webstudio.dev: UI/UX dizajn, web dizajn i programiranje sajtova. Od prve skice do lansiranja i dugoročnog održavanja, sajtovi koji donose pozive, upite i zakazane termine.">
+<meta name="description" content="Webstudio.dev: izrada sajtova, web dizajn, osnovni SEO, UI/UX i grafički dizajn, promo videi i objave za Instagram i Facebook.">
 <meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Webstudio.dev · Web sajtovi koji donose rezultate">
-<meta property="og:description" content="UI/UX dizajn, web dizajn i programiranje sajtova, od prve skice do lansiranja i dugoročnog održavanja.">
+<meta property="og:description" content="Izrada sajtova, web dizajn, osnovni SEO, UI/UX i grafički dizajn, promo videi i objave za Instagram i Facebook.">
 <meta property="og:image" content="https://webstudiodev.net/og.jpg">
 <meta property="og:url" content="https://webstudiodev.net/">
 <link rel="canonical" href="https://webstudiodev.net/">
@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@400;500&display=swap">
+<script>(function(){var r=document.documentElement,w=0;function set(f){if(!f&&innerWidth===w)return;w=innerWidth;r.style.setProperty("--vh",(innerHeight*.01)+"px")}set(1);addEventListener("resize",function(){set(0)});addEventListener("orientationchange",function(){setTimeout(function(){set(1)},350)})})();</script>
 <style>
 /* Layout: hero sa talasnim poljem tačaka; ispod stakleni paneli sa limeta svetlom ivicom, projekti u laptop+telefon prikazu, bento usluge, proces sa svetlosnom linijom. Tamna podrazumevana, svetla preko prekidača. */
 :root{
@@ -125,7 +126,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 @media (max-width:520px){.lang,.nav-r .btn.sm{display:none}}
 
 /* hero */
-.hero{position:relative;min-height:max(680px,100svh);display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:120px 60px;isolation:isolate;overflow:hidden}
+.hero{position:relative;min-height:max(680px,calc(var(--vh,1vh)*100));display:flex;flex-direction:column;justify-content:center;text-align:center;padding-block:120px 60px;isolation:isolate;overflow:hidden}
 .hgrid{position:absolute;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,#000 10%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,#000 10%,transparent 75%)}
 .hglow{position:absolute;left:50%;top:55%;width:min(1000px,120vw);aspect-ratio:2/1;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(30px);pointer-events:none;animation:breathe 6s ease-in-out infinite}
 @keyframes breathe{50%{opacity:.6;transform:translate(-50%,-50%) scale(1.1)}}
@@ -141,7 +142,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .scrollhint i{width:1px;height:46px;background:linear-gradient(var(--lime),transparent);animation:drip 2s var(--ease) infinite;transform-origin:top}
 @keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 @media (max-height:760px){.scrollhint{display:none}}
-.hero{justify-content:flex-start!important;padding-top:clamp(140px,19vh,210px)!important;padding-bottom:clamp(240px,40vh,440px)!important}
+.hero{justify-content:flex-start!important;padding-top:clamp(140px,calc(var(--vh,1vh)*19),210px)!important;padding-bottom:clamp(240px,calc(var(--vh,1vh)*40),440px)!important}
 #gl{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block;pointer-events:none}
 .hero .hglow{top:auto;bottom:-30%;opacity:.7}
 .hfade{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:0;pointer-events:none;background:linear-gradient(transparent,var(--bg))}
@@ -396,9 +397,9 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 
 
 /* ===== filmski hero ===== */
-.hero.cine{--fg:#F1F1EC;--muted:#A3A59C;--line2:rgba(255,255,255,.16);color:var(--fg);background:#030402;min-height:max(640px,100svh);padding:0!important;justify-content:center!important;text-align:center}
+.hero.cine{--fg:#F1F1EC;--muted:#A3A59C;--line2:rgba(255,255,255,.16);color:var(--fg);background:#030402;min-height:max(640px,calc(var(--vh,1vh)*100));padding:0!important;justify-content:center!important;text-align:center}
 #film{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
-.cine .stage{position:relative;z-index:2;padding:clamp(90px,14vh,150px) 16px clamp(200px,34vh,360px)}
+.cine .stage{position:relative;z-index:2;padding:clamp(90px,calc(var(--vh,1vh)*14),150px) 16px clamp(200px,calc(var(--vh,1vh)*34),360px)}
 .credit{display:inline-flex;align-items:center;gap:18px;font:500 .72rem var(--f-mono);letter-spacing:.42em;text-transform:uppercase;color:var(--muted)}
 .credit::before,.credit::after{content:"";width:clamp(24px,5vw,64px);height:1px;background:linear-gradient(90deg,transparent,var(--muted))}
 .credit::after{transform:scaleX(-1)}
@@ -411,7 +412,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .cine p.lead{color:#B4B6AD;margin:30px auto 36px;animation:fadeUp 1.6s var(--ease) 1.5s both}
 .cine .btn{animation:fadeUp 1.6s var(--ease) 1.7s both}
 @keyframes fadeUp{from{opacity:.001;transform:translateY(16px)}to{opacity:1;transform:none}}
-.lb{position:absolute;left:0;right:0;z-index:5;background:#000;height:clamp(56px,8vh,80px);animation:lbOpen 1.8s cubic-bezier(.7,0,.2,1) .15s both}
+.lb{position:absolute;left:0;right:0;z-index:5;background:#000;height:clamp(56px,calc(var(--vh,1vh)*8),80px);animation:lbOpen 1.8s cubic-bezier(.7,0,.2,1) .15s both}
 .lb.lbt{top:0}.lb.lbb{bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-inline:clamp(16px,4vw,48px);font:400 .7rem var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#8D8F87}
 @keyframes lbOpen{from{height:50.5%}}
 .rec{display:flex;align-items:center;gap:10px;color:#C9CBC2;font-variant-numeric:tabular-nums}
@@ -427,7 +428,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 
 
 /* ===== hero: pregledač ===== */
-.hero.bw{min-height:auto;padding:clamp(96px,13vh,130px) 0 clamp(40px,7vh,80px)!important;justify-content:flex-start!important;text-align:center;overflow:visible}
+.hero.bw{min-height:auto;padding:clamp(96px,calc(var(--vh,1vh)*13),130px) 0 clamp(40px,calc(var(--vh,1vh)*7),80px)!important;justify-content:flex-start!important;text-align:center;overflow:visible}
 .bw .bgg{position:absolute;inset:0;z-index:-2;background-image:radial-gradient(var(--line2) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent 75%)}
 .bw .gl1{position:absolute;left:50%;top:18%;width:min(1100px,110vw);aspect-ratio:2.2/1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(163,230,53,.22),transparent);filter:blur(40px);z-index:-1;animation:breathe 7s ease-in-out infinite}
 .win{position:relative;width:min(1200px,calc(100% - 32px));margin:0 auto;border-radius:20px;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 0 0 1px rgba(163,230,53,.06),0 60px 120px -40px rgba(0,0,0,.7),0 0 120px -30px rgba(163,230,53,.25);overflow:hidden;animation:winIn 1.4s var(--ease) both}
@@ -453,11 +454,11 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--lime);box-shadow:0 0 12px var(--lime);transform-origin:0 50%;transform:scaleX(0);opacity:0}
 .prog.run{animation:prog 1.1s var(--ease) forwards}
 @keyframes prog{0%{transform:scaleX(0);opacity:1}80%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
-.page{position:relative;padding:clamp(48px,8vh,90px) clamp(16px,4vw,48px) clamp(36px,6vh,64px);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px}
+.page{position:relative;padding:clamp(48px,calc(var(--vh,1vh)*8),90px) clamp(16px,4vw,48px) clamp(36px,calc(var(--vh,1vh)*6),64px);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px}
 .page h1{font-size:clamp(2.4rem,6.4vw,7rem);letter-spacing:-.06em;line-height:1;margin-top:24px;font-weight:500}
 .page .hl1,.page .hl2{overflow:visible;padding:0;margin:0;display:block}
 .page p.lead{color:var(--muted);font-weight:300;font-size:clamp(1.02rem,1.5vw,1.25rem);max-width:52ch;margin:26px auto 34px}
-.page .chips2{margin-top:clamp(36px,6vh,60px);display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.page .chips2{margin-top:clamp(36px,calc(var(--vh,1vh)*6),60px);display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
 .page .chips2 span{font:400 .74rem var(--f-mono);padding:7px 13px;border-radius:999px;border:1px solid var(--line2);color:var(--muted)}
 .page .chips2 span:first-child{border:0;color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
 .ins{position:absolute;left:0;top:0;width:0;height:0;border:1.5px solid var(--lime);background:rgba(163,230,53,.07);border-radius:6px;pointer-events:none;opacity:0;transition:all .45s var(--ease);z-index:5}
@@ -471,8 +472,8 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 
 
 /* ===== imerzivni hero: let kroz prostor ===== */
-.imm{position:relative;height:360vh;background:#050605;color:#F1F1EC;--fg:#F1F1EC;--muted:#A3A59C;--line2:rgba(255,255,255,.16)}
-.imm-st{position:sticky;top:0;height:100svh;overflow:hidden;isolation:isolate}
+.imm{position:relative;height:calc(var(--vh,1vh)*360);background:#050605;color:#F1F1EC;--fg:#F1F1EC;--muted:#A3A59C;--line2:rgba(255,255,255,.16)}
+.imm-st{position:sticky;top:0;height:calc(var(--vh,1vh)*100);overflow:hidden;isolation:isolate}
 .imm-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 45% 40% at 50% 50%,rgba(163,230,53,.16),transparent 70%),radial-gradient(ellipse 120% 90% at 50% 50%,#0B0E08,#020302 70%)}
 #stars{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block}
 .scene{position:absolute;inset:0;z-index:2;isolation:isolate;transform:translateZ(0);perspective:900px;perspective-origin:50% 50%;overflow:hidden;pointer-events:none}
@@ -483,7 +484,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .ring.sq{border-radius:60px;border-color:rgba(255,255,255,.18);box-shadow:none}
 .word{font:600 160px/1 var(--f-sans);letter-spacing:-.07em;color:transparent;-webkit-text-stroke:1.5px rgba(163,230,53,.55);white-space:nowrap;transform:translate(-50%,-50%)}
 .chs::before{content:"";position:absolute;left:50%;top:50%;width:min(1200px,110vw);height:70%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(5,6,5,.82),rgba(5,6,5,.5) 55%,transparent);z-index:-1}
-.chs{position:absolute;inset:0;z-index:10;transform:translateZ(0);display:grid;place-items:center;pointer-events:none;padding:clamp(80px,12vh,120px) 16px 80px}
+.chs{position:absolute;inset:0;z-index:10;transform:translateZ(0);display:grid;place-items:center;pointer-events:none;padding:clamp(80px,calc(var(--vh,1vh)*12),120px) 16px 80px}
 .ch{grid-area:1/1;text-align:center;max-width:1100px;transition:opacity .5s,transform .7s var(--ease)}
 .ch.off{opacity:0;transform:translateY(30px) scale(.97)}
 .ch.on{pointer-events:auto}
@@ -501,7 +502,7 @@ html.menu-open .mm-links a.mm-cta{transition-delay:.16s}
 .hud .dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);transition:all .4s}
 .hud .dots span.on{background:#A3E635;box-shadow:0 0 8px #A3E635;transform:scale(1.4)}
 .hud .z{font-variant-numeric:tabular-nums;color:#C9CBC2}
-.imm-fade{position:absolute;left:0;right:0;bottom:0;height:22vh;z-index:3;background:linear-gradient(transparent,#050605);pointer-events:none}
+.imm-fade{position:absolute;left:0;right:0;bottom:0;height:calc(var(--vh,1vh)*22);z-index:3;background:linear-gradient(transparent,#050605);pointer-events:none}
 @media (max-width:720px){.hud .pr{display:none}.word{font-size:15vw;-webkit-text-stroke:1.2px rgba(163,230,53,.7)}:root[data-theme="light"] .word{-webkit-text-stroke:1.2px rgba(77,124,15,.55)}}
 
 
@@ -566,8 +567,8 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 :root[data-theme="light"] .spx-l{background:linear-gradient(transparent,rgba(77,124,15,.45),transparent)}
 
 /* ===== spirala radova ===== */
-.spx{position:relative;height:300vh;background:#050605;color:#F1F1EC;--fg:#F1F1EC;--muted:#A3A59C;--line2:rgba(255,255,255,.16)}
-.spx-st{position:sticky;top:0;height:100svh;overflow:hidden;isolation:isolate}
+.spx{position:relative;height:calc(var(--vh,1vh)*300);background:#050605;color:#F1F1EC;--fg:#F1F1EC;--muted:#A3A59C;--line2:rgba(255,255,255,.16)}
+.spx-st{position:sticky;top:0;height:calc(var(--vh,1vh)*100);overflow:hidden;isolation:isolate}
 .spx-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 50% 45% at 50% 50%,rgba(163,230,53,.14),transparent 70%),radial-gradient(ellipse 120% 90% at 50% 50%,#0B0E08,#020302 70%)}
 .spx-fx{position:absolute;inset:0;perspective:1000px;z-index:1;pointer-events:none}
 .spx-w{position:absolute;left:50%;top:38%;transform-style:preserve-3d}
@@ -642,6 +643,19 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 .vopen{font:500 .8rem var(--f-sans);color:#C9CBC2;padding:9px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.2)}
 .vopen:hover{color:#F1F1EC;border-color:#A3E635}
 @media (max-width:620px){.vopen{display:none}}
+
+#usluge{scroll-margin-top:110px}
+
+.sv-list{list-style:none;margin:0 auto clamp(44px,6vw,72px);padding:0;max-width:1100px;border-top:1px solid var(--line2)}
+.sv-row{position:relative;display:grid;grid-template-columns:72px minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:24px;padding:28px 8px;border-bottom:1px solid var(--line2);transition:padding .4s var(--ease)}
+.sv-row:before{content:'';position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--lime-text);transition:width .6s var(--ease)}
+.sv-row:hover{padding-left:20px}.sv-row:hover:before{width:100%}
+.sv-n{font:500 .9rem var(--f-mono);color:var(--lime-text);letter-spacing:.08em}
+.sv-row h3{margin:0;font-size:clamp(1.5rem,2.6vw,2.25rem);line-height:1.1;letter-spacing:-.035em;font-weight:600;color:var(--fg)}
+.sv-row p{margin:0;color:var(--muted);font-size:1rem;line-height:1.5;font-weight:300}
+.sv-ar{justify-self:end;font-size:1.3rem;color:var(--muted);transition:color .3s,transform .4s var(--ease)}
+.sv-row:hover .sv-ar{color:var(--lime-text);transform:translate(3px,-3px)}
+@media (max-width:760px){.sv-row{grid-template-columns:44px 1fr;gap:6px 12px;padding:20px 2px}.sv-row:hover{padding-left:2px}.sv-n{grid-row:1/3;align-self:start;padding-top:6px;font-size:.8rem}.sv-row h3{font-size:1.32rem}.sv-row p{font-size:.92rem}.sv-ar{display:none}}
 </style>
 </head>
 <body>
@@ -652,6 +666,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
     <div class="links">
       <a href="#top"><span data-i="nHome" data-t="Početna">Početna</span></a>
       <a href="#radovi"><span data-i="nWork" data-t="Radovi">Radovi</span></a>
+      <a href="#usluge"><span data-i="nSvc" data-t="Usluge">Usluge</span></a>
       <a href="#o-nama"><span data-i="nAbout" data-t="O nama">O nama</span></a>
     </div>
     <div class="nav-r">
@@ -669,6 +684,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
   <nav class="mm-links" aria-label="Meni">
     <a href="#top"><span data-i="nHome">Početna</span></a>
     <a href="#radovi"><span data-i="nWork">Radovi</span></a>
+    <a href="#usluge"><span data-i="nSvc">Usluge</span></a>
     <a href="#o-nama"><span data-i="nAbout">O nama</span></a>
     <a href="#kontakt"><span data-i="nContact">Kontakt</span></a>
     <div class="lang mm-lang" id="lang2" data-l="sr" role="group" aria-label="Jezik"><span class="knob"></span><button type="button" data-lang="sr" aria-pressed="true">SR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
@@ -736,15 +752,10 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
   <div class="wrap">
     <div class="sec-top">
       <span class="badge" data-i="sTag">Usluge</span>
-      <h2 data-i="sH">Sve što vašem sajtu <span class="grad">treba</span></h2>
-      <p data-i="sP">Od prve skice do lansiranja i dugoročnog održavanja, na jednom mestu.</p>
-      <ul class="svc" aria-label="Oblasti rada">
-        <li><span class="n">01</span><span data-i="sv1">UI/UX dizajn</span></li>
-        <li><span class="n">02</span><span data-i="sv2">Web dizajn</span></li>
-        <li><span class="n">03</span><span data-i="sv3">Programiranje sajtova</span></li>
-        <li><span class="n">04</span><span data-i="sv4">Održavanje</span></li>
-      </ul>
+      <h2 data-i="sH">Sve što vašem biznisu <span class="grad">treba</span></h2>
+      <p data-i="sP">Od dizajna i izrade sajta do SEO-a, grafičkog dizajna, promo videa i objava za društvene mreže, sve na jednom mestu.</p>
     </div>
+    <ol class="sv-list" aria-label="Usluge koje nudimo"><li class="sv-row"><span class="sv-n">01</span><h3 data-i="sv1">Izrada sajtova</h3><p data-i="sd1">Moderni sajtovi po meri vašeg biznisa, koji savršeno rade i na telefonu.</p></li><li class="sv-row"><span class="sv-n">02</span><h3 data-i="sv2">Web dizajn</h3><p data-i="sd2">Izgled sajta koji odgovara vašem brendu: boje, fontovi, slike i raspored.</p></li><li class="sv-row"><span class="sv-n">03</span><h3 data-i="sv3">UI/UX dizajn</h3><p data-i="sd3">Jasan raspored i lako korišćenje, da posetilac brzo nađe ono što traži.</p></li><li class="sv-row"><span class="sv-n">04</span><h3 data-i="sv4">Osnovni SEO</h3><p data-i="sd4">Naslovi, opisi i struktura stranica, da vas pretraživači lakše razumeju i pronađu.</p></li><li class="sv-row"><span class="sv-n">05</span><h3 data-i="sv5">Grafički dizajn</h3><p data-i="sd5">Logo, vizuelni identitet i materijali koji vaš brend predstavljaju profesionalno.</p></li><li class="sv-row"><span class="sv-n">06</span><h3 data-i="sv6">Promo videi</h3><p data-i="sd6">Kratki videi koji predstavljaju vaš biznis na Instagramu i Facebooku.</p></li><li class="sv-row"><span class="sv-n">07</span><h3 data-i="sv7">Promo objave za Instagram i Facebook</h3><p data-i="sd7">Objave i stori dizajni u stilu vašeg brenda, spremni za objavu.</p></li></ol>
     <div class="bento">
       <div class="gc b b1"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></span><h3 data-i="b1h">Dizajn po meri</h3><p data-i="b1p">UI/UX i vizuelni dizajn: boje, tipografija i raspored napravljeni za vaš brend, bez šablona.</p>
         <div class="demo design"><span class="spec">Aa</span><div class="sws"><span class="sw" style="--c:#17A386">#17A386</span><span class="sw" style="--c:#2D6BE0">#2D6BE0</span><span class="sw" style="--c:#A07A30">#A07A30</span><span class="sw" style="--c:#B4525F">#B4525F</span></div></div></div>
@@ -835,7 +846,7 @@ html.theme-switching *,html.theme-switching *::before,html.theme-switching *::af
 <footer class="foot">
   <div class="wrap">
     <div class="fgrid">
-      <div><a class="logo" href="#top"><span class="ws">WS</span><span>Webstudio<span class="dev">.dev</span></span></a><p class="about-f" data-i="fAbout">UI/UX dizajn, web dizajn i programiranje sajtova, od prve skice do lansiranja i dugoročnog održavanja.</p></div>
+      <div><a class="logo" href="#top"><span class="ws">WS</span><span>Webstudio<span class="dev">.dev</span></span></a><p class="about-f" data-i="fAbout">Izrada sajtova, web dizajn, osnovni SEO, UI/UX i grafički dizajn, promo videi i objave za Instagram i Facebook.</p></div>
       <div><h4 data-i="fNav">Navigacija</h4><ul><li><a href="#top" data-i="nHome2">Početna</a></li><li><a href="#radovi" data-i="nWork2">Radovi</a></li><li><a href="#o-nama" data-i="nAbout2">O nama</a></li><li><a href="#usluge" data-i="nSvc">Usluge</a></li></ul></div>
       <div><h4 data-i="fCt">Kontakt</h4><ul><li>webstudiodev26@gmail.com</li></ul></div>
     </div>
@@ -1026,7 +1037,7 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
     abTag:'About',mani:'We blend design, technology and strategy into websites that impress at first glance and turn visitors into <span class="hl">calls, inquiries and booked appointments.</span>',
     stW:'&nbsp;wks',st1:'direct collaboration, no middlemen',st2:'mobile-ready',st3:'hidden costs',st4:'performance score target',
     wTag:'Work',wH:'Our <span class="grad">work</span>',wP:'Every brand gets its own visual identity and a site built for every screen.',
-    sTag:'Services',sH:'Everything your site <span class="grad">needs</span>',sP:'From the first sketch to launch and long-term maintenance, all in one place.',
+    sTag:'Services',sH:'Everything your business <span class="grad">needs</span>',sP:'From web design and development to SEO, graphic design, promo videos and social media posts, all in one place.',
     b1h:'Custom design',b1p:'UI/UX and visual design: colors, type and layout made for your brand, no templates.',b2h:'Lightning fast',b2p:'Clean code and optimized images. The site opens in an instant.',bp:'Performance',bs:'SEO',ba:'Accessibility',
     b3h:'Mobile first',b3p:'Most clients arrive from their phone.',b4h:'Visitors become inquiries',b4p:'Call, Viber and WhatsApp in the right place, one tap away.',l1:'Do you have a free slot on Friday?',l2:'How much is a package of five treatments?',l3h:'Incoming call',l3:'From the “Call” button on the site',b5h:'Online booking',b5p:'Try it: pick a day and a time.',
     b6h:'Long-term maintenance',b6p:'New price, new service or new photos? Send a message, we handle it. You focus on your business.',
@@ -1036,7 +1047,7 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
     fqTag:'FAQ',fqH:'Common <span class="grad">questions</span>',q1:'How much does a website cost?',a1:'It depends on pages and features such as booking or a gallery. After a short call you get an exact quote with no hidden costs.',q2:'Will the site work on phones?',a2:'Yes. Every site is built for phones first, then for tablets and desktops.',q3:'What if I want to change something on the site?',a3:'Just send us a message with the change, such as a new price, text or photo, and we update the site. You never have to touch anything technical.',q4:'Do you handle domain and hosting?',a4:'Yes. We take care of domain, hosting and business email, so you never touch anything technical.',
     ctTag:'Contact',ctH:'Let’s start your <span class="grad">project</span>',ctP:'Message us on Viber, WhatsApp or email, or give us a call. We get back to you with a proposal and a rough price.',
     fName:'Name and business',fContact:'Phone or email',fNeed:'What do you need',o1:'New website',o2:'Redesign',o3:'Landing page',o4:'Maintenance',fMsg:'What do you do?',cta2:'Start a project',
-    fAbout:'UI/UX design, web design and website development, from the first sketch to launch and long-term maintenance.',sv1:'UI/UX design',sv2:'Web design',sv3:'Web development',sv4:'Maintenance',fNav:'Navigation',nHome2:'Home',nWork2:'Work',nAbout2:'About',nSvc:'Services',fCt:'Contact',fLoc:'Serbia · remote',fTop:'Back to top ↑'};
+    fAbout:'Website development, web design, basic SEO, UI/UX and graphic design, promo videos and posts for Instagram and Facebook.',sv1:'Website development',sd1:'Modern websites built for your business that work perfectly on mobile.',sv2:'Web design',sd2:'A look that fits your brand: colors, fonts, images and layout.',sv3:'UI/UX design',sd3:'A clear layout and easy use, so visitors quickly find what they need.',sv4:'Basic SEO',sd4:'Page titles, descriptions and structure that help search engines understand and find you.',sv5:'Graphic design',sd5:'Logo, visual identity and materials that present your brand professionally.',sv6:'Promo videos',sd6:'Short videos that present your business on Instagram and Facebook.',sv7:'Promo posts for Instagram and Facebook',sd7:'Posts and story designs in your brand style, ready to publish.',fNav:'Navigation',nHome2:'Home',nWork2:'Work',nAbout2:'About',nSvc:'Services',fCt:'Contact',fLoc:'Serbia · remote',fTop:'Back to top ↑'};
   var SR={};document.querySelectorAll('[data-i]').forEach(function(el){SR[el.dataset.i]=el.innerHTML});
   var TXT={sr:{kin:'Web sajtovi koji donose',word:'rezultate',copy:'Kopiraj',copied:'Kopirano ✓',sel:'Označeno',err:'Upišite ime i naziv biznisa da bismo znali kome odgovaramo.',errC:'Upišite telefon ili mejl da bismo mogli da vam odgovorimo.',sending:'Šaljem…',sent:'Hvala! Vaša poruka je poslata. Javićemo vam se.',act:'Forma još nije aktivirana. Na webstudiodev26@gmail.com je stigao mejl od FormSubmit-a: kliknite Activate Form, pa pošaljite ponovo.',fail:'Poruka nije poslata. Pišite nam direktno na webstudiodev26@gmail.com ili na Viber/WhatsApp 062 820 5276.',ok:function(n,t){return 'Hvala, '+n+'! Upit („'+t+'“) je poslat. Javićemo vam se.'},vbHint:'Viber se nije otvorio. Broj je kopiran: 062 820 5276',emHint:'Mejl aplikacija se nije otvorila. Adresa je kopirana: webstudiodev26@gmail.com',busy:'Precrtani termini su zauzeti',picked:function(d,s){return '✓ Izabran termin: '+d+' u '+s},days:['Pon','Uto','Sre','Čet','Pet']},
     en:{kin:'Websites that deliver',word:'results',copy:'Copy',copied:'Copied ✓',sel:'Selected',err:'Add your name and business so we know who to reply to.',errC:'Add a phone number or email so we can reply.',sending:'Sending…',sent:'Thank you! Your message has been sent. We will get back to you.',act:'The form is not activated yet. Check webstudiodev26@gmail.com for the FormSubmit email, click Activate Form and send again.',fail:'The message was not sent. Write to us directly at webstudiodev26@gmail.com or on Viber/WhatsApp +381 62 820 5276.',ok:function(n,t){return 'Thanks, '+n+'! Your inquiry ("'+t+'") has been sent. We will get back to you.'},vbHint:'Viber did not open. The number is copied: +381 62 820 5276',emHint:'Your mail app did not open. The address is copied: webstudiodev26@gmail.com',busy:'Crossed-out slots are taken',picked:function(d,s){return '✓ Selected: '+d+' at '+s},days:['Mon','Tue','Wed','Thu','Fri']}};
@@ -1082,6 +1093,7 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
   var cnts=document.querySelectorAll('.cnt');
   var cntIO=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cntIO.unobserve(e.target);var el=e.target,to=+el.dataset.to,t0=performance.now();if(reduce){el.textContent=to;return}(function f(t){var k=Math.min(1,(t-t0)/1600);k=1-Math.pow(1-k,4);el.textContent=Math.round(to*k);if(k<1)requestAnimationFrame(f)})(t0)})},{threshold:.5});
   cnts.forEach(function(c){cntIO.observe(c)});
+
 
   /* gauge */
   var gauge=document.getElementById('gauge'),gc=gauge.querySelector('.p'),gn=document.getElementById('gnum'),T=98;
@@ -1137,7 +1149,7 @@ function openView(k){vk=k;vmode=innerWidth<720?'m':'d';var p=PR.filter(function(
 
 
   /* KONTAKT PREKO PORUKA: upiši svoje podatke, dugmad se pojave sama */
-  var IG='webstudio.dev';      /* npr. 'webstudio.dev' (bez @) */
+  var IG='webstudio.devm';      /* npr. 'webstudio.dev' (bez @) */
   var PHONE='381628205276';   /* npr. '381601234567' (bez + i razmaka) */
   function renderMsg(){var box=document.getElementById('msgbtns'),h='',EM='webstudiodev26@gmail.com',show='062 820 5276';
     function card(cls,href,ico,t,v,ext){return '<a class="'+cls+'" href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+'><i>'+ico+'</i><span><b>'+t+'</b><small>'+v+'</small></span></a>'}
